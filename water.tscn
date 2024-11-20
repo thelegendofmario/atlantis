@@ -4,18 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://dnsc3fuxvmng4" path="res://icon.svg" id="1_yheka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00je6"]
-size = Vector2(1152, 648)
+size = Vector2(1144, 648)
 
 [node name="Water" type="Area2D"]
+gravity_space_override = 3
+gravity_point_center = Vector2(0, 0.25)
+gravity_direction = Vector2(0, 0.25)
 script = ExtResource("1_7iiyo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_00je6")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.52588e-05, 0)
-scale = Vector2(8.9375, 5)
+position = Vector2(-1.99997, 0)
+scale = Vector2(8.90625, 5)
 texture = ExtResource("1_yheka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_00je6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
