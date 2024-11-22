@@ -4,9 +4,16 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const WATER_JUMP_VELOCITY = JUMP_VELOCITY/1.5
+var force = 3000
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if move_and_slide():
+		for i in get_slide_collision_count():
+			var col = get_slide_collision(i)
+			if col.get_collider() is RigidBody2D:
+				col.get_collider().apply_force(col.get_normal() * -force)
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 

@@ -3,13 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dnsc3fuxvmng4" path="res://icon.svg" id="1_w8jga"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7rvvo"]
-friction = 0.36
-bounce = 0.53
+friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofoer"]
+size = Vector2(80, 80)
 
 [node name="Crate" type="RigidBody2D"]
-mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_7rvvo")
 gravity_scale = 0.39
 
