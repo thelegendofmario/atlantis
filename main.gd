@@ -8,4 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Player/Camera2D/CanvasLayer/DebugLabel.text = str($Player.get_gravity())
+	$Player/Camera2D/CanvasLayer/DebugLabel.text = str($Player.get_gravity(), Global.player_artifacts)
+	$Player/Camera2D/CanvasLayer/AirBar.value = Global.air/10
