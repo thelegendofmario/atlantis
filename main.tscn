@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=12 format=4 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
 [ext_resource type="PackedScene" uid="uid://b7qv07up2fuao" path="res://water.tscn" id="2_nteh3"]
 [ext_resource type="Texture2D" uid="uid://dnsc3fuxvmng4" path="res://icon.svg" id="3_tnj42"]
 [ext_resource type="PackedScene" uid="uid://f2xd42p8e3dx" path="res://crate.tscn" id="5_aecc3"]
-[ext_resource type="PackedScene" uid="uid://cnpwg7tskqghj" path="res://artifact.tscn" id="6_454m3"]
+[ext_resource type="PackedScene" path="res://artifact.tscn" id="6_454m3"]
+[ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_se08o"]
 friction = 0.53
@@ -147,6 +148,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_se08o")
 sources/0 = SubResource("TileSetAtlasSource_tl6fl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn01j"]
+size = Vector2(9124, 153)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_sx8l5")
 
@@ -194,3 +198,13 @@ position = Vector2(744, -8)
 
 [node name="Artifact" parent="Artifacts" instance=ExtResource("6_454m3")]
 position = Vector2(1424, 536)
+
+[node name="Kill Barrier" type="Area2D" parent="."]
+position = Vector2(-148, 1175)
+script = ExtResource("7_v6eea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Barrier"]
+position = Vector2(3433, 2006.5)
+shape = SubResource("RectangleShape2D_pn01j")
+
+[connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]

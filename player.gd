@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 const DEFAULT_SPEED = 100.0
-const JUMP_VELOCITY = -300.0
-const WATER_JUMP_VELOCITY = JUMP_VELOCITY/1.5
+const JUMP_VELOCITY = -350.0
+const WATER_JUMP_VELOCITY = JUMP_VELOCITY*10
 var SPEED
 var force = 3000
 var defAir = 1000
