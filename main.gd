@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_kill_barrier_body_entered(body: Node2D) -> void:
-	get_tree().call_deferred("reload_current_scene")
+	if body.is_in_group("Player"):
+		get_tree().call_deferred("reload_current_scene")
