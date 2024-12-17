@@ -163,6 +163,7 @@ position = Vector2(428, 95)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_bottom = 2512
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
 
