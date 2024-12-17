@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h1mt"]
 size = Vector2(10, 22)
 
+[sub_resource type="Animation" id="Animation_6beup"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_k5l1j"]
 resource_name = "walking"
 loop_mode = 1
@@ -22,9 +25,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [-0.0872665, 0.0872665]
 }
-
-[sub_resource type="Animation" id="Animation_6beup"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_laf60"]
 _data = {
