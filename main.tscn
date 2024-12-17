@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7qv07up2fuao" path="res://water.tscn" id="2_nteh3"]
 [ext_resource type="Texture2D" uid="uid://dnsc3fuxvmng4" path="res://icon.svg" id="3_tnj42"]
 [ext_resource type="PackedScene" uid="uid://f2xd42p8e3dx" path="res://crate.tscn" id="5_aecc3"]
-[ext_resource type="PackedScene" path="res://artifact.tscn" id="6_454m3"]
+[ext_resource type="PackedScene" uid="uid://cnpwg7tskqghj" path="res://artifact.tscn" id="6_454m3"]
 [ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_se08o"]
