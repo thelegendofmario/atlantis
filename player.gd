@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-
+const DEFAULT_STAMINA = 100.0
+var stamina = DEFAULT_STAMINA
 const DEFAULT_SPEED = 100.0
 const JUMP_VELOCITY = -350.0
 const WATER_JUMP_VELOCITY = JUMP_VELOCITY*10
@@ -33,7 +34,9 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("sprint"):
 		SPEED = SPEED*1.5
+		stamina -= 1
 	else:
+		stamina += 1
 		SPEED = DEFAULT_SPEED
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$Player/Camera2D/CanvasLayer/DebugLabel.text = str($Player.get_gravity(), Global.player_artifacts)
 	$Player/Camera2D/CanvasLayer/AirBar.value = Global.air/10
-
+	$"Player/Camera2D/CanvasLayer/Stamina Bar".value=$Player.stamina
 
 func _on_kill_barrier_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
