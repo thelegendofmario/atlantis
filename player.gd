@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 	stamina = Global.player_stamina
 		#air -= 1
 	# Add the gravity.
+	
+	
 	if move_and_slide():
 		for i in get_slide_collision_count():
 			var col = get_slide_collision(i)

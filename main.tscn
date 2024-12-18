@@ -1158,14 +1158,23 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="AirBar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
-offset_right = 192.0
-offset_bottom = 27.0
+offset_left = -1.0
+offset_top = 30.0
+offset_right = 191.0
+offset_bottom = 57.0
 show_percentage = false
 
 [node name="Stamina Bar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
-offset_top = 32.0
+offset_left = -1.0
+offset_top = 62.0
+offset_right = 191.0
+offset_bottom = 90.0
+show_percentage = false
+
+[node name="Health Bar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
+modulate = Color(0.471389, 0.665439, 0, 1)
 offset_right = 192.0
-offset_bottom = 60.0
+offset_bottom = 27.0
 show_percentage = false
 
 [node name="gun2" type="CharacterBody2D" parent="Player" groups=["crate"]]
