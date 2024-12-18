@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("sprint") and can_sprint:
 		if SPEED <= MAX_SPEED:
 			SPEED = SPEED*1.05 
-			stamina -= 1
+		stamina -= 1
 		$AnimationPlayer.speed_scale *= 1.25
 	else:
 		$AnimationPlayer.speed_scale = anim_speed

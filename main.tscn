@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b7qv07up2fuao" path="res://water.tscn" id="2_nteh3"]
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="4_2bq0o"]
 [ext_resource type="PackedScene" uid="uid://f2xd42p8e3dx" path="res://crate.tscn" id="5_aecc3"]
-[ext_resource type="PackedScene" uid="uid://cnpwg7tskqghj" path="res://artifact.tscn" id="6_454m3"]
+[ext_resource type="PackedScene" path="res://artifact.tscn" id="6_454m3"]
 [ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
-[ext_resource type="PackedScene" uid="uid://bock5s3h1xln5" path="res://save_point.tscn" id="8_7ho56"]
+[ext_resource type="PackedScene" path="res://save_point.tscn" id="8_7ho56"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4gs05"]
 friction = 0.55
