@@ -25,6 +25,7 @@ Player=""
 Artifact=""
 crate=""
 ground=""
+enemys=""
 
 [input]
 

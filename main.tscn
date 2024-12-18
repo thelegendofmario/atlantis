@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=4 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=42 format=4 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
 [ext_resource type="PackedScene" uid="uid://b7qv07up2fuao" path="res://water.tscn" id="2_nteh3"]
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="4_2bq0o"]
 [ext_resource type="Script" path="res://gun.gd" id="4_3bljc"]
+[ext_resource type="PackedScene" uid="uid://b3lxvq5je6nwv" path="res://enemy.tscn" id="4_71cut"]
 [ext_resource type="Texture2D" uid="uid://ckmpmscjuvmtm" path="res://Elementstäbe.png" id="5_3sp5s"]
 [ext_resource type="PackedScene" uid="uid://f2xd42p8e3dx" path="res://crate.tscn" id="5_aecc3"]
 [ext_resource type="PackedScene" uid="uid://cnpwg7tskqghj" path="res://artifact.tscn" id="6_454m3"]
@@ -1234,6 +1235,9 @@ metadata/_edit_group_ = true
 
 [node name="PlayerSpawnMarker" type="Marker2D" parent="."]
 position = Vector2(428, 95)
+
+[node name="Enemy" parent="." instance=ExtResource("4_71cut")]
+position = Vector2(2816, 811)
 
 [connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]
 [connection signal="body_entered" from="SavePoint" to="." method="_on_save_point_body_entered"]

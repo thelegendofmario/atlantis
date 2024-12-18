@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemys"):
-		body.health -=1
+		body.health -=10
 		queue_free()
 	if body.is_in_group("crate"):
 		queue_free()
