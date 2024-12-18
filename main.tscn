@@ -16,19 +16,19 @@
 atlas = ExtResource("5_3sp5s")
 region = Rect2(16, 64, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nwbg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx77k"]
 atlas = ExtResource("5_3sp5s")
 region = Rect2(16, 48, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0lww"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_40efm"]
 atlas = ExtResource("5_3sp5s")
 region = Rect2(16, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_46x6m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v424c"]
 atlas = ExtResource("5_3sp5s")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmav7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyu08"]
 atlas = ExtResource("5_3sp5s")
 region = Rect2(16, 0, 16, 16)
 
@@ -117,21 +117,41 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_olxra")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1nwbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y0lww")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_46x6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vmav7")
 }],
 "loop": true,
-"name": &"blue",
+"name": &"bluestage1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx77k")
+}],
+"loop": true,
+"name": &"bluestage2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40efm")
+}],
+"loop": true,
+"name": &"bluestage3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v424c")
+}],
+"loop": true,
+"name": &"bluestage4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyu08")
+}],
+"loop": true,
+"name": &"bluestage5",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1190,7 +1210,7 @@ position = Vector2(15, -0.999996)
 rotation = 1.36242
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1ra81")
-animation = &"blue"
+animation = &"bluestage1"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["ground"]]
 position = Vector2(428, 95)
