@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const DEFAULT_STAMINA = 100.0
+const DEFAULT_HEALTH = 100.0
 var stamina = 0
 const DEFAULT_SPEED = 100.0
 const MAX_SPEED = 400.0
@@ -15,6 +16,7 @@ var can_sprint = true
 func _ready() -> void:
 	$AnimationPlayer.speed_scale = anim_speed
 	Global.player_stamina = DEFAULT_STAMINA
+	Global.player_health = DEFAULT_HEALTH
 
 func _physics_process(delta: float) -> void:
 	stamina = Global.player_stamina
