@@ -7,6 +7,15 @@ var air = defAir
 var airRechargeRate = 2
 var airDecreaseRate = 1
 var player_artifacts = 0
+var player_start_x
+var player_start_y
+var is_continuing : bool = false
+
+#### DATABASE VARS ####
+var database : SQLite = null
+var database_name = "user://test"
+var save_dict : Dictionary = Dictionary()
+var table_name := "saves"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

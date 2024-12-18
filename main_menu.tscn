@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba1gc0yfsndkb"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_p42d2"]
+[ext_resource type="FontFile" uid="uid://bd3d7j6vw2wg3" path="res://Kenney Future Narrow.ttf" id="1_vaq1y"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_p42d2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -328.0
+offset_top = -148.0
+offset_right = 324.0
+offset_bottom = -109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_vaq1y")
+theme_override_font_sizes/font_size = 53
+text = "Atlantis: Depths of the Lost City
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -136.0
+offset_top = 76.0
+offset_right = 136.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("1_vaq1y")
+theme_override_font_sizes/font_size = 35
+text = "Start"
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -136.0
+offset_top = 164.0
+offset_right = 136.0
+offset_bottom = 220.0
+theme_override_fonts/font = ExtResource("1_vaq1y")
+theme_override_font_sizes/font_size = 35
+text = "Continue"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 244.0
+offset_right = 64.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("1_vaq1y")
+theme_override_font_sizes/font_size = 35
+text = "Exit
+"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

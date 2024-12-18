@@ -3,9 +3,10 @@ extends CharacterBody2D
 const DEFAULT_STAMINA = 100.0
 var stamina = DEFAULT_STAMINA
 const DEFAULT_SPEED = 100.0
+const MAX_SPEED = 400.0
 const JUMP_VELOCITY = -350.0
-const WATER_JUMP_VELOCITY = JUMP_VELOCITY*2
-var SPEED
+const WATER_JUMP_VELOCITY = JUMP_VELOCITY*1.25
+var SPEED = DEFAULT_SPEED
 var force = 3000
 var defAir = 1000
 var can_sprint = true
@@ -37,14 +38,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y = WATER_JUMP_VELOCITY
 
 	if Input.is_action_pressed("sprint") and can_sprint:
-		SPEED = SPEED*1.05
-		stamina -= 1
+		if SPEED <= MAX_SPEED:
+			SPEED = SPEED*1.05 
+			stamina -= 1
 		$AnimationPlayer.speed_scale *= 1.25
 	else:
 		$AnimationPlayer.speed_scale = anim_speed
 		if stamina < DEFAULT_STAMINA:
 			stamina += 1
-		SPEED = DEFAULT_SPEED
+		SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")

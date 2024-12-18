@@ -1,12 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=13 format=4 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
 [ext_resource type="PackedScene" uid="uid://b7qv07up2fuao" path="res://water.tscn" id="2_nteh3"]
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="4_2bq0o"]
 [ext_resource type="PackedScene" uid="uid://f2xd42p8e3dx" path="res://crate.tscn" id="5_aecc3"]
-[ext_resource type="PackedScene" path="res://artifact.tscn" id="6_454m3"]
+[ext_resource type="PackedScene" uid="uid://cnpwg7tskqghj" path="res://artifact.tscn" id="6_454m3"]
 [ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
+[ext_resource type="PackedScene" uid="uid://bock5s3h1xln5" path="res://save_point.tscn" id="8_7ho56"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4gs05"]
+friction = 0.55
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ulhmo"]
 texture = ExtResource("4_2bq0o")
@@ -914,6 +918,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_xvx2e"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_4gs05")
 sources/0 = SubResource("TileSetAtlasSource_ulhmo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn01j"]
@@ -931,7 +936,10 @@ position = Vector2(428, 95)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = -1560
 limit_bottom = 2512
+position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
 
@@ -945,10 +953,9 @@ offset_bottom = 27.0
 show_percentage = false
 
 [node name="Stamina Bar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
-offset_left = 208.0
-offset_top = 1.0
-offset_right = 395.0
-offset_bottom = 29.0
+offset_top = 32.0
+offset_right = 192.0
+offset_bottom = 60.0
 show_percentage = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -960,15 +967,19 @@ tile_set = SubResource("TileSet_xvx2e")
 
 [node name="Crate" parent="Crates" instance=ExtResource("5_aecc3")]
 position = Vector2(1000, 336)
+metadata/_edit_group_ = true
 
 [node name="Crate2" parent="Crates" instance=ExtResource("5_aecc3")]
 position = Vector2(280, 360)
+metadata/_edit_group_ = true
 
 [node name="Crate3" parent="Crates" instance=ExtResource("5_aecc3")]
-position = Vector2(-128, 326)
+position = Vector2(136, 360)
+metadata/_edit_group_ = true
 
 [node name="Crate4" parent="Crates" instance=ExtResource("5_aecc3")]
 position = Vector2(744, -8)
+metadata/_edit_group_ = true
 
 [node name="Artifacts" type="Node2D" parent="."]
 
@@ -978,9 +989,18 @@ position = Vector2(1424, 536)
 [node name="Kill Barrier" type="Area2D" parent="."]
 position = Vector2(-148, 1175)
 script = ExtResource("7_v6eea")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Barrier"]
 position = Vector2(3433, 2006.5)
 shape = SubResource("RectangleShape2D_pn01j")
 
+[node name="SavePoint" parent="." instance=ExtResource("8_7ho56")]
+position = Vector2(1528, 424)
+metadata/_edit_group_ = true
+
+[node name="PlayerSpawnMarker" type="Marker2D" parent="."]
+position = Vector2(428, 95)
+
 [connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]
+[connection signal="body_entered" from="SavePoint" to="." method="_on_save_point_body_entered"]
