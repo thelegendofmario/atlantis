@@ -10,6 +10,7 @@ var player_artifacts = 0
 var player_start_x
 var player_start_y
 var is_continuing : bool = false
+var player_stamina = 0
 
 #### DATABASE VARS ####
 var database : SQLite = null

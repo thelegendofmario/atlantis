@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const DEFAULT_STAMINA = 100.0
-var stamina = DEFAULT_STAMINA
+var stamina = 0
 const DEFAULT_SPEED = 100.0
 const MAX_SPEED = 400.0
 const JUMP_VELOCITY = -350.0
@@ -14,10 +14,11 @@ var can_sprint = true
 
 func _ready() -> void:
 	$AnimationPlayer.speed_scale = anim_speed
+	Global.player_stamina = DEFAULT_STAMINA
 
 func _physics_process(delta: float) -> void:
-	
-	#air -= 1
+	stamina = Global.player_stamina
+		#air -= 1
 	# Add the gravity.
 	if move_and_slide():
 		for i in get_slide_collision_count():
@@ -40,12 +41,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("sprint") and can_sprint:
 		if SPEED <= MAX_SPEED:
 			SPEED = SPEED*1.05 
-		stamina -= 1
+		Global.player_stamina -= 1
 		$AnimationPlayer.speed_scale *= 1.25
 	else:
 		$AnimationPlayer.speed_scale = anim_speed
 		if stamina < DEFAULT_STAMINA:
-			stamina += 1
+			Global.player_stamina += 1
 		SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
