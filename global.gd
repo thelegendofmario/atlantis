@@ -6,12 +6,21 @@ var defAir = 1000
 var air = defAir
 var airRechargeRate = 2
 var airDecreaseRate = 1
-var player_artifacts = 0
+var player_artifacts = 1
 var player_start_x
 var player_start_y
 var is_continuing : bool = false
 var player_stamina = 0
 var player_health = 100
+var enemy_health = 100
+var fire_art = false
+var ice_art = false
+var ground_art = false
+var fish_art = false
+var dragons_art = false
+var grass_art = false
+var max_artifacts = 6
+var button_on = true
 
 #### DATABASE VARS ####
 var database : SQLite = null

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvajqp83w8qni"]
+
+[ext_resource type="Script" path="res://artifact of ice.gd" id="1_l3naf"]
+[ext_resource type="Texture2D" uid="uid://ca7bhh7ycs5om" path="res://Ice-Cube-PNG-File-1597716945.png" id="2_ro6wm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ro6wm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mysw"]
+
+[node name="Artifact" type="Area2D" groups=["Artifact"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_l3naf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0197092, 0.0317086)
+sprite_frames = SubResource("SpriteFrames_70g1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1mysw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, 3.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

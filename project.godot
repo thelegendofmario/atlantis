@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 
+[editor]
+
+movie_writer/disable_vsync=true
+
 [global_group]
 
 Player=""
@@ -26,6 +30,8 @@ Artifact=""
 crate=""
 ground=""
 enemys=""
+bullet=""
+button=""
 
 [input]
 
@@ -63,6 +69,22 @@ kama={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="projectiles"
+2d_physics/layer_4="background"
+2d_physics/layer_5="ground"
+
+[physics]
+
+2d/run_on_separate_thread=true
+common/physics_ticks_per_second=30
+common/physics_jitter_fix=0.0
+2d/physics_engine="Rapier2D"
+common/physics_interpolation=true
 
 [rendering]
 

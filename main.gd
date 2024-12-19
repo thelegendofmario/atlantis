@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	$Player/Camera2D/CanvasLayer/AirBar.value = Global.air/10
 	$"Player/Camera2D/CanvasLayer/Stamina Bar".value=$Player.stamina
 	$"Player/Camera2D/CanvasLayer/Health Bar".value = Global.player_health
-	if Global.player_health == 0:
+	if Global.player_health <= 0:
 		get_tree().call_deferred("reload_current_scene")
 
 	if Input.is_action_just_pressed("reset"):
@@ -27,15 +27,16 @@ func _on_kill_barrier_body_entered(body: Node2D) -> void:
 
 
 func _on_save_point_body_entered(body: Node2D) -> void:
-	var save_row = Dictionary()
-	Global.database.delete_rows(Global.table_name, "save_id = 1")
-	save_row["save_id"] = 1
-	save_row["artifacts"] = Global.player_artifacts
-	save_row["x"] = $Player.position.x
-	save_row["y"] = $Player.position.y
-	Global.database.insert_row(Global.table_name, save_row)
-	save_row.clear()
-	Global.database.query("SELECT * FROM " + Global.table_name + ";")
-	print(Global.database.query_result[0])
+	if body.is_in_group("Player"):
+		var save_row = Dictionary()
+		Global.database.delete_rows(Global.table_name, "save_id = 1")
+		save_row["save_id"] = 1
+		save_row["artifacts"] = Global.player_artifacts
+		save_row["x"] = $Player.position.x
+		save_row["y"] = $Player.position.y
+		Global.database.insert_row(Global.table_name, save_row)
+		save_row.clear()
+		Global.database.query("SELECT * FROM " + Global.table_name + ";")
+		print(Global.database.query_result[0])
 	
 	#print(Global.database)

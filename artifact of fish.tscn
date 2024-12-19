@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dww5iljsbedku"]
+
+[ext_resource type="Script" path="res://artifact of fish.gd" id="1_3d0i7"]
+[ext_resource type="Texture2D" uid="uid://okcmtgtlxhrl" path="res://fishing-fish-sport-fishes-water-artwork-high-resolution-images-wallpaper-preview-513586373-removebg-preview.png" id="2_ale7p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ale7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mysw"]
+
+[node name="Artifact" type="Area2D" groups=["Artifact"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_3d0i7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.53329
+scale = Vector2(0.0468657, -0.0846708)
+sprite_frames = SubResource("SpriteFrames_70g1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1mysw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, 3.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

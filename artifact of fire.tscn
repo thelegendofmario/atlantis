@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt5gnmt62ah1c"]
+
+[ext_resource type="Script" path="res://artifact of fire.gd" id="1_deas7"]
+[ext_resource type="Texture2D" uid="uid://wlh47dw7d28v" path="res://213-2135957_flame-fire-blog-clip-art-transparent-animated-fire-3353460809-removebg-preview.png" id="2_wskju"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wskju")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mysw"]
+
+[node name="Artifact" type="Area2D" groups=["Artifact"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_deas7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.074812, 0.0782165)
+sprite_frames = SubResource("SpriteFrames_70g1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1mysw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, 3.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

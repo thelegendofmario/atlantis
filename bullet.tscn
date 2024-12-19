@@ -5,8 +5,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qaxya"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["bullet"]]
 scale = Vector2(-0.05, 0.05)
+collision_layer = 2
+collision_mask = 23
 script = ExtResource("1_0hwwk")
 
 [node name="Timer" type="Timer" parent="."]
@@ -21,5 +23,9 @@ position = Vector2(19, -2)
 scale = Vector2(15.6393, 14.7318)
 shape = SubResource("CircleShape2D_qaxya")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(13.7449, 13.9212)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

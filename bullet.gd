@@ -6,17 +6,27 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 var speed = -2500
-
+var grav = 100
+var rot = 0.01
+var negrot = -0.01
 func _physics_process(delta):
 	position += transform.x * speed * delta 
+	if rotation <= 90 or rotation >= 270:
+		rotate(rot)
+	if rotation >= 90 and rotation <= 270:
+		rotate(negrot)
+	speed -= 50
 	
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemys"):
-		body.health -=10
-		queue_free()
 	if body.is_in_group("crate"):
 		queue_free()
 	if body.is_in_group("ground"):
+		queue_free()
+	
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("button"):
 		queue_free()

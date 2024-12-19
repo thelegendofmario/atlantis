@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://blfk5rvypy8dk"]
+
+[ext_resource type="Script" path="res://artifact of grass.gd" id="1_r060t"]
+[ext_resource type="Texture2D" uid="uid://dgtl28iagkxfs" path="res://th-2381798036-removebg-preview.png" id="2_10j1f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_10j1f")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mysw"]
+
+[node name="Artifact" type="Area2D" groups=["Artifact"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_r060t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -3.5)
+scale = Vector2(-0.0642202, 0.07743)
+sprite_frames = SubResource("SpriteFrames_70g1j")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1mysw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, 3.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

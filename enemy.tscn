@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ffly8ndkvn2f" path="res://idle/attack2/atk8.png" id="9_p46uo"]
 [ext_resource type="Texture2D" uid="uid://daupe4xwhy7vl" path="res://walk/walk5.png" id="10_vtncl"]
 [ext_resource type="Texture2D" uid="uid://c6am05cxfg7u7" path="res://walk/walk6.png" id="11_pxomm"]
+[ext_resource type="Script" path="res://enemy_hitbox.gd" id="20_e36u6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlj28"]
 animations = [{
@@ -89,15 +90,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 15.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoco4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0wmo"]
-size = Vector2(62.1806, 20)
+size = Vector2(37.6785, 20)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemys"]]
+collision_layer = 2
+collision_mask = 23
 script = ExtResource("1_x5syp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -105,29 +106,22 @@ position = Vector2(167, -46)
 sprite_frames = SubResource("SpriteFrames_qlj28")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 5)
-scale = Vector2(3.50453, -7.19212)
-shape = SubResource("RectangleShape2D_uoco4")
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemys"]]
 position = Vector2(-92, 51)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(63, -12)
-rotation = -0.505321
-scale = Vector2(2.56757, 1.15094)
-shape = SubResource("RectangleShape2D_x0wmo")
+collision_layer = 2
+collision_mask = 23
+script = ExtResource("20_e36u6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(96, -56)
+position = Vector2(63.0226, -46)
 scale = Vector2(3.50453, -7.19212)
 shape = SubResource("RectangleShape2D_uoco4")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.5
 autostart = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

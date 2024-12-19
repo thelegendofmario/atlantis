@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh7r1jfw7k4rf"]
+
+[ext_resource type="Script" path="res://artifact of dragons.gd" id="1_2ovit"]
+[ext_resource type="Texture2D" uid="uid://ce2iqt4tbntin" path="res://Basic Dragon 1x.png" id="2_gsjpi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_055dk"]
+atlas = ExtResource("2_gsjpi")
+region = Rect2(0, 0, 17, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_055dk")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mysw"]
+
+[node name="Artifact" type="Area2D" groups=["Artifact"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_2ovit")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -4)
+scale = Vector2(1.62215, 1.98849)
+sprite_frames = SubResource("SpriteFrames_70g1j")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1mysw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, 3.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
