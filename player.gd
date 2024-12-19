@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		#air -= 1
 	# Add the gravity.
 	
-	
+	var direction := Input.get_axis("left", "right")
 	if move_and_slide():
 		for i in get_slide_collision_count():
 			var col = get_slide_collision(i)
@@ -51,15 +51,19 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.speed_scale = anim_speed
 		if stamina < DEFAULT_STAMINA:
 			Global.player_stamina += 1
-		SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
+		if SPEED > 0:
+			SPEED -= 1
+			velocity.x = direction * SPEED
+		#SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
+	
 	if direction:
 		$AnimationPlayer.play()
 		velocity.x = direction * SPEED
 	else:
 		$AnimationPlayer.pause()
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

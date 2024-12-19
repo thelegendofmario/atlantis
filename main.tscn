@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=66 format=4 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://367k1c3vi3n8" path="res://platforms2.tscn" id="21_ae8eq"]
 [ext_resource type="Script" path="res://door_4.gd" id="21_ilr70"]
 [ext_resource type="PackedScene" uid="uid://0w3mjiu1q1yf" path="res://platforms3.tscn" id="26_atwix"]
+[ext_resource type="PackedScene" uid="uid://b3lxvq5je6nwv" path="res://enemy.tscn" id="27_xtvcj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olxra"]
 atlas = ExtResource("5_3sp5s")
@@ -1805,6 +1806,23 @@ offset_top = 508.0
 offset_right = 1456.0
 offset_bottom = 557.0
 text = "COLLECT ALL THE ARTIFACTS"
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemys" instance=ExtResource("27_xtvcj")]
+position = Vector2(6415, 1173)
+
+[node name="Enemy2" parent="Enemys" instance=ExtResource("27_xtvcj")]
+position = Vector2(5623, 1749)
+
+[node name="Enemy3" parent="Enemys" instance=ExtResource("27_xtvcj")]
+position = Vector2(6999, 1557)
+
+[node name="Enemy4" parent="Enemys" instance=ExtResource("27_xtvcj")]
+position = Vector2(5631, 1061)
+
+[node name="Enemy5" parent="Enemys" instance=ExtResource("27_xtvcj")]
+position = Vector2(6127, 2053)
 
 [connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint" to="." method="_on_save_point_body_entered"]
