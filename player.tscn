@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvnsggulq2g76"]
+[gd_scene load_steps=10 format=3 uid="uid://bvnsggulq2g76"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j3o7u"]
 [ext_resource type="Texture2D" uid="uid://dakfia4hvm6w0" path="res://Diver.png" id="2_pso3q"]
+[ext_resource type="AudioStream" uid="uid://ct2h12ykw0qm1" path="res://Jump_Real.wav" id="3_6u4ah"]
+[ext_resource type="AudioStream" uid="uid://vxpe84ssurmv" path="res://Hit_Real.wav" id="4_pqmd2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h1mt"]
 size = Vector2(10, 22)
@@ -32,6 +34,9 @@ _data = {
 "walking": SubResource("Animation_k5l1j")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8auxl"]
+size = Vector2(32, 48)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 31
 script = ExtResource("1_j3o7u")
@@ -52,3 +57,17 @@ libraries = {
 "": SubResource("AnimationLibrary_laf60")
 }
 autoplay = "walking"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6u4ah")
+volume_db = -21.048
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pqmd2")
+
+[node name="CollForSpikes" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollForSpikes"]
+shape = SubResource("RectangleShape2D_8auxl")
+
+[connection signal="area_entered" from="CollForSpikes" to="." method="_on_coll_for_spikes_area_entered"]

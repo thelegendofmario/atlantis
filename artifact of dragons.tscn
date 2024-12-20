@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh7r1jfw7k4rf"]
+[gd_scene load_steps=7 format=3 uid="uid://nliedh5irt5d"]
 
 [ext_resource type="Script" path="res://artifact of dragons.gd" id="1_2ovit"]
 [ext_resource type="Texture2D" uid="uid://ce2iqt4tbntin" path="res://Basic Dragon 1x.png" id="2_gsjpi"]
+[ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_4mprh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_055dk"]
 atlas = ExtResource("2_gsjpi")
@@ -35,5 +36,8 @@ shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 3.5)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4mprh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

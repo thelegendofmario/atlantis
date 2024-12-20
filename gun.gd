@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 	move_and_slide()
-	if Input.is_action_just_pressed("kama") and Global.player_stamina > 0:
+	if Input.is_action_pressed("kama") and Global.player_stamina > 0:
 		shoot()
 		Global.player_stamina -= 25
 	

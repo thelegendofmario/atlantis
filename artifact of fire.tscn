@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt5gnmt62ah1c"]
+[gd_scene load_steps=6 format=3 uid="uid://boofgon4sq87h"]
 
 [ext_resource type="Script" path="res://artifact of fire.gd" id="1_deas7"]
 [ext_resource type="Texture2D" uid="uid://wlh47dw7d28v" path="res://213-2135957_flame-fire-blog-clip-art-transparent-animated-fire-3353460809-removebg-preview.png" id="2_wskju"]
+[ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_p3b1k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
@@ -29,5 +30,8 @@ shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 3.5)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p3b1k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

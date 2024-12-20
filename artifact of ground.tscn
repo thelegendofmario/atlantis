@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7w7bidqclpn7"]
+[gd_scene load_steps=6 format=3 uid="uid://beu365j5kv3sr"]
 
 [ext_resource type="Script" path="res://artifact of ground.gd" id="1_bpndc"]
 [ext_resource type="Texture2D" uid="uid://cpcc6ggv63ws7" path="res://an-8-bit-retro-styled-pixel-art-illustration-of-a-shiny-crystal-free-png-2111263478.png" id="2_7ejih"]
+[ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_1eqel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
@@ -30,5 +31,8 @@ shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 3.5)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1eqel")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

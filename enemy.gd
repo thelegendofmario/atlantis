@@ -4,6 +4,7 @@ const DEFAULT_HEALTH = 100
 var health = DEFAULT_HEALTH
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+signal hurt_player
 
 var direction = -1
 var speed = -250
@@ -35,6 +36,8 @@ func _on_timer_timeout() -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.player_health -=10
+		hurt_player.emit()
+		print("player hit")
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

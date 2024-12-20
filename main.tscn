@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=72 format=4 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
@@ -7,26 +7,44 @@
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="4_2bq0o"]
 [ext_resource type="Script" path="res://gun.gd" id="4_3bljc"]
 [ext_resource type="Texture2D" uid="uid://ckmpmscjuvmtm" path="res://Elementstäbe.png" id="5_3sp5s"]
-[ext_resource type="PackedScene" uid="uid://f2xd42p8e3dx" path="res://crate.tscn" id="5_aecc3"]
+[ext_resource type="PackedScene" uid="uid://dbb43ty7gqgsh" path="res://crate.tscn" id="5_aecc3"]
+[ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="5_yufuj"]
 [ext_resource type="Texture2D" uid="uid://dnsc3fuxvmng4" path="res://icon.svg" id="7_o38j0"]
 [ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
 [ext_resource type="PackedScene" uid="uid://bock5s3h1xln5" path="res://save_point.tscn" id="8_7ho56"]
-[ext_resource type="PackedScene" uid="uid://bh7r1jfw7k4rf" path="res://artifact of dragons.tscn" id="9_uyg4f"]
-[ext_resource type="PackedScene" uid="uid://dt5gnmt62ah1c" path="res://artifact of fire.tscn" id="10_cqwht"]
-[ext_resource type="PackedScene" uid="uid://dww5iljsbedku" path="res://artifact of fish.tscn" id="11_ylfty"]
-[ext_resource type="PackedScene" uid="uid://7w7bidqclpn7" path="res://artifact of ground.tscn" id="13_kjr55"]
-[ext_resource type="PackedScene" uid="uid://cvajqp83w8qni" path="res://artifact of ice.tscn" id="14_rr2hk"]
-[ext_resource type="PackedScene" uid="uid://b0hid83ash0ls" path="res://spike.tscn" id="16_5axmq"]
+[ext_resource type="PackedScene" uid="uid://nliedh5irt5d" path="res://artifact of dragons.tscn" id="9_uyg4f"]
+[ext_resource type="PackedScene" uid="uid://boofgon4sq87h" path="res://artifact of fire.tscn" id="10_cqwht"]
+[ext_resource type="PackedScene" uid="uid://wjadvs0otlu4" path="res://artifact of fish.tscn" id="11_ylfty"]
+[ext_resource type="PackedScene" uid="uid://beu365j5kv3sr" path="res://artifact of ground.tscn" id="13_kjr55"]
+[ext_resource type="PackedScene" uid="uid://dsnda70o8iut4" path="res://artifact of ice.tscn" id="14_rr2hk"]
+[ext_resource type="PackedScene" uid="uid://csdef0m52irok" path="res://spike.tscn" id="16_5axmq"]
 [ext_resource type="Script" path="res://door_1.gd" id="18_2v6os"]
 [ext_resource type="Texture2D" uid="uid://brb86u2gwlv1b" path="res://StoneWall_TXR.png" id="19_1kdg3"]
-[ext_resource type="PackedScene" uid="uid://bbtmitg6uiya1" path="res://platforms.tscn" id="19_am2b8"]
+[ext_resource type="PackedScene" path="res://platforms.tscn" id="19_am2b8"]
 [ext_resource type="Script" path="res://door_2.gd" id="19_jgc6m"]
 [ext_resource type="Script" path="res://door_3.gd" id="20_fd0u4"]
-[ext_resource type="PackedScene" uid="uid://cpa6mem6iwvmu" path="res://button.tscn" id="20_xnvfl"]
-[ext_resource type="PackedScene" uid="uid://367k1c3vi3n8" path="res://platforms2.tscn" id="21_ae8eq"]
+[ext_resource type="PackedScene" path="res://button.tscn" id="20_xnvfl"]
+[ext_resource type="PackedScene" path="res://platforms2.tscn" id="21_ae8eq"]
 [ext_resource type="Script" path="res://door_4.gd" id="21_ilr70"]
-[ext_resource type="PackedScene" uid="uid://0w3mjiu1q1yf" path="res://platforms3.tscn" id="26_atwix"]
+[ext_resource type="PackedScene" path="res://platforms3.tscn" id="26_atwix"]
 [ext_resource type="PackedScene" uid="uid://b3lxvq5je6nwv" path="res://enemy.tscn" id="27_xtvcj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp6nt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od1hs"]
+bg_color = Color(0.783191, 0.78319, 0, 1)
+
+[sub_resource type="Theme" id="Theme_mvmhb"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_od1hs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hydnm"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_xd8ws"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_hydnm")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olxra"]
 atlas = ExtResource("5_3sp5s")
@@ -1317,15 +1335,12 @@ position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
 
-[node name="DebugLabel" type="Label" parent="Player/Camera2D/CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="AirBar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
 offset_left = -1.0
 offset_top = 30.0
 offset_right = 191.0
 offset_bottom = 57.0
+theme = ExtResource("5_yufuj")
 show_percentage = false
 
 [node name="Stamina Bar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
@@ -1333,13 +1348,19 @@ offset_left = -1.0
 offset_top = 62.0
 offset_right = 191.0
 offset_bottom = 90.0
+theme = SubResource("Theme_mvmhb")
 show_percentage = false
 
 [node name="Health Bar" type="ProgressBar" parent="Player/Camera2D/CanvasLayer"]
 modulate = Color(0.471389, 0.665439, 0, 1)
 offset_right = 192.0
 offset_bottom = 27.0
+theme = SubResource("Theme_xd8ws")
 show_percentage = false
+
+[node name="DebugLabel" type="Label" parent="Player/Camera2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="gun2" type="CharacterBody2D" parent="Player" groups=["crate"]]
 position = Vector2(1, 6)
@@ -1530,7 +1551,7 @@ position = Vector2(7629, 468)
 position = Vector2(3944, 1214)
 
 [node name="fish" parent="Artifacts" instance=ExtResource("11_ylfty")]
-position = Vector2(2682, 345)
+position = Vector2(1192, 480)
 
 [node name="ground" parent="Artifacts" instance=ExtResource("13_kjr55")]
 position = Vector2(1674, 1187)
@@ -1830,3 +1851,8 @@ position = Vector2(6127, 2053)
 [connection signal="body_entered" from="checkpoints/SavePoint5" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint2" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint3" to="." method="_on_save_point_body_entered"]
+[connection signal="hurt_player" from="Enemys/Enemy" to="." method="_on_enemy_hurt_player"]
+[connection signal="hurt_player" from="Enemys/Enemy2" to="." method="_on_enemy_2_hurt_player"]
+[connection signal="hurt_player" from="Enemys/Enemy3" to="." method="_on_enemy_3_hurt_player"]
+[connection signal="hurt_player" from="Enemys/Enemy4" to="." method="_on_enemy_4_hurt_player"]
+[connection signal="hurt_player" from="Enemys/Enemy5" to="." method="_on_enemy_5_hurt_player"]

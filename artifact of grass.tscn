@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://blfk5rvypy8dk"]
+[gd_scene load_steps=6 format=3 uid="uid://6h6hbovp2gl2"]
 
 [ext_resource type="Script" path="res://artifact of grass.gd" id="1_r060t"]
 [ext_resource type="Texture2D" uid="uid://dgtl28iagkxfs" path="res://th-2381798036-removebg-preview.png" id="2_10j1f"]
+[ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_nfeng"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
@@ -31,5 +32,8 @@ shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 3.5)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nfeng")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

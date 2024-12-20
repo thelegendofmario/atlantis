@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dww5iljsbedku"]
+[gd_scene load_steps=6 format=3 uid="uid://wjadvs0otlu4"]
 
 [ext_resource type="Script" path="res://artifact of fish.gd" id="1_3d0i7"]
 [ext_resource type="Texture2D" uid="uid://okcmtgtlxhrl" path="res://fishing-fish-sport-fishes-water-artwork-high-resolution-images-wallpaper-preview-513586373-removebg-preview.png" id="2_ale7p"]
+[ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_elyet"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
@@ -30,5 +31,8 @@ shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 3.5)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_elyet")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

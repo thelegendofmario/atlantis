@@ -27,6 +27,6 @@ sprite_frames = SubResource("SpriteFrames_70g1j")
 shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.5, 3.5)
+position = Vector2(0, 4)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

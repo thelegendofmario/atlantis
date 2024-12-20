@@ -39,8 +39,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$JumpSound.play()
 	elif Input.is_action_just_pressed("jump") and Global.player_in_water:
 		velocity.y = WATER_JUMP_VELOCITY
+		$JumpSound.play()
 
 	if Input.is_action_pressed("sprint") and can_sprint:
 		if SPEED <= MAX_SPEED:
@@ -52,9 +54,9 @@ func _physics_process(delta: float) -> void:
 		if stamina < DEFAULT_STAMINA:
 			Global.player_stamina += 1
 		if SPEED > 0:
-			SPEED -= 1
+			#SPEED -= 1
 			velocity.x = direction * SPEED
-		#SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
+			SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
@@ -67,3 +69,9 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+
+
+func _on_coll_for_spikes_area_entered(area: Area2D) -> void:
+	if area.is_in_group("spike") or area.is_in_group("enemys"):
+		$HurtSound.play()

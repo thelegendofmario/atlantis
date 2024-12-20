@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvajqp83w8qni"]
+[gd_scene load_steps=6 format=3 uid="uid://dsnda70o8iut4"]
 
 [ext_resource type="Script" path="res://artifact of ice.gd" id="1_l3naf"]
 [ext_resource type="Texture2D" uid="uid://ca7bhh7ycs5om" path="res://Ice-Cube-PNG-File-1597716945.png" id="2_ro6wm"]
+[ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_62h0c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
@@ -29,5 +30,8 @@ shape = SubResource("CapsuleShape2D_1mysw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 3.5)
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_62h0c")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

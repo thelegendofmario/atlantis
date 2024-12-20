@@ -32,6 +32,7 @@ ground=""
 enemys=""
 bullet=""
 button=""
+spike=""
 
 [input]
 
