@@ -53,14 +53,14 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.speed_scale = anim_speed
 		if stamina < DEFAULT_STAMINA:
 			Global.player_stamina += 1
-<<<<<<< HEAD
+#<<<<<<< HEAD
 		if SPEED > 0:
 			#SPEED -= 1
 			velocity.x = direction * SPEED
 			SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
-=======
+#=======
 		SPEED = lerpf(SPEED, DEFAULT_SPEED, 0.05)
->>>>>>> 77b48ee99fda81fcf657585862ccd8a702366f95
+#>>>>>>> 77b48ee99fda81fcf657585862ccd8a702366f95
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
@@ -78,4 +78,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_coll_for_spikes_area_entered(area: Area2D) -> void:
 	if area.is_in_group("spike") or area.is_in_group("enemys"):
+		print("player hurt :)")
 		$HurtSound.play()
