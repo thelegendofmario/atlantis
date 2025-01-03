@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://bi7gtc143313u"]
+
+[ext_resource type="Script" path="res://player_3d.gd" id="1_fg1yb"]
+[ext_resource type="Texture2D" uid="uid://b8eh1g0u6ekju" path="res://Pain+Hud-605601482.png" id="2_l2oqg"]
+[ext_resource type="Script" path="res://color_rect.gd" id="2_rvx11"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfjkg"]
+height = 1.94624
+
+[sub_resource type="SphereMesh" id="SphereMesh_rq1tk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xs6v"]
+albedo_color = Color(0.262745, 0.364706, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3xow4"]
+
+[sub_resource type="Animation" id="Animation_7uj6x"]
+resource_name = "3d_walk"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("okayer model")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.707107, 0, 0.707107, 0.2, 1, -0.0547961, 0.704981, 0.0547961, 0.70498, 0.433333, 1, 0.0730291, 0.703326, -0.073029, 0.703325, 0.6, 1, -0.0547961, 0.704981, 0.0547961, 0.70498, 0.8, 1, 0.0730291, 0.703326, -0.073029, 0.703325, 1, 1, 0, 0.707107, 0, 0.707107)
+
+[sub_resource type="Animation" id="Animation_evfyj"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("okayer model")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.707107, 0, 0.707107)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o0vy"]
+_data = {
+"3d_walk": SubResource("Animation_7uj6x"),
+"RESET": SubResource("Animation_evfyj")
+}
+
+[node name="player3d" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1_fg1yb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
+transform = Transform3D(0.538302, 0, 0, 0, 1, 0, 0, 0, 0.514477, 0, 0.241628, 0)
+shape = SubResource("CapsuleShape3D_nfjkg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.99
+light_volumetric_fog_energy = 0.0
+light_size = 0.2
+
+[node name="okayer model" type="Node3D" parent="."]
+transform = Transform3D(-2.8213e-07, 0, 1, 0, 1, 0, -1, 0, -2.8213e-07, 0, 0, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.642535, 0, 0, 0, 0.690867, 0, 0, 0, 0.764059, -0.00454021, 0.761514, -0.0161803)
+mesh = SubResource("SphereMesh_rq1tk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0xs6v")
+
+[node name="body" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.430358, 0, 0, 0, 0.467993, 0, 0, 0, 0.522306, -0.00454021, -0.0199329, -0.0161803)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../Ground")
+
+[node name="rightleg" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.165587, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -0.00454021, -0.518992, 0.139454)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../Ground")
+
+[node name="leftleg" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.16348, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -0.00454021, -0.518992, -0.160293)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../Ground")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="okayer model"]
+transform = Transform3D(-4.01339e-07, 0, -1, 0, 1, 0, 1, 0, -4.01339e-07, 0.2223, 0.253038, 8.92178e-08)
+visible = false
+light_energy = 16.0
+light_indirect_energy = 8.03
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+spot_range = 608.26
+spot_angle = 37.3463
+
+[node name="Camera3D" type="Camera3D" parent="okayer model"]
+transform = Transform3D(-4.37113e-08, 0, -1, 0, 1, 0, 1, 0, -4.37113e-08, 0.070029, 0.833042, 0.0239223)
+fov = 120.938
+far = 101.85
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7o0vy")
+}
+autoplay = "3d_walk"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l2oqg")
+script = ExtResource("2_rvx11")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

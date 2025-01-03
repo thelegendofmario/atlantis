@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	$"Player/Camera2D/CanvasLayer/Stamina Bar".value=$Player.stamina
 	$"Player/Camera2D/CanvasLayer/Health Bar".value = Global.player_health
 	if Global.player_health <= 0:
-		get_tree().call_deferred("reload_current_scene")
+		get_tree().change_scene_to_file("res://THE_BAD_END.tscn")
 
 	if Input.is_action_just_pressed("reset"):
 		get_tree().call_deferred("reload_current_scene")

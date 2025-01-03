@@ -1,0 +1,275 @@
+[gd_scene load_steps=18 format=3 uid="uid://b3se8nuvgxkjf"]
+
+[ext_resource type="ArrayMesh" uid="uid://1tyw88emkjhs" path="res://ground.obj" id="1_vunmd"]
+[ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="2_dl1c1"]
+[ext_resource type="PackedScene" uid="uid://bi7gtc143313u" path="res://player_3d.tscn" id="3_st2pv"]
+[ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="4_ct6v1"]
+[ext_resource type="Script" path="res://wand.gd" id="4_mntdq"]
+[ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_dkvc1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xribn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1romu"]
+albedo_color = Color(0.471375, 0.471375, 0.471375, 1)
+metallic = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_74f1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e18lk"]
+albedo_color = Color(1, 0.054902, 0, 1)
+
+[sub_resource type="Environment" id="Environment_huaj0"]
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.983
+volumetric_fog_albedo = Color(0.539166, 0.285243, 0.482572, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_it17v"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_igjai"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_3e78r"]
+albedo = Color(0.309385, 0.309385, 0.309385, 1)
+density_texture = SubResource("NoiseTexture3D_igjai")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_erdvo"]
+
+[sub_resource type="Skin" id="Skin_dwome"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mex7l"]
+albedo_color = Color(0.642198, 0.357196, 0.784452, 1)
+normal_enabled = true
+normal_scale = 11.2
+normal_texture = ExtResource("2_dl1c1")
+
+[node name="3d section" type="Node3D"]
+
+[node name="player3d" parent="." instance=ExtResource("3_st2pv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22315, 0)
+
+[node name="wand2" type="Node3D" parent="player3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250694, 0)
+script = ExtResource("4_mntdq")
+
+[node name="shaft" type="MeshInstance3D" parent="player3d/wand2"]
+transform = Transform3D(0.25, 0, 0, 0, -1.43568e-08, -0.25, 0, 0.328445, -1.09278e-08, 0, 0, -0.48853)
+mesh = SubResource("CylinderMesh_xribn")
+surface_material_override/0 = SubResource("StandardMaterial3D_1romu")
+
+[node name="orb" type="MeshInstance3D" parent="player3d/wand2"]
+transform = Transform3D(0.421026, 0, 0, 0, 0.421026, 0, 0, 0, 0.421026, 0, 0, -0.97941)
+mesh = SubResource("SphereMesh_74f1u")
+surface_material_override/0 = SubResource("StandardMaterial3D_e18lk")
+
+[node name="Marker3D" type="Marker3D" parent="player3d/wand2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="walls" type="Node3D" parent="."]
+
+[node name="wall" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 41.9264, -3.76935, 1.26018, 2.5995)
+
+[node name="wall30" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 40.6719, -16.8528, 1.26018, 2.9046)
+
+[node name="wall9" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 70.9268, -27.612, 1.26018, 0.519283)
+
+[node name="wall10" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 70.9268, 28.8856, 1.26018, 0.519283)
+
+[node name="wall3" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 20.2248, 2.9245, 1.26018, -5.50575)
+
+[node name="wall5" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 20.2248, 8.74105, 1.26018, -11.4278)
+
+[node name="wall6" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 20.2248, 15.5136, 1.26018, -8.17674)
+
+[node name="wall36" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 20.2248, -9.7795, 1.26018, 22.1751)
+
+[node name="wall25" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 10.9613, 21.4019, 1.26018, 15.7245)
+
+[node name="wall26" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 10.9613, 14.6928, 1.26018, 20.3777)
+
+[node name="wall27" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 10.9613, 9.86845, 1.05794, 16.0999)
+
+[node name="wall28" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 10.9613, 4.21874, 1.05794, 22.4599)
+
+[node name="wall29" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(1, 0, 0, 0, 9.11593, 0, 0, 0, 10.9613, 0.182975, 1.05794, 16.3621)
+
+[node name="wall2" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00746371, 0, -36.5879, 0, 9.11593, 0, 1.00148, 0, 0.272679, 5.53579, 1.26018, 4.06274)
+
+[node name="wall15" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00747872, 0, -25.3269, 0, 9.11593, 0, 1.00349, 0, 0.188754, 10.9096, 1.26018, 10.4731)
+
+[node name="wall11" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 19.3722, 1.26018, -18.1438)
+
+[node name="wall12" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 25.2323, 1.26018, -13.1252)
+
+[node name="wall31" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -7.46996, 1.26018, -18.1853)
+
+[node name="wall34" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -7.46996, 1.26018, -6.89099)
+
+[node name="wall32" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -13.3771, 1.26018, -10.6459)
+
+[node name="wall35" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -13.3771, 1.26018, 11.6385)
+
+[node name="wall33" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -13.3771, 1.26018, -1.91019)
+
+[node name="wall37" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -26.2969, 1.26018, -1.91019)
+
+[node name="wall38" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -26.2969, 1.26018, 7.8649)
+
+[node name="wall39" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -26.2969, 1.26018, -14.1351)
+
+[node name="wall40" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -26.2969, 1.26018, 19.0578)
+
+[node name="wall41" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -21.2214, 1.26018, 13.1709)
+
+[node name="wall42" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -19.9962, 1.26018, 13.1709)
+
+[node name="wall43" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -19.9962, 1.26018, 4.0056)
+
+[node name="wall44" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -19.9962, 1.26018, -7.9944)
+
+[node name="wall45" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, -19.9962, 1.26018, -17.9944)
+
+[node name="wall13" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 19.2837, 1.26018, -7.23373)
+
+[node name="wall21" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 2.01588, 1.26018, -7.23373)
+
+[node name="wall22" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 8.76177, 1.26018, -2.46014)
+
+[node name="wall23" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 2.64773, 1.26018, -16.1394)
+
+[node name="wall24" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 8.75894, 1.26018, -11.9624)
+
+[node name="wall16" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.996701, 0, -0.00721204, 0, 9.11593, 0, 0.00151348, 0, 4.74949, 21.6051, 1.26018, 8.37126)
+
+[node name="wall17" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.996701, 0, -0.00721204, 0, 9.11593, 0, 0.00151348, 0, 4.74949, 16.3707, 1.26018, 6.02416)
+
+[node name="wall18" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.996701, 0, -0.00721204, 0, 9.11593, 0, 0.00151348, 0, 4.74949, 10.4686, 1.26018, 8.23947)
+
+[node name="wall19" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.996701, 0, -0.00721204, 0, 9.11593, 0, 0.00151348, 0, 4.74949, 3.06854, 1.26018, 6.14151)
+
+[node name="wall20" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.996701, 0, -0.00721204, 0, 9.11593, 0, 0.00151348, 0, 4.74949, -0.557964, 1.26018, 8.08152)
+
+[node name="wall14" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743184, 0, -7.2798, 0, 9.11593, 0, 0.9972, 0, 0.0542542, 25.1316, 1.26018, -1.55546)
+
+[node name="wall4" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00745249, 0, -45.8428, 0, 9.11593, 0, 0.999972, 0, 0.341653, 5.53579, 1.26018, -21.3653)
+
+[node name="wall7" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743183, 0, -62.8985, 0, 9.11593, 0, 0.9972, 0, 0.468764, -0.740574, 1.26018, -27.3296)
+
+[node name="wall8" parent="walls" groups=["ground"] instance=ExtResource("4_ct6v1")]
+transform = Transform3D(0.00743183, 0, -62.8985, 0, 9.11593, 0, 0.9972, 0, 0.468764, -0.740574, 1.26018, 26.8812)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_huaj0")
+camera_attributes = SubResource("CameraAttributesPractical_it17v")
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(37.5566, 0, 0, 0, 3.34963, 0, 0, 0, 36.5807, 0, 1.21881, 0)
+material = SubResource("FogMaterial_3e78r")
+
+[node name="golden_artifact" parent="." instance=ExtResource("6_dkvc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6594, 2.6429, 16.9529)
+
+[node name="floors" type="Node3D" parent="."]
+
+[node name="ground2" type="StaticBody3D" parent="floors"]
+transform = Transform3D(3.05056, 0, 0, 0, 1, 0, 0, 0, 3.03243, 0, -39.8897, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/ground2"]
+transform = Transform3D(18.768, 0, 0, 0, 0.32, 0, 0, 0, 18.5079, 0, 45.5681, 0)
+shape = SubResource("BoxShape3D_erdvo")
+
+[node name="Ground" type="MeshInstance3D" parent="floors/ground2"]
+transform = Transform3D(9.41322, 0, 0, 0, 0.127535, 0, 0, 0, 9.2106, -0.0917402, 44.9303, -0.0855428)
+mesh = ExtResource("1_vunmd")
+skin = SubResource("Skin_dwome")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ORMMaterial3D_mex7l")
+
+[node name="ground" type="StaticBody3D" parent="floors"]
+transform = Transform3D(3.05056, 0, 0, 0, 1, 0, 0, 0, 3.03243, 0, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/ground"]
+transform = Transform3D(18.768, 0, 0, 0, 0.32, 0, 0, 0, 18.5079, 0, 0, 0)
+shape = SubResource("BoxShape3D_erdvo")
+
+[node name="Ground" type="MeshInstance3D" parent="floors/ground"]
+transform = Transform3D(9.41322, 0, 0, 0, 0.127535, 0, 0, 0, 9.2106, -0.0917402, -0.06966, -0.0855428)
+mesh = ExtResource("1_vunmd")
+skin = SubResource("Skin_dwome")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ORMMaterial3D_mex7l")
+
+[node name="ground3" type="StaticBody3D" parent="floors"]
+transform = Transform3D(3.05056, 0, 0, 0, 1, 0, 0, 0, 3.03243, 0, -38.9209, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/ground3"]
+transform = Transform3D(18.768, 0, 0, 0, 0.32, 0, 0, 0, 18.5079, 0, 45.5681, 0)
+shape = SubResource("BoxShape3D_erdvo")
+
+[node name="Ground" type="MeshInstance3D" parent="floors/ground3"]
+transform = Transform3D(9.41322, 0, 0, 0, 0.127535, 0, 0, 0, 9.2106, -0.0917402, 44.9303, -0.0855428)
+mesh = ExtResource("1_vunmd")
+skin = SubResource("Skin_dwome")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ORMMaterial3D_mex7l")

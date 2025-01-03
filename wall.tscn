@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://mtsk35m1v8pf"]
+
+[ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="1_tcc7t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0u36u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fwhcu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3e7tf"]
+albedo_color = Color(0.694118, 0.627451, 1, 1)
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = ExtResource("1_tcc7t")
+
+[node name="wall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0u36u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_fwhcu")
+surface_material_override/0 = SubResource("StandardMaterial3D_3e7tf")

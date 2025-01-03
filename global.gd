@@ -21,6 +21,7 @@ var dragons_art = false
 var grass_art = false
 var max_artifacts = 6
 var button_on = true
+var dPlayer_Health = 255
 
 #### DATABASE VARS ####
 var database : SQLite = null

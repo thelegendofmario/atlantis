@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=73 format=4 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
@@ -20,14 +20,15 @@
 [ext_resource type="PackedScene" uid="uid://csdef0m52irok" path="res://spike.tscn" id="16_5axmq"]
 [ext_resource type="Script" path="res://door_1.gd" id="18_2v6os"]
 [ext_resource type="Texture2D" uid="uid://brb86u2gwlv1b" path="res://StoneWall_TXR.png" id="19_1kdg3"]
-[ext_resource type="PackedScene" path="res://platforms.tscn" id="19_am2b8"]
+[ext_resource type="PackedScene" uid="uid://bbtmitg6uiya1" path="res://platforms.tscn" id="19_am2b8"]
 [ext_resource type="Script" path="res://door_2.gd" id="19_jgc6m"]
 [ext_resource type="Script" path="res://door_3.gd" id="20_fd0u4"]
-[ext_resource type="PackedScene" path="res://button.tscn" id="20_xnvfl"]
-[ext_resource type="PackedScene" path="res://platforms2.tscn" id="21_ae8eq"]
+[ext_resource type="PackedScene" uid="uid://cpa6mem6iwvmu" path="res://button.tscn" id="20_xnvfl"]
+[ext_resource type="PackedScene" uid="uid://367k1c3vi3n8" path="res://platforms2.tscn" id="21_ae8eq"]
 [ext_resource type="Script" path="res://door_4.gd" id="21_ilr70"]
-[ext_resource type="PackedScene" path="res://platforms3.tscn" id="26_atwix"]
+[ext_resource type="PackedScene" uid="uid://0w3mjiu1q1yf" path="res://platforms3.tscn" id="26_atwix"]
 [ext_resource type="PackedScene" uid="uid://b3lxvq5je6nwv" path="res://enemy.tscn" id="27_xtvcj"]
+[ext_resource type="PackedScene" uid="uid://bmkhl5d7w4y5f" path="res://portal.tscn" id="29_dvac1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp6nt"]
 bg_color = Color(0, 0, 0, 1)
@@ -1314,7 +1315,7 @@ position = Vector2(66, -1160)
 scale = Vector2(3.08734, 2.01313)
 
 [node name="Sprite2D" type="Sprite2D" parent="background"]
-position = Vector2(2138, 713)
+position = Vector2(1847.54, 861.345)
 scale = Vector2(9.16285, 7.99202)
 texture = ExtResource("2_66isb")
 
@@ -1545,19 +1546,19 @@ metadata/_edit_group_ = true
 [node name="Artifacts" type="Node2D" parent="."]
 
 [node name="dragon" parent="Artifacts" instance=ExtResource("9_uyg4f")]
-position = Vector2(7629, 468)
+position = Vector2(7619, 467)
 
 [node name="fire" parent="Artifacts" instance=ExtResource("10_cqwht")]
-position = Vector2(3944, 1214)
+position = Vector2(3953, 1247)
 
 [node name="fish" parent="Artifacts" instance=ExtResource("11_ylfty")]
-position = Vector2(1192, 480)
+position = Vector2(2686, 349)
 
 [node name="ground" parent="Artifacts" instance=ExtResource("13_kjr55")]
-position = Vector2(1674, 1187)
+position = Vector2(1682, 1238)
 
 [node name="ice" parent="Artifacts" instance=ExtResource("14_rr2hk")]
-position = Vector2(7621, 722)
+position = Vector2(7621, 735)
 
 [node name="Kill Barrier" type="Area2D" parent="."]
 position = Vector2(-148, 1175)
@@ -1813,14 +1814,6 @@ offset_bottom = 794.0
 text = "HINT
 SHOOT THE GRASS"
 
-[node name="level 3" type="Label" parent="hints"]
-offset_left = 10712.0
-offset_top = 2270.0
-offset_right = 10856.0
-offset_bottom = 2319.0
-text = "CONGRATS
-YOU WIN"
-
 [node name="level 2" type="Label" parent="hints"]
 offset_left = 1235.0
 offset_top = 508.0
@@ -1844,6 +1837,10 @@ position = Vector2(5631, 1061)
 
 [node name="Enemy5" parent="Enemys" instance=ExtResource("27_xtvcj")]
 position = Vector2(6127, 2053)
+
+[node name="portal" parent="." instance=ExtResource("29_dvac1")]
+position = Vector2(10847, 2327)
+scale = Vector2(5.69188, 4.18844)
 
 [connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint" to="." method="_on_save_point_body_entered"]

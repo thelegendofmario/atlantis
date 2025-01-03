@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5vky13f5m36h"]
+
+[ext_resource type="Script" path="res://the_bad_end.gd" id="1_0kbdk"]
+[ext_resource type="FontFile" uid="uid://c8846nsehg2o3" path="res://Youmurdererbb-pwoK.otf" id="1_kb6vf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_osdr0"]
+font = ExtResource("1_kb6vf")
+font_size = 300
+font_color = Color(1, 0, 0, 1)
+outline_size = 23
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 46100
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="the bad end" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0kbdk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(31.1495, 17.538)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -421.0
+offset_top = -249.5
+offset_right = 421.0
+offset_bottom = 249.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congrats
+you died"
+label_settings = SubResource("LabelSettings_osdr0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4j5me44g8q83"]
+
+[ext_resource type="Script" path="res://golden_artifact.gd" id="1_w3eil"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hepn1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4ci4"]
+albedo_color = Color(1, 1, 0.0627451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fci8n"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nlhoo"]
+
+[node name="golden_artifact" type="Area3D"]
+script = ExtResource("1_w3eil")
+
+[node name="body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_hepn1")
+surface_material_override/0 = SubResource("StandardMaterial3D_u4ci4")
+
+[node name="nose" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.210906, 0, 0, 0, 0.210906, 0, 0, 0, 0.210906, 0.519318, 0, 0)
+mesh = SubResource("CapsuleMesh_hepn1")
+surface_material_override/0 = SubResource("StandardMaterial3D_u4ci4")
+
+[node name="Leye" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.210906, 0, 0, 0, 0.113442, 0, 0, 0, 0.210906, 0.444913, 0.439018, -0.208949)
+mesh = SubResource("CapsuleMesh_hepn1")
+surface_material_override/0 = SubResource("StandardMaterial3D_fci8n")
+
+[node name="Reye" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.210906, 0, 0, 0, 0.113442, 0, 0, 0, 0.210906, 0.444913, 0.439018, 0.215822)
+mesh = SubResource("CapsuleMesh_hepn1")
+surface_material_override/0 = SubResource("StandardMaterial3D_fci8n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_nlhoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
