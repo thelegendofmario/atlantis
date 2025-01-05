@@ -22,6 +22,7 @@ var grass_art = false
 var max_artifacts = 6
 var button_on = true
 var dPlayer_Health = 255
+var dmarkposition = Vector3()
 
 #### DATABASE VARS ####
 var database : SQLite = null

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdxk8ycjemnpr"]
+
+[ext_resource type="Script" path="res://3d_bomb.gd" id="1_cmjn0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bohw2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_b84ac"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkuu5"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxkxg"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_tnwek"]
+material = SubResource("StandardMaterial3D_rxkxg")
+
+[node name="3d_bomb" type="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_cmjn0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bohw2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_b84ac")
+surface_material_override/0 = SubResource("StandardMaterial3D_qkuu5")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 10
+lifetime = 1.9
+randomness = 1.0
+mesh = SubResource("SphereMesh_tnwek")
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+linear_accel_min = -1.0
+linear_accel_max = -0.1
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color = Color(1, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.624987, 0, 0, 0, 0.624987, 0, 0, 0, 0.624987, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 5.475
+light_size = 0.03
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

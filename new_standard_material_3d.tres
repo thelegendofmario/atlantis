@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ljywyprycict"]
+
+[ext_resource type="Texture2D" uid="uid://dlglrk46pdx4c" path="res://ParticleBoard_TXR.png" id="1_7iac5"]
+
+[resource]
+albedo_color = Color(0.63648, 0.63648, 0.63648, 1)
+normal_enabled = true
+normal_texture = ExtResource("1_7iac5")

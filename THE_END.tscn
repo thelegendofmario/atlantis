@@ -44,7 +44,8 @@ offset_right = 421.0
 offset_bottom = 136.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "THE END"
+text = "CONGRATS
+YOU WIN"
 label_settings = SubResource("LabelSettings_osdr0")
 
 [node name="Timer" type="Timer" parent="."]

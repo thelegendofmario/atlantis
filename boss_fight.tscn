@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://uho0xsnvtprn"]
+
+[ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
+[ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
+[ext_resource type="PackedScene" uid="uid://cnj1cv4ijgkt5" path="res://boss_player_3d.tscn" id="2_4k03r"]
+[ext_resource type="PackedScene" uid="uid://dvwr1qwpi7vtj" path="res://projectile_spawner.tscn" id="3_u6ab7"]
+[ext_resource type="Texture2D" uid="uid://dlglrk46pdx4c" path="res://ParticleBoard_TXR.png" id="3_vi4sn"]
+[ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="4_ld8k3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhsr8"]
+normal_enabled = true
+normal_texture = ExtResource("3_vi4sn")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fwhcu"]
+
+[node name="boss_fight" type="Node3D"]
+script = ExtResource("1_qnhnp")
+
+[node name="floors" type="Node3D" parent="."]
+transform = Transform3D(83.333, 0, 0, 0, 1, 0, 0, 0, 81.167, 0, 0, 0)
+
+[node name="floor" parent="floors" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52957e-07, -0.958055, -7.96264e-08, -5.78699, 4.18779e-08, 0, -2.21142e-14, -8.37558e-08, 0.91082, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="floors/floor" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vhsr8")
+
+[node name="floor2" parent="floors" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0, 3.78585, -0.189902)
+
+[node name="MeshInstance3D" parent="floors/floor2" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="floor3" parent="floors" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0, 8.4058, -0.0775383)
+
+[node name="MeshInstance3D" parent="floors/floor3" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="floors/floor3"]
+transform = Transform3D(0.2, 3.33067e-16, 1.32349e-23, -1.7053e-13, 1, -2.84217e-14, -2.71051e-20, -3.55271e-14, 1, -0.591319, -1.55869, -0.232953)
+mesh = SubResource("BoxMesh_fwhcu")
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="floors/floor3"]
+transform = Transform3D(0.2, 8.32667e-16, 4.63221e-23, -1.7053e-13, 1, -7.10543e-14, -4.74338e-20, -7.81597e-14, 1, -0.844173, 1.46526, 0.680776)
+mesh = SubResource("BoxMesh_fwhcu")
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="boss_player3d" parent="." instance=ExtResource("2_4k03r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.96453, 0)
+
+[node name="walls" type="Node3D" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(8.26751, 0, 0, 0, 132.395, 0, 0, 0, 79.6075, -38.7307, 65.9649, 0)
+
+[node name="wall2" parent="walls" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(8.26751, 0, 0, 0, 132.395, 0, 0, 0, 79.6075, 38.431, 65.9649, 0)
+
+[node name="wall3" parent="walls" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-3.61384e-07, 0, 79.6075, 0, 132.395, 0, -8.26751, 0, -3.47976e-06, -0.167343, 65.9649, -37.0348)
+
+[node name="wall4" parent="walls" instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-3.61384e-07, 0, 79.6075, 0, 132.395, 0, -8.26751, 0, -3.47976e-06, -0.167343, 65.9649, 38.1298)
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 142.477, 0)
+shadow_opacity = 0.25
+
+[node name="spawner" parent="." instance=ExtResource("3_u6ab7")]
+transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.0969575, -0.539108, 19.9815, 0.640015)
+
+[node name="spawner2" parent="." instance=ExtResource("3_u6ab7")]
+transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.0969575, 35.4871, 5.70433, -34.0568)
+
+[node name="spawner3" parent="." instance=ExtResource("3_u6ab7")]
+transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.0969575, -35.2938, 5.70433, -34.0568)
+
+[node name="spawner4" parent="." instance=ExtResource("3_u6ab7")]
+transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.0969575, -35.2938, 5.70433, 34.393)
+
+[node name="spawner5" parent="." instance=ExtResource("3_u6ab7")]
+transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.0969575, 35.2752, 5.70433, 34.393)
+
+[editable path="floors/floor"]
+[editable path="floors/floor2"]
+[editable path="floors/floor3"]

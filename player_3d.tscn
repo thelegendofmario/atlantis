@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi7gtc143313u"]
+[gd_scene load_steps=12 format=3 uid="uid://bi7gtc143313u"]
 
 [ext_resource type="Script" path="res://player_3d.gd" id="1_fg1yb"]
 [ext_resource type="Texture2D" uid="uid://b8eh1g0u6ekju" path="res://Pain+Hud-605601482.png" id="2_l2oqg"]
 [ext_resource type="Script" path="res://color_rect.gd" id="2_rvx11"]
+[ext_resource type="Script" path="res://marker_3d.gd" id="4_bwp74"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfjkg"]
 height = 1.94624
@@ -54,7 +55,7 @@ light_volumetric_fog_energy = 0.0
 light_size = 0.2
 
 [node name="okayer model" type="Node3D" parent="."]
-transform = Transform3D(-2.8213e-07, 0, 1, 0, 1, 0, -1, 0, -2.8213e-07, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Ground" type="MeshInstance3D" parent="okayer model"]
 transform = Transform3D(0.642535, 0, 0, 0, 0.690867, 0, 0, 0, 0.764059, -0.00454021, 0.761514, -0.0161803)
@@ -109,5 +110,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_l2oqg")
 script = ExtResource("2_rvx11")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+script = ExtResource("4_bwp74")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
