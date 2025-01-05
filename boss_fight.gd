@@ -19,3 +19,7 @@ func _process(delta: float) -> void:
 	c.look_at(P.global_position,Vector3.UP)
 	m.look_at(P.global_position,Vector3.UP)
 	n.look_at(P.global_position,Vector3.UP)
+
+
+func _on_portal_1_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.

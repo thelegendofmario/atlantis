@@ -1,16 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://c57eenbsxoii"]
 
-[ext_resource type="FontFile" uid="uid://nwe0dp47oo6w" path="res://Endinge-1Groe.otf" id="1_drcya"]
 [ext_resource type="Script" path="res://the_end.gd" id="1_i5ycn"]
+[ext_resource type="Texture2D" uid="uid://c3n5sqkv3locn" path="res://Infamous_Banana_1024_1-removebg-preview.png" id="2_5um0e"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_osdr0"]
-font = ExtResource("1_drcya")
-font_size = 200
-font_color = Color(1, 0, 0, 1)
-outline_size = 23
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 46100
-shadow_color = Color(0, 0, 0, 1)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i4eoo"]
 
 [node name="THE END" type="Control"]
 layout_mode = 3
@@ -29,27 +22,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(31.1495, 17.538)
-color = Color(0.487818, 0.487817, 7.70092e-07, 1)
+color = Color(0.427345, 0.506772, 0.127348, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_i4eoo")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -421.0
-offset_top = -136.5
-offset_right = 421.0
-offset_bottom = 136.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "CONGRATS
-YOU WIN"
-label_settings = SubResource("LabelSettings_osdr0")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+texture = ExtResource("2_5um0e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

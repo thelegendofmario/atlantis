@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=14 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
@@ -6,12 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://dvwr1qwpi7vtj" path="res://projectile_spawner.tscn" id="3_u6ab7"]
 [ext_resource type="Texture2D" uid="uid://dlglrk46pdx4c" path="res://ParticleBoard_TXR.png" id="3_vi4sn"]
 [ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="4_ld8k3"]
+[ext_resource type="Script" path="res://portal2.09.gd" id="7_j4qqi"]
+[ext_resource type="Texture2D" uid="uid://bjurmxjvv7x7q" path="res://Dimensional_Portal.png" id="7_rrgox"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhsr8"]
 normal_enabled = true
 normal_texture = ExtResource("3_vi4sn")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fwhcu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j8v6a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1l7l"]
+albedo_color = Color(0, 0.74902, 0, 1)
+normal_enabled = true
+normal_texture = ExtResource("7_rrgox")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omq51"]
 
 [node name="boss_fight" type="Node3D"]
 script = ExtResource("1_qnhnp")
@@ -84,6 +95,23 @@ transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.09695
 
 [node name="spawner5" parent="." instance=ExtResource("3_u6ab7")]
 transform = Transform3D(1, 0, 0, 0, -0.0969575, 0.995288, 0, -0.995288, -0.0969575, 35.2752, 5.70433, 34.393)
+
+[node name="portal" type="Node3D" parent="."]
+
+[node name="portal1" type="Area3D" parent="portal"]
+script = ExtResource("7_j4qqi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="portal/portal1"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, -8.96648, 15.9047, 1.26419)
+mesh = SubResource("CapsuleMesh_j8v6a")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_g1l7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portal1"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, -8.96648, 15.9047, 1.26419)
+shape = SubResource("CapsuleShape3D_omq51")
+
+[connection signal="body_entered" from="portal/portal1" to="portal/portal1" method="_on_portal_1_body_entered"]
 
 [editable path="floors/floor"]
 [editable path="floors/floor2"]
