@@ -28,7 +28,7 @@ mesh = SubResource("SphereMesh_b84ac")
 surface_material_override/0 = SubResource("StandardMaterial3D_qkuu5")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-amount = 10
+amount = 4
 lifetime = 1.9
 randomness = 1.0
 mesh = SubResource("SphereMesh_tnwek")
