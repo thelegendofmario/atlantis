@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://l5q0om65a4iq"]
+
+[ext_resource type="Texture2D" uid="uid://brb86u2gwlv1b" path="res://StoneWall_TXR.png" id="1_054cn"]
+[ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="2_dorsw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0u36u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fwhcu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3e7tf"]
+albedo_color = Color(0.644188, 0.470785, 0.691167, 1)
+metallic_specular = 0.0
+roughness_texture = ExtResource("1_054cn")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_scale = 4.75
+normal_texture = ExtResource("2_dorsw")
+detail_normal = ExtResource("1_054cn")
+grow_amount = -1.939
+
+[node name="floor" type="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0u36u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_fwhcu")
+surface_material_override/0 = SubResource("StandardMaterial3D_3e7tf")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=20 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
@@ -8,7 +8,9 @@
 [ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="4_ld8k3"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="6_d7iw2"]
 [ext_resource type="Script" path="res://portal2.09.gd" id="7_j4qqi"]
-[ext_resource type="Texture2D" uid="uid://bjurmxjvv7x7q" path="res://Dimensional_Portal.png" id="7_rrgox"]
+[ext_resource type="Material" uid="uid://rkss8xwe0gf8" path="res://boss_fight2_0.tres" id="9_4x2ki"]
+[ext_resource type="Material" uid="uid://5svrbxqmw7kj" path="res://boss_fight.tres" id="10_nrtkv"]
+[ext_resource type="Script" path="res://portal34.09.gd" id="10_saqht"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhsr8"]
 normal_enabled = true
@@ -32,11 +34,6 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_4jnl5")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_015kl")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j8v6a"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1l7l"]
-albedo_color = Color(0, 0.74902, 0, 1)
-normal_enabled = true
-normal_texture = ExtResource("7_rrgox")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omq51"]
 
@@ -180,6 +177,7 @@ transform = Transform3D(-3.61384e-07, 0, 79.6075, 0, 132.395, 0, -8.26751, 0, -3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 142.477, 0)
+shadow_enabled = true
 shadow_opacity = 0.25
 
 [node name="spawner" parent="." instance=ExtResource("3_u6ab7")]
@@ -207,13 +205,28 @@ script = ExtResource("7_j4qqi")
 transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_j8v6a")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_g1l7l")
+surface_material_override/0 = ExtResource("9_4x2ki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portal1"]
 transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_omq51")
 
+[node name="portal2" type="Area3D" parent="portal"]
+transform = Transform3D(-0.60535, 0, 0.79596, 0, 1, 0, -0.79596, 0, -0.60535, -29.278, 25.5594, 20.3588)
+script = ExtResource("10_saqht")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="portal/portal2"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_j8v6a")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("10_nrtkv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portal2"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_omq51")
+
 [connection signal="body_entered" from="portal/portal1" to="portal/portal1" method="_on_portal_1_body_entered"]
+[connection signal="body_entered" from="portal/portal2" to="portal/portal2" method="_on_portal_1_body_entered"]
 
 [editable path="floors/floor"]
 [editable path="floors/floor2"]

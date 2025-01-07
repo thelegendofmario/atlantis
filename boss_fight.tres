@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://5svrbxqmw7kj"]
+
+[ext_resource type="Texture2D" uid="uid://bjurmxjvv7x7q" path="res://Dimensional_Portal.png" id="1_yqwr6"]
+
+[resource]
+albedo_color = Color(6.54578e-06, 0.581188, 0.856224, 1)
+normal_enabled = true
+normal_texture = ExtResource("1_yqwr6")

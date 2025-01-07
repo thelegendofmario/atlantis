@@ -683,6 +683,10 @@ metadata/_edit_group_ = true
 position = Vector2(1957, 1301)
 metadata/_edit_group_ = true
 
+[node name="SavePoint6" parent="checkpoints" instance=ExtResource("8_7ho56")]
+position = Vector2(3263, 1218)
+metadata/_edit_group_ = true
+
 [node name="SavePoint2" parent="checkpoints" instance=ExtResource("8_7ho56")]
 position = Vector2(4042, 399)
 metadata/_edit_group_ = true
@@ -1085,6 +1089,7 @@ scale = Vector2(-31.1909, 12.4116)
 [connection signal="body_entered" from="checkpoints/SavePoint" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint4" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint5" to="." method="_on_save_point_body_entered"]
+[connection signal="body_entered" from="checkpoints/SavePoint6" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint2" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint3" to="." method="_on_save_point_body_entered"]
 [connection signal="hurt_player" from="Enemys/Enemy" to="." method="_on_enemy_hurt_player"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvw5s7ie0jo2d"]
+[gd_scene load_steps=4 format=3 uid="uid://dvw5s7ie0jo2d"]
 
 [ext_resource type="PackedScene" uid="uid://dctl7y1xi4sk5" path="res://SharkWithLegs.fbx" id="1_mpa38"]
+[ext_resource type="Texture2D" uid="uid://c0h7b178efwgr" path="res://Infamous_Banana_1024_1.png" id="2_nr03k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6dus"]
+normal_enabled = true
+normal_texture = ExtResource("2_nr03k")
 
 [node name="SharkWithLegs" instance=ExtResource("1_mpa38")]
 
