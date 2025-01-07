@@ -14,6 +14,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	$boss_player3d/CanvasLayer/DebugLabel.text = str($boss_player3d.get_gravity(), Global.super_artifacts, Engine.get_frames_per_second())
+	$boss_player3d/CanvasLayer/AirBar.value = Global.air/10
+	$"boss_player3d/CanvasLayer/Stamina Bar".value=$boss_player3d.stamina
+	$"boss_player3d/CanvasLayer/Health Bar".value = Global.player_health
+	
 	b.look_at(P.global_position,Vector3.UP)
 	v.look_at(P.global_position,Vector3.UP)
 	c.look_at(P.global_position,Vector3.UP)

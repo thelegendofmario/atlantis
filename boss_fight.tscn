@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=19 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
@@ -6,12 +6,30 @@
 [ext_resource type="PackedScene" uid="uid://dvwr1qwpi7vtj" path="res://projectile_spawner.tscn" id="3_u6ab7"]
 [ext_resource type="Texture2D" uid="uid://dlglrk46pdx4c" path="res://ParticleBoard_TXR.png" id="3_vi4sn"]
 [ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="4_ld8k3"]
+[ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="6_d7iw2"]
 [ext_resource type="Script" path="res://portal2.09.gd" id="7_j4qqi"]
 [ext_resource type="Texture2D" uid="uid://bjurmxjvv7x7q" path="res://Dimensional_Portal.png" id="7_rrgox"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhsr8"]
 normal_enabled = true
 normal_texture = ExtResource("3_vi4sn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jnl5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab5v"]
+bg_color = Color(0.783191, 0.78319, 0, 1)
+
+[sub_resource type="Theme" id="Theme_pu1uf"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_4jnl5")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_4ab5v")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_015kl"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_byqeh"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_4jnl5")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_015kl")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j8v6a"]
 
@@ -28,73 +46,85 @@ script = ExtResource("1_qnhnp")
 [node name="floors" type="Node3D" parent="."]
 transform = Transform3D(83.333, 0, 0, 0, 1, 0, 0, 0, 81.167, 0, 0, 0)
 
-[node name="floor" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52957e-07, -0.958055, -7.96264e-08, -5.78699, 4.18779e-08, 0, -2.21142e-14, -8.37558e-08, 0.91082, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="floors/floor" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_vhsr8")
 
-[node name="floor2" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor2" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0, 3.78585, -0.189902)
 
 [node name="MeshInstance3D" parent="floors/floor2" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor7" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor7" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.264585, 3.78585, 0.243965)
 
 [node name="MeshInstance3D" parent="floors/floor7" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor3" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor3" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0, 8.4058, -0.0775383)
 
 [node name="MeshInstance3D" parent="floors/floor3" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor6" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor6" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.12483, 8.4058, 0.157532)
 
 [node name="MeshInstance3D" parent="floors/floor6" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor4" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor4" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.120901, 12.944, 0.0322596)
 
 [node name="MeshInstance3D" parent="floors/floor4" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor5" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor5" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.13086, 12.944, -0.195281)
 
 [node name="MeshInstance3D" parent="floors/floor5" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor8" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor8" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.13086, 12.944, 0.00163014)
 
 [node name="MeshInstance3D" parent="floors/floor8" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor9" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor9" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.0273931, 17.6486, 0.044991)
 
 [node name="MeshInstance3D" parent="floors/floor9" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor12" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor12" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.0810679, 22.829, -0.0874196)
 
 [node name="MeshInstance3D" parent="floors/floor12" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor10" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor13" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.304825, 22.829, -0.143614)
+
+[node name="MeshInstance3D" parent="floors/floor13" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="floor14" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.328698, 22.829, 0.226731)
+
+[node name="MeshInstance3D" parent="floors/floor14" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="floor10" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.245207, 17.6486, -0.254118)
 
 [node name="MeshInstance3D" parent="floors/floor10" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
-[node name="floor11" parent="floors" instance=ExtResource("1_gt8xc")]
+[node name="floor11" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.2263, 17.6486, 0.146243)
 
 [node name="MeshInstance3D" parent="floors/floor11" index="1"]
@@ -103,15 +133,44 @@ surface_material_override/0 = ExtResource("4_ld8k3")
 [node name="boss_player3d" parent="." instance=ExtResource("2_4k03r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.96453, 0)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="boss_player3d"]
+
+[node name="AirBar" type="ProgressBar" parent="boss_player3d/CanvasLayer"]
+offset_left = -1.0
+offset_top = 30.0
+offset_right = 191.0
+offset_bottom = 57.0
+theme = ExtResource("6_d7iw2")
+show_percentage = false
+
+[node name="Stamina Bar" type="ProgressBar" parent="boss_player3d/CanvasLayer"]
+offset_left = -1.0
+offset_top = 62.0
+offset_right = 191.0
+offset_bottom = 90.0
+theme = SubResource("Theme_pu1uf")
+show_percentage = false
+
+[node name="Health Bar" type="ProgressBar" parent="boss_player3d/CanvasLayer"]
+modulate = Color(0.471389, 0.665439, 0, 1)
+offset_right = 192.0
+offset_bottom = 27.0
+theme = SubResource("Theme_byqeh")
+show_percentage = false
+
+[node name="DebugLabel" type="Label" parent="boss_player3d/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="walls" type="Node3D" parent="."]
 
-[node name="wall" parent="walls" instance=ExtResource("1_gt8xc")]
+[node name="wall" parent="walls" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(8.26751, 0, 0, 0, 132.395, 0, 0, 0, 79.6075, -38.7307, 65.9649, 0)
 
-[node name="wall2" parent="walls" instance=ExtResource("1_gt8xc")]
+[node name="wall2" parent="walls" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(8.26751, 0, 0, 0, 132.395, 0, 0, 0, 79.6075, 38.431, 65.9649, 0)
 
-[node name="wall3" parent="walls" instance=ExtResource("1_gt8xc")]
+[node name="wall3" parent="walls" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-3.61384e-07, 0, 79.6075, 0, 132.395, 0, -8.26751, 0, -3.47976e-06, -0.167343, 65.9649, -37.0348)
 
 [node name="wall4" parent="walls" instance=ExtResource("1_gt8xc")]
@@ -166,5 +225,7 @@ shape = SubResource("CapsuleShape3D_omq51")
 [editable path="floors/floor8"]
 [editable path="floors/floor9"]
 [editable path="floors/floor12"]
+[editable path="floors/floor13"]
+[editable path="floors/floor14"]
 [editable path="floors/floor10"]
 [editable path="floors/floor11"]

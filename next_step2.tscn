@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyok3bvijwjbm"]
+
+[ext_resource type="Script" path="res://next_step2.gd" id="1_3f1jw"]
+
+[sub_resource type="FontFile" id="FontFile_v50ka"]
+cache/0/75/0/ascent = 0.0
+cache/0/75/0/descent = 0.0
+cache/0/75/0/underline_position = 0.0
+cache/0/75/0/underline_thickness = 0.0
+cache/0/75/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2edk"]
+font = SubResource("FontFile_v50ka")
+font_size = 75
+font_color = Color(0.57722, 0.909188, 0, 1)
+
+[node name="next step2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3f1jw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.266667, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.5
+offset_top = -213.5
+offset_right = 240.5
+offset_bottom = 213.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Too collect the 3 super artifacts
+you will have to adventure through
+3 portals that will test your 
+Wits, Might, and Will
+GOOD LUCK"
+label_settings = SubResource("LabelSettings_u2edk")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

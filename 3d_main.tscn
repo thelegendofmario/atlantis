@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3se8nuvgxkjf"]
+[gd_scene load_steps=25 format=3 uid="uid://b3se8nuvgxkjf"]
 
 [ext_resource type="ArrayMesh" uid="uid://1tyw88emkjhs" path="res://ground.obj" id="1_vunmd"]
+[ext_resource type="Script" path="res://3d_main.gd" id="1_wk5im"]
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="2_dl1c1"]
 [ext_resource type="PackedScene" uid="uid://bi7gtc143313u" path="res://player_3d.tscn" id="3_st2pv"]
+[ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="4_83jih"]
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="4_ct6v1"]
 [ext_resource type="Script" path="res://wand.gd" id="4_mntdq"]
 [ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_dkvc1"]
@@ -17,6 +19,23 @@ metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e18lk"]
 albedo_color = Color(1, 0.054902, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp6nt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od1hs"]
+bg_color = Color(0.783191, 0.78319, 0, 1)
+
+[sub_resource type="Theme" id="Theme_8aj53"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_od1hs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hydnm"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_t4jxv"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_hydnm")
 
 [sub_resource type="Environment" id="Environment_huaj0"]
 fog_enabled = true
@@ -43,6 +62,7 @@ normal_scale = 11.2
 normal_texture = ExtResource("2_dl1c1")
 
 [node name="3d section" type="Node3D"]
+script = ExtResource("1_wk5im")
 
 [node name="player3d" parent="." instance=ExtResource("3_st2pv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22315, 0)
@@ -63,6 +83,35 @@ surface_material_override/0 = SubResource("StandardMaterial3D_e18lk")
 
 [node name="Marker3D" type="Marker3D" parent="player3d/wand2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="player3d"]
+
+[node name="AirBar" type="ProgressBar" parent="player3d/CanvasLayer"]
+offset_left = -1.0
+offset_top = 30.0
+offset_right = 191.0
+offset_bottom = 57.0
+theme = ExtResource("4_83jih")
+show_percentage = false
+
+[node name="Stamina Bar" type="ProgressBar" parent="player3d/CanvasLayer"]
+offset_left = -1.0
+offset_top = 62.0
+offset_right = 191.0
+offset_bottom = 90.0
+theme = SubResource("Theme_8aj53")
+show_percentage = false
+
+[node name="Health Bar" type="ProgressBar" parent="player3d/CanvasLayer"]
+modulate = Color(0.471389, 0.665439, 0, 1)
+offset_right = 192.0
+offset_bottom = 27.0
+theme = SubResource("Theme_t4jxv")
+show_percentage = false
+
+[node name="DebugLabel" type="Label" parent="player3d/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="walls" type="Node3D" parent="."]
 

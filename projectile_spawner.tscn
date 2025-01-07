@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvwr1qwpi7vtj"]
+[gd_scene load_steps=7 format=3 uid="uid://dvwr1qwpi7vtj"]
 
 [ext_resource type="Script" path="res://projectile_spawner.gd" id="1_t40sd"]
+[ext_resource type="PackedScene" uid="uid://dvw5s7ie0jo2d" path="res://shark_with_legs.tscn" id="2_2ml1j"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_x8acy"]
 
@@ -32,7 +33,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o8rk2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250694, -1)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.7
+wait_time = 1.5
 autostart = true
+
+[node name="SharkWithLegs" parent="." instance=ExtResource("2_2ml1j")]
+transform = Transform3D(-0.6968, 0, -6.09162e-08, 0, 0.6968, 0, 6.09162e-08, 0, -0.6968, 0, 0, 1.29357)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

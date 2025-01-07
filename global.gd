@@ -23,6 +23,7 @@ var max_artifacts = 6
 var button_on = true
 var dPlayer_Health = 255
 var dmarkposition = Vector3()
+var super_artifacts = 0
 
 #### DATABASE VARS ####
 var database : SQLite = null

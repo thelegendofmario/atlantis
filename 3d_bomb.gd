@@ -18,6 +18,8 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		Global.player_health -= 5
 		queue_free()
+	if body.is_in_group("ground"):
+		queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free()

@@ -35,6 +35,10 @@ func _physics_process(delta: float) -> void:
 		can_sprint = false
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	if Global.player_in_water:
+		Global.air -= 1
+	if Global.air == 0:
+		get_tree().change_scene_to_file("res://THE_BAD_END.tscn") 
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

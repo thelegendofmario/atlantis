@@ -121,6 +121,7 @@ kama={
 common/physics_ticks_per_second=30
 common/physics_jitter_fix=0.0
 2d/physics_engine="Rapier2D"
+3d/physics_engine="JoltPhysics3D"
 common/physics_interpolation=true
 
 [rendering]

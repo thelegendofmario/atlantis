@@ -29,22 +29,22 @@
 [ext_resource type="PackedScene" uid="uid://bmkhl5d7w4y5f" path="res://portal.tscn" id="29_dvac1"]
 [ext_resource type="PackedScene" uid="uid://13vecqqdu32l" path="res://floor.tscn" id="30_i64fw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp6nt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm0fo"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od1hs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p85p1"]
 bg_color = Color(0.783191, 0.78319, 0, 1)
 
 [sub_resource type="Theme" id="Theme_mvmhb"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_od1hs")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_gm0fo")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_p85p1")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hydnm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oicid"]
 bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Theme" id="Theme_xd8ws"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_hydnm")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_gm0fo")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_oicid")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olxra"]
 atlas = ExtResource("5_3sp5s")
