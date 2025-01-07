@@ -25,7 +25,7 @@ func _on_start_button_pressed() -> void:
 	Global.database.open_db()
 	Global.database.create_table(table_name, save_dict)
 	print("database:", Global.database)
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://first_step.tscn")
 	
 
 

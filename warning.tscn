@@ -1,12 +1,68 @@
 [gd_scene load_steps=4 format=3 uid="uid://dabenwqb3quiw"]
 
-[ext_resource type="FontFile" uid="uid://c8846nsehg2o3" path="res://Youmurdererbb-pwoK.otf" id="1_au0co"]
 [ext_resource type="Script" path="res://warning.gd" id="1_ffj0e"]
 
+[sub_resource type="FontFile" id="FontFile_llqvp"]
+cache/0/131/0/ascent = 0.0
+cache/0/131/0/descent = 0.0
+cache/0/131/0/underline_position = 0.0
+cache/0/131/0/underline_thickness = 0.0
+cache/0/131/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/99/0/ascent = 0.0
+cache/0/99/0/descent = 0.0
+cache/0/99/0/underline_position = 0.0
+cache/0/99/0/underline_thickness = 0.0
+cache/0/99/0/scale = 1.0
+cache/0/98/0/ascent = 0.0
+cache/0/98/0/descent = 0.0
+cache/0/98/0/underline_position = 0.0
+cache/0/98/0/underline_thickness = 0.0
+cache/0/98/0/scale = 1.0
+cache/0/97/0/ascent = 0.0
+cache/0/97/0/descent = 0.0
+cache/0/97/0/underline_position = 0.0
+cache/0/97/0/underline_thickness = 0.0
+cache/0/97/0/scale = 1.0
+cache/0/96/0/ascent = 0.0
+cache/0/96/0/descent = 0.0
+cache/0/96/0/underline_position = 0.0
+cache/0/96/0/underline_thickness = 0.0
+cache/0/96/0/scale = 1.0
+cache/0/95/0/ascent = 0.0
+cache/0/95/0/descent = 0.0
+cache/0/95/0/underline_position = 0.0
+cache/0/95/0/underline_thickness = 0.0
+cache/0/95/0/scale = 1.0
+cache/0/94/0/ascent = 0.0
+cache/0/94/0/descent = 0.0
+cache/0/94/0/underline_position = 0.0
+cache/0/94/0/underline_thickness = 0.0
+cache/0/94/0/scale = 1.0
+cache/0/93/0/ascent = 0.0
+cache/0/93/0/descent = 0.0
+cache/0/93/0/underline_position = 0.0
+cache/0/93/0/underline_thickness = 0.0
+cache/0/93/0/scale = 1.0
+cache/0/92/0/ascent = 0.0
+cache/0/92/0/descent = 0.0
+cache/0/92/0/underline_position = 0.0
+cache/0/92/0/underline_thickness = 0.0
+cache/0/92/0/scale = 1.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_u2edk"]
-font = ExtResource("1_au0co")
-font_size = 131
-font_color = Color(1, 0, 0, 1)
+font = SubResource("FontFile_llqvp")
+font_size = 92
+font_color = Color(0.298039, 1, 0, 1)
 
 [node name="warning" type="Control"]
 layout_mode = 3
@@ -24,7 +80,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(2.76752e-07, 0.18175, 0.260266, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -43,7 +99,7 @@ text = "YOU HAVE
 100 SECONDS
  TO COLLECT
 THE
-FINAL ARTIFACT"
+SUPER ARTIFACT OF WILL"
 label_settings = SubResource("LabelSettings_u2edk")
 horizontal_alignment = 1
 
