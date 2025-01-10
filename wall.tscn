@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://mtsk35m1v8pf"]
+[gd_scene load_steps=7 format=3 uid="uid://mtsk35m1v8pf"]
 
+[ext_resource type="Texture2D" uid="uid://dfwtf70cqqw7q" path="res://th-1240146318.jpg" id="1_3l4s2"]
 [ext_resource type="Texture2D" uid="uid://brb86u2gwlv1b" path="res://StoneWall_TXR.png" id="1_cb0gr"]
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="1_tcc7t"]
 
@@ -9,10 +10,10 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3e7tf"]
 albedo_color = Color(0.644188, 0.470785, 0.691167, 1)
+albedo_texture = ExtResource("1_3l4s2")
 metallic_specular = 0.0
 roughness_texture = ExtResource("1_cb0gr")
 roughness_texture_channel = 2
-normal_enabled = true
 normal_scale = 4.75
 normal_texture = ExtResource("1_tcc7t")
 detail_normal = ExtResource("1_cb0gr")
