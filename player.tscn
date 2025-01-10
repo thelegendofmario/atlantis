@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvnsggulq2g76"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j3o7u"]
-[ext_resource type="Texture2D" uid="uid://dakfia4hvm6w0" path="res://Diver.png" id="2_pso3q"]
+[ext_resource type="Texture2D" uid="uid://bmjahaa710lar" path="res://Diver2.png" id="2_6w5vg"]
 [ext_resource type="AudioStream" uid="uid://ct2h12ykw0qm1" path="res://Jump_Real.wav" id="3_6u4ah"]
 [ext_resource type="AudioStream" uid="uid://vxpe84ssurmv" path="res://Hit_Real.wav" id="4_pqmd2"]
 
@@ -45,7 +45,7 @@ script = ExtResource("1_j3o7u")
 position = Vector2(1.90735e-06, -3.8147e-06)
 rotation = -0.0872665
 scale = Vector2(1.6875, 1.75)
-texture = ExtResource("2_pso3q")
+texture = ExtResource("2_6w5vg")
 offset = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

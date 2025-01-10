@@ -1,20 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=24 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
 [ext_resource type="PackedScene" uid="uid://cnj1cv4ijgkt5" path="res://boss_player_3d.tscn" id="2_4k03r"]
+[ext_resource type="Material" uid="uid://b0f38ystedpg2" path="res://bjhvddvwewdf.tres" id="3_n6oxp"]
 [ext_resource type="PackedScene" uid="uid://dvwr1qwpi7vtj" path="res://projectile_spawner.tscn" id="3_u6ab7"]
-[ext_resource type="Texture2D" uid="uid://dlglrk46pdx4c" path="res://ParticleBoard_TXR.png" id="3_vi4sn"]
 [ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="4_ld8k3"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="6_d7iw2"]
 [ext_resource type="Script" path="res://portal2.09.gd" id="7_j4qqi"]
 [ext_resource type="Material" uid="uid://rkss8xwe0gf8" path="res://boss_fight2_0.tres" id="9_4x2ki"]
 [ext_resource type="Material" uid="uid://5svrbxqmw7kj" path="res://boss_fight.tres" id="10_nrtkv"]
 [ext_resource type="Script" path="res://portal34.09.gd" id="10_saqht"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhsr8"]
-normal_enabled = true
-normal_texture = ExtResource("3_vi4sn")
+[ext_resource type="Texture2D" uid="uid://bgle7iv5encjc" path="res://th-1741545468.jpg" id="12_26tcs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jnl5"]
 bg_color = Color(0, 0, 0, 1)
@@ -37,6 +34,20 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_015kl")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omq51"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22w76"]
+panorama = ExtResource("12_26tcs")
+
+[sub_resource type="Sky" id="Sky_qlpvv"]
+sky_material = SubResource("PanoramaSkyMaterial_22w76")
+
+[sub_resource type="Environment" id="Environment_e1sqs"]
+background_mode = 2
+background_energy_multiplier = 6.65
+sky = SubResource("Sky_qlpvv")
+ambient_light_source = 3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ngyg"]
+
 [node name="boss_fight" type="Node3D"]
 script = ExtResource("1_qnhnp")
 
@@ -44,10 +55,10 @@ script = ExtResource("1_qnhnp")
 transform = Transform3D(83.333, 0, 0, 0, 1, 0, 0, 0, 81.167, 0, 0, 0)
 
 [node name="floor" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
-transform = Transform3D(-2.52957e-07, -0.958055, -7.96264e-08, -5.78699, 4.18779e-08, 0, -2.21142e-14, -8.37558e-08, 0.91082, 0, 0, 0)
+transform = Transform3D(-2.52958e-07, -10.958, -1.64752e-06, -5.787, 4.78989e-07, -9.97797e-21, -3.81956e-14, -1.65461e-06, 10.911, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="floors/floor" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_vhsr8")
+surface_material_override/0 = ExtResource("3_n6oxp")
 
 [node name="floor2" parent="floors" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0, 3.78585, -0.189902)
@@ -160,6 +171,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="walls" type="Node3D" parent="."]
+visible = false
 
 [node name="wall" parent="walls" groups=["ground"] instance=ExtResource("1_gt8xc")]
 transform = Transform3D(8.26751, 0, 0, 0, 132.395, 0, 0, 0, 79.6075, -38.7307, 65.9649, 0)
@@ -224,6 +236,10 @@ surface_material_override/0 = ExtResource("10_nrtkv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portal2"]
 transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_omq51")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e1sqs")
+camera_attributes = SubResource("CameraAttributesPractical_7ngyg")
 
 [connection signal="body_entered" from="portal/portal1" to="portal/portal1" method="_on_portal_1_body_entered"]
 [connection signal="body_entered" from="portal/portal2" to="portal/portal2" method="_on_portal_1_body_entered"]

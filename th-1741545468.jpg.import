@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3n5sqkv3locn"
-path.s3tc="res://.godot/imported/Infamous_Banana_1024_1-removebg-preview.png-f9cec8843849667b865d8be4fc52abab.s3tc.ctex"
+uid="uid://bgle7iv5encjc"
+path.s3tc="res://.godot/imported/th-1741545468.jpg-063b3333f5fc0437522bb249becf8902.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Infamous_Banana_1024_1-removebg-preview.png"
-dest_files=["res://.godot/imported/Infamous_Banana_1024_1-removebg-preview.png-f9cec8843849667b865d8be4fc52abab.s3tc.ctex"]
+source_file="res://th-1741545468.jpg"
+dest_files=["res://.godot/imported/th-1741545468.jpg-063b3333f5fc0437522bb249becf8902.s3tc.ctex"]
 
 [params]
 
