@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b3se8nuvgxkjf"]
+[gd_scene load_steps=28 format=3 uid="uid://b3se8nuvgxkjf"]
 
 [ext_resource type="ArrayMesh" uid="uid://1tyw88emkjhs" path="res://ground.obj" id="1_vunmd"]
 [ext_resource type="Script" path="res://3d_main.gd" id="1_wk5im"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://wand.gd" id="4_mntdq"]
 [ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_dkvc1"]
 [ext_resource type="Texture2D" uid="uid://dfwtf70cqqw7q" path="res://th-1240146318.jpg" id="8_vtvgy"]
+[ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="10_6wlll"]
+[ext_resource type="Script" path="res://audio_stream_player.gd" id="11_3u0xk"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xribn"]
 
@@ -323,3 +325,10 @@ mesh = ExtResource("1_vunmd")
 skin = SubResource("Skin_dwome")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ORMMaterial3D_mex7l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6wlll")
+autoplay = true
+script = ExtResource("11_3u0xk")
+
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=70 format=3 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://0w3mjiu1q1yf" path="res://platforms3.tscn" id="26_atwix"]
 [ext_resource type="PackedScene" uid="uid://b3lxvq5je6nwv" path="res://enemy.tscn" id="27_xtvcj"]
 [ext_resource type="PackedScene" uid="uid://bmkhl5d7w4y5f" path="res://portal.tscn" id="29_dvac1"]
+[ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="29_w86ts"]
+[ext_resource type="Script" path="res://audio_stream_player.gd" id="30_8ljm1"]
 [ext_resource type="PackedScene" uid="uid://13vecqqdu32l" path="res://floor.tscn" id="30_i64fw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm0fo"]
@@ -1085,6 +1087,11 @@ scale = Vector2(-189.508, -8.67471)
 position = Vector2(3900, 1908)
 scale = Vector2(-31.1909, 12.4116)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_w86ts")
+autoplay = true
+script = ExtResource("30_8ljm1")
+
 [connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint4" to="." method="_on_save_point_body_entered"]
@@ -1097,3 +1104,4 @@ scale = Vector2(-31.1909, 12.4116)
 [connection signal="hurt_player" from="Enemys/Enemy3" to="." method="_on_enemy_3_hurt_player"]
 [connection signal="hurt_player" from="Enemys/Enemy4" to="." method="_on_enemy_4_hurt_player"]
 [connection signal="hurt_player" from="Enemys/Enemy5" to="." method="_on_enemy_5_hurt_player"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=26 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
@@ -12,6 +12,8 @@
 [ext_resource type="Material" uid="uid://5svrbxqmw7kj" path="res://boss_fight.tres" id="10_nrtkv"]
 [ext_resource type="Script" path="res://portal34.09.gd" id="10_saqht"]
 [ext_resource type="Texture2D" uid="uid://bgle7iv5encjc" path="res://th-1741545468.jpg" id="12_26tcs"]
+[ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="13_ci84y"]
+[ext_resource type="Script" path="res://audio_stream_player.gd" id="14_7edpg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jnl5"]
 bg_color = Color(0, 0, 0, 1)
@@ -241,8 +243,14 @@ shape = SubResource("CapsuleShape3D_omq51")
 environment = SubResource("Environment_e1sqs")
 camera_attributes = SubResource("CameraAttributesPractical_7ngyg")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ci84y")
+autoplay = true
+script = ExtResource("14_7edpg")
+
 [connection signal="body_entered" from="portal/portal1" to="portal/portal1" method="_on_portal_1_body_entered"]
 [connection signal="body_entered" from="portal/portal2" to="portal/portal2" method="_on_portal_1_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]
 
 [editable path="floors/floor"]
 [editable path="floors/floor2"]
