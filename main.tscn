@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
-[ext_resource type="Texture2D" uid="uid://c2myki8u17y4i" path="res://wp3713509-caves-with-water-wallpapers.jpg" id="2_exqhv"]
+[ext_resource type="Texture2D" uid="uid://cyphtcd388gf8" path="res://caveRemasteredV7.png" id="2_ee1ep"]
 [ext_resource type="PackedScene" uid="uid://b7qv07up2fuao" path="res://water.tscn" id="2_nteh3"]
 [ext_resource type="Script" path="res://gun.gd" id="4_3bljc"]
 [ext_resource type="Texture2D" uid="uid://ckmpmscjuvmtm" path="res://Elementstäbe.png" id="5_3sp5s"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dsnda70o8iut4" path="res://artifact of ice.tscn" id="14_rr2hk"]
 [ext_resource type="PackedScene" uid="uid://csdef0m52irok" path="res://spike.tscn" id="16_5axmq"]
 [ext_resource type="Script" path="res://door_1.gd" id="18_2v6os"]
-[ext_resource type="Texture2D" uid="uid://brb86u2gwlv1b" path="res://StoneWall_TXR.png" id="19_1kdg3"]
+[ext_resource type="Texture2D" uid="uid://bkoetgt42itnc" path="res://red_wall.png" id="18_n87tq"]
 [ext_resource type="PackedScene" uid="uid://bbtmitg6uiya1" path="res://platforms.tscn" id="19_am2b8"]
 [ext_resource type="Script" path="res://door_2.gd" id="19_jgc6m"]
 [ext_resource type="Script" path="res://door_3.gd" id="20_fd0u4"]
@@ -336,9 +336,9 @@ position = Vector2(66, -1160)
 scale = Vector2(3.08734, 2.01313)
 
 [node name="Sprite2D" type="Sprite2D" parent="background"]
-position = Vector2(2028.93, 928.405)
-scale = Vector2(1.06989, 1.53552)
-texture = ExtResource("2_exqhv")
+position = Vector2(1969.01, 1009.87)
+scale = Vector2(14.3346, 6.51673)
+texture = ExtResource("2_ee1ep")
 
 [node name="Water" parent="." instance=ExtResource("2_nteh3")]
 position = Vector2(5461, 1426)
@@ -704,8 +704,8 @@ script = ExtResource("18_2v6os")
 
 [node name="Sprite2D" type="Sprite2D" parent="doors/door1"]
 position = Vector2(3757, 531)
-scale = Vector2(0.1, 0.497)
-texture = ExtResource("19_1kdg3")
+scale = Vector2(0.558982, 2.47087)
+texture = ExtResource("18_n87tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doors/door1"]
 position = Vector2(3758, 527)
@@ -718,8 +718,8 @@ script = ExtResource("19_jgc6m")
 
 [node name="Sprite2D" type="Sprite2D" parent="doors/door2"]
 position = Vector2(3757, 531)
-scale = Vector2(0.1, 0.497)
-texture = ExtResource("19_1kdg3")
+scale = Vector2(0.516196, 2.87336)
+texture = ExtResource("18_n87tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doors/door2"]
 position = Vector2(3757, 539)
@@ -732,8 +732,8 @@ script = ExtResource("20_fd0u4")
 
 [node name="Sprite2D" type="Sprite2D" parent="doors/door3"]
 position = Vector2(3757, 531)
-scale = Vector2(0.1, 0.497)
-texture = ExtResource("19_1kdg3")
+scale = Vector2(0.54806, 2.94273)
+texture = ExtResource("18_n87tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doors/door3"]
 position = Vector2(3758, 527)
@@ -746,8 +746,8 @@ script = ExtResource("21_ilr70")
 
 [node name="Sprite2D" type="Sprite2D" parent="doors/door4"]
 position = Vector2(3757, 531)
-scale = Vector2(0.1, 0.497)
-texture = ExtResource("19_1kdg3")
+scale = Vector2(0.523328, 2.40113)
+texture = ExtResource("18_n87tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doors/door4"]
 position = Vector2(3758, 527)
@@ -761,6 +761,7 @@ position = Vector2(2679, 514)
 
 [node name="platforms6" parent="timedplatforms" instance=ExtResource("19_am2b8")]
 position = Vector2(2825, 1790)
+script = null
 
 [node name="platforms5" parent="timedplatforms" instance=ExtResource("19_am2b8")]
 position = Vector2(2406, 1326)

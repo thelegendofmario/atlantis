@@ -1,0 +1,209 @@
+[gd_scene load_steps=6 format=3 uid="uid://brbkmldb04wtg"]
+
+[ext_resource type="Script" path="res://mecha2.gd" id="1_csowx"]
+[ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="2_j6yei"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3nj0t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fimho"]
+albedo_color = Color(0.515867, 0.515867, 0.515867, 1)
+metallic_specular = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yucv"]
+albedo_color = Color(0, 1, 1, 1)
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+emission_energy_multiplier = 3.53
+
+[node name="Mecha" type="CharacterBody3D"]
+script = ExtResource("1_csowx")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 2.73606, 5.30627)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 0.961756, 0.273909, 0, -0.273909, 0.961756, 0.00319219, 0.0444658, 0.014452)
+
+[node name="mesh" type="Node3D" parent="."]
+
+[node name="body" type="Node3D" parent="mesh"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mesh/body"]
+transform = Transform3D(1.92433, 0, 0, 0, 1.92433, 0, 0, 0, 1.92433, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="leftwing" type="Node3D" parent="mesh"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="mesh/leftwing"]
+transform = Transform3D(0.346447, -0.738641, 0.268533, 0.579639, 0.426033, -0.177273, 0.0178292, 0.502246, 0.545299, -0.802988, 0.601242, 0.75421)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="mesh/leftwing"]
+transform = Transform3D(0.346447, -0.738641, 0.268533, 0.579639, 0.426033, -0.177273, 0.0178292, 0.502246, 0.545299, -1.70903, 1.12879, 1.3311)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="bottomleftwing" type="Node3D" parent="mesh/leftwing"]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="mesh/leftwing/bottomleftwing"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -2.45347, 1.04239, 1.92987)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="mesh/leftwing/bottomleftwing"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -1.97589, 0.711218, 1.72573)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="mesh/leftwing/bottomleftwing"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -1.59871, 0.439736, 1.4491)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="mesh/leftwing/bottomleftwing"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -0.994769, 0.177172, 1.17039)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="rightwing" type="Node3D" parent="mesh"]
+transform = Transform3D(-0.999999, -0.000586604, 0.000964185, -0.000586491, 1, 0.000115402, 0.000964254, -0.000114826, 1, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="mesh/rightwing"]
+transform = Transform3D(0.346447, -0.738641, 0.268533, 0.579639, 0.426033, -0.177273, 0.0178292, 0.502246, 0.545299, -0.802988, 0.601242, 0.75421)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="mesh/rightwing"]
+transform = Transform3D(0.346447, -0.738641, 0.268533, 0.579639, 0.426033, -0.177273, 0.0178292, 0.502246, 0.545299, -1.70903, 1.12879, 1.3311)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="rightwingbottom" type="Node3D" parent="mesh/rightwing"]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="mesh/rightwing/rightwingbottom"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -2.45347, 1.04239, 1.92987)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="mesh/rightwing/rightwingbottom"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -1.97589, 0.711218, 1.72573)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="mesh/rightwing/rightwingbottom"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -1.59871, 0.439736, 1.4491)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="mesh/rightwing/rightwingbottom"]
+transform = Transform3D(-0.233784, -0.120958, 0.0368945, 0.0831893, -0.357429, 0.0906242, 0.00655164, 0.222257, 0.165819, -0.994769, 0.177172, 1.17039)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+
+[node name="head" type="Node3D" parent="mesh"]
+
+[node name="leftleg" type="Node3D" parent="mesh"]
+
+[node name="left gun" type="Node3D" parent="mesh"]
+transform = Transform3D(0.932439, -0.314594, 0.177729, 0.321176, 0.946979, -0.00879573, -0.165538, 0.0652836, 0.98404, 0, 0, 0)
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="mesh/left gun"]
+transform = Transform3D(-0.151805, -0.134613, 0.140369, 0.0959091, 0.301336, 0.118257, -0.171392, 0.287854, -0.0581524, -0.331675, 1.62008, 0.815551)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="mesh/left gun"]
+transform = Transform3D(0.0261047, -0.269484, 0.150409, 0.0348918, 0.344595, 0.115694, -0.244376, 0.0204139, 0.0325858, -0.639781, 2.13672, 1.0398)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="mesh/left gun"]
+transform = Transform3D(0.203014, -0.155037, 0.087344, -0.0241462, 0.30303, 0.137731, -0.140786, -0.275536, 0.102328, -0.951288, 2.6312, 0.848354)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="mesh/left gun"]
+transform = Transform3D(0.238563, 0.0494555, -0.0485638, 0.0677365, -0.10656, 0.179206, 0.0108566, -0.42188, -0.0509576, -1.03265, 2.78764, 0.27531)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="railgun" type="Node3D" parent="mesh/left gun"]
+transform = Transform3D(0.893623, 0.337873, -0.295431, -0.278043, 0.933471, 0.226548, 0.35232, -0.120306, 0.928114, -0.991113, 2.63354, 0.00407895)
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="mesh/left gun/railgun"]
+transform = Transform3D(0.247997, -0.0151357, 0.00504116, 0.00676955, 0.0137501, -0.192369, 0.00836785, 0.437454, 0.006221, 0.000426888, 0.087172, -0.264485)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fimho")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="mesh/left gun/railgun"]
+transform = Transform3D(0.247997, -0.032505, 0.00504115, 0.00676954, 0.0295296, -0.192369, 0.00836777, 0.939468, 0.00622099, 0.0223454, 0.131366, -0.949839)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("2_j6yei")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="mesh/left gun/railgun"]
+transform = Transform3D(0.247997, -0.0233514, 0.00504115, 0.00676954, 0.0212138, -0.192369, 0.00836777, 0.674907, 0.006221, 0.0134171, -0.00660706, -0.573611)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("2_j6yei")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="mesh/left gun/railgun"]
+transform = Transform3D(0.174855, -0.0233514, 0.00346647, 0.00477298, 0.0212141, -0.13228, 0.00589988, 0.674907, 0.00427785, 0.0211974, 0.0632401, -0.860719)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3yucv")
+
+[node name="right gun" type="Node3D" parent="mesh"]
+transform = Transform3D(-0.950591, 0.285276, -0.122452, 0.294387, 0.953552, -0.06383, -0.0985554, 0.0967245, 0.99042, -0.0185452, 0.0410292, 0)
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="mesh/right gun"]
+transform = Transform3D(-0.151805, -0.134613, 0.140369, 0.0959091, 0.301336, 0.118257, -0.171392, 0.287854, -0.0581524, -0.331675, 1.62008, 0.815551)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="mesh/right gun"]
+transform = Transform3D(0.0261047, -0.269484, 0.150409, 0.0348918, 0.344595, 0.115694, -0.244376, 0.0204139, 0.0325858, -0.639781, 2.13672, 1.0398)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="mesh/right gun"]
+transform = Transform3D(0.203014, -0.155037, 0.087344, -0.0241462, 0.30303, 0.137731, -0.140786, -0.275536, 0.102328, -0.951288, 2.6312, 0.848354)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="mesh/right gun"]
+transform = Transform3D(0.238563, 0.0494555, -0.0485638, 0.0677365, -0.10656, 0.179206, 0.0108566, -0.42188, -0.0509576, -1.03265, 2.78764, 0.27531)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="railgun" type="Node3D" parent="mesh/right gun"]
+transform = Transform3D(0.893623, 0.337873, -0.295431, -0.278043, 0.933471, 0.226548, 0.35232, -0.120306, 0.928114, -0.991113, 2.63354, 0.00407895)
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="mesh/right gun/railgun"]
+transform = Transform3D(0.247997, -0.0151357, 0.00504116, 0.00676955, 0.0137501, -0.192369, 0.00836785, 0.437454, 0.006221, 0.000426888, 0.087172, -0.264485)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fimho")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="mesh/right gun/railgun"]
+transform = Transform3D(0.247997, -0.032505, 0.00504115, 0.00676954, 0.0295296, -0.192369, 0.00836777, 0.939468, 0.00622099, 0.0223454, 0.131366, -0.949839)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("2_j6yei")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="mesh/right gun/railgun"]
+transform = Transform3D(0.247997, -0.0233514, 0.00504115, 0.00676954, 0.0212138, -0.192369, 0.00836777, 0.674907, 0.006221, 0.0134171, -0.00660706, -0.573611)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("2_j6yei")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="mesh/right gun/railgun"]
+transform = Transform3D(0.174855, -0.0233514, 0.00346647, 0.00477298, 0.0212141, -0.13228, 0.00589988, 0.674907, 0.00427785, 0.0211974, 0.0632401, -0.860719)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3yucv")

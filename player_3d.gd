@@ -9,6 +9,20 @@ const max_stamina = 100
 var sprinting = false
 var sprint_speed = 20
 var can_sprint = false
+var sensitivity = 0.003
+@onready var head = $"okayer model"
+@onready var camera = $"okayer model/Camera3D"
+
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * sensitivity)
+		camera.rotate_x(-event.relative.y * sensitivity)
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -41,13 +55,8 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	if Input.is_action_pressed("ui_left"):
-		self.rotate_y(0.1)
-		
-	if Input.is_action_pressed("ui_right"):
-		self.rotate_y(-0.1)
-	
-	var input_dir := Input.get_vector("", "", "ui_up", "ui_down")
+
+	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		$AnimationPlayer.play()

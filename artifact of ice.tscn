@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsnda70o8iut4"]
 
 [ext_resource type="Script" path="res://artifact of ice.gd" id="1_l3naf"]
-[ext_resource type="Texture2D" uid="uid://dnqnpl0fwwk21" path="res://ice-576352_1280.webp" id="2_o4ujn"]
+[ext_resource type="Texture2D" uid="uid://bfgp71xse864n" path="res://ice.png" id="2_m7x0l"]
 [ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_62h0c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_o4ujn")
+"texture": ExtResource("2_m7x0l")
 }],
 "loop": true,
 "name": &"default",
@@ -23,14 +23,11 @@ script = ExtResource("1_l3naf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -0.5)
-scale = Vector2(0.0197092, 0.0166802)
+scale = Vector2(0.756839, -1.07291)
 sprite_frames = SubResource("SpriteFrames_70g1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1mysw")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -0.5)
 
 [node name="Pickup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_62h0c")

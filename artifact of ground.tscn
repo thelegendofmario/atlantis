@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://beu365j5kv3sr"]
 
 [ext_resource type="Script" path="res://artifact of ground.gd" id="1_bpndc"]
-[ext_resource type="Texture2D" uid="uid://cpcc6ggv63ws7" path="res://an-8-bit-retro-styled-pixel-art-illustration-of-a-shiny-crystal-free-png-2111263478.png" id="2_7ejih"]
+[ext_resource type="Texture2D" uid="uid://bl8nqn035pc40" path="res://geode.png" id="2_ktl8k"]
 [ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_1eqel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7ejih")
+"texture": ExtResource("2_ktl8k")
 }],
 "loop": true,
 "name": &"default",
@@ -22,15 +22,12 @@ scale = Vector2(2, 2)
 script = ExtResource("1_bpndc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.5, -1)
-scale = Vector2(0.017346, 0.0236828)
+position = Vector2(-0.5, 0)
+scale = Vector2(0.885269, 0.953042)
 sprite_frames = SubResource("SpriteFrames_70g1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1mysw")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.5, 3.5)
 
 [node name="Pickup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_1eqel")

@@ -1,18 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://nliedh5irt5d"]
+[gd_scene load_steps=6 format=3 uid="uid://nliedh5irt5d"]
 
 [ext_resource type="Script" path="res://artifact of dragons.gd" id="1_2ovit"]
-[ext_resource type="Texture2D" uid="uid://ce2iqt4tbntin" path="res://Basic Dragon 1x.png" id="2_gsjpi"]
+[ext_resource type="Texture2D" uid="uid://dcc4g6eqinkjg" path="res://dragon idol.png" id="2_ncy11"]
 [ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_4mprh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_055dk"]
-atlas = ExtResource("2_gsjpi")
-region = Rect2(0, 0, 17, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_055dk")
+"texture": ExtResource("2_ncy11")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -26,8 +22,8 @@ scale = Vector2(2, 2)
 script = ExtResource("1_2ovit")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.5, -4)
-scale = Vector2(1.62215, 1.98849)
+position = Vector2(0.75, -6)
+scale = Vector2(1.42188, 1.25)
 sprite_frames = SubResource("SpriteFrames_70g1j")
 animation = &"new_animation"
 

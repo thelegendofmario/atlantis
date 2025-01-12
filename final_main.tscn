@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mkkqweipa5bq"]
+
+[ext_resource type="PackedScene" uid="uid://c2oh4s3bd3jer" path="res://mecha.tscn" id="1_k3o32"]
+[ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="2_lowxo"]
+
+[node name="final_main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 90.5461, -66.7486)
+light_energy = 16.0
+shadow_enabled = true
+
+[node name="Mecha" parent="." instance=ExtResource("1_k3o32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5936, 82.2063)
+
+[node name="wall" parent="." instance=ExtResource("2_lowxo")]
+transform = Transform3D(-4.37114e-08, -170.133, 0, 1, -7.43674e-06, 0, 0, 0, 200.814, 3.6633, 0, -6.56559)

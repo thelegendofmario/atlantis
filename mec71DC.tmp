@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2oh4s3bd3jer"]
+
+[ext_resource type="Script" path="res://mecha.gd" id="1_6s7ce"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3nj0t"]
+
+[node name="Mecha" type="CharacterBody3D"]
+script = ExtResource("1_6s7ce")
+
+[node name="mesh" type="Node3D" parent="."]
+
+[node name="body" type="Node3D" parent="mesh"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mesh/body"]
+transform = Transform3D(1.92433, 0, 0, 0, 1.92433, 0, 0, 0, 1.92433, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="rightwing" type="Node3D" parent="mesh"]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="mesh/rightwing"]
+transform = Transform3D(-0.161588, 0.809018, 0.331708, 0.579639, 0.426033, -0.177273, -0.306973, 0.378592, -0.509343, 0.744894, 0.601242, 0.75421)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="mesh/rightwing"]
+transform = Transform3D(-0.161588, 0.809018, 0.331708, 0.579639, 0.426033, -0.177273, -0.306973, 0.378592, -0.509343, 1.83895, 1.14869, 1.20695)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="leftwing" type="Node3D" parent="mesh"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="mesh/leftwing"]
+transform = Transform3D(0.346447, -0.738641, 0.268533, 0.579639, 0.426033, -0.177273, 0.0178292, 0.502246, 0.545299, -0.802988, 0.601242, 0.75421)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="mesh/leftwing"]
+transform = Transform3D(0.346447, -0.738641, 0.268533, 0.579639, 0.426033, -0.177273, 0.0178292, 0.502246, 0.545299, -1.70903, 1.12879, 1.3311)
+mesh = SubResource("CapsuleMesh_3nj0t")
+skeleton = NodePath("../../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.961756, 0.273909, 0, -0.273909, 0.961756, 0, 2.78053, 5.32072)

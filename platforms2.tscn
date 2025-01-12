@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://367k1c3vi3n8"]
 
 [ext_resource type="Script" path="res://platforms_2.gd" id="1_gp6eg"]
-[ext_resource type="Texture2D" uid="uid://brb86u2gwlv1b" path="res://StoneWall_TXR.png" id="2_6kvni"]
+[ext_resource type="Texture2D" uid="uid://bkoetgt42itnc" path="res://red_wall.png" id="2_tc6bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydmrw"]
 
@@ -13,5 +13,5 @@ scale = Vector2(6.74993, 1.73414)
 shape = SubResource("RectangleShape2D_ydmrw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.13, 0.035)
-texture = ExtResource("2_6kvni")
+scale = Vector2(0.738991, 0.184221)
+texture = ExtResource("2_tc6bt")

@@ -84,3 +84,4 @@ func _on_coll_for_spikes_area_entered(area: Area2D) -> void:
 	if area.is_in_group("spike") or area.is_in_group("enemys"):
 		print("player hurt :)")
 		$HurtSound.play()
+		velocity.y = -200

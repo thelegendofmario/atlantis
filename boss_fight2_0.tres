@@ -1,8 +1,11 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://rkss8xwe0gf8"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://rkss8xwe0gf8"]
 
-[ext_resource type="Texture2D" uid="uid://bjurmxjvv7x7q" path="res://Dimensional_Portal.png" id="1_kt3r1"]
+[ext_resource type="Texture2D" uid="uid://cgutfwlocnb2q" path="res://portal.png" id="1_m1vj0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8j8ii"]
+load_path = "res://.godot/imported/Dimensional_Portal.png-177115e22831e43da1b4842e2a28601e.s3tc.ctex"
 
 [resource]
 albedo_color = Color(0, 0.74902, 0, 1)
-normal_enabled = true
-normal_texture = ExtResource("1_kt3r1")
+albedo_texture = ExtResource("1_m1vj0")
+normal_texture = SubResource("CompressedTexture2D_8j8ii")

@@ -11,7 +11,7 @@
 [ext_resource type="Material" uid="uid://rkss8xwe0gf8" path="res://boss_fight2_0.tres" id="9_4x2ki"]
 [ext_resource type="Material" uid="uid://5svrbxqmw7kj" path="res://boss_fight.tres" id="10_nrtkv"]
 [ext_resource type="Script" path="res://portal34.09.gd" id="10_saqht"]
-[ext_resource type="Texture2D" uid="uid://bgle7iv5encjc" path="res://th-1741545468.jpg" id="12_26tcs"]
+[ext_resource type="Texture2D" uid="uid://0q3icy2higva" path="res://wall.png" id="12_c4w0n"]
 [ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="13_ci84y"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="14_7edpg"]
 
@@ -37,7 +37,8 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_015kl")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omq51"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22w76"]
-panorama = ExtResource("12_26tcs")
+panorama = ExtResource("12_c4w0n")
+energy_multiplier = 1.92
 
 [sub_resource type="Sky" id="Sky_qlpvv"]
 sky_material = SubResource("PanoramaSkyMaterial_22w76")

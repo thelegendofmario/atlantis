@@ -16,4 +16,4 @@ func _process(delta: float) -> void:
 
 func _on_portal_1_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		get_tree().change_scene_to_file("res://2_5d_main.tscn")
+		get_tree().change_scene_to_file("res://final_main.tscn")

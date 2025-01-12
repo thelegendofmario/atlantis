@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://csdef0m52irok"]
 
 [ext_resource type="Script" path="res://spike.gd" id="1_2ksqx"]
-[ext_resource type="Texture2D" uid="uid://q4ryl3ua06b4" path="res://Spike-Sprite-1669807631.png" id="1_cambo"]
+[ext_resource type="Texture2D" uid="uid://d4gx4hbu3b84c" path="res://spike.png" id="2_6rnrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahko7"]
 
@@ -9,9 +9,9 @@
 script = ExtResource("1_2ksqx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -28)
-scale = Vector2(0.291174, 0.612496)
-texture = ExtResource("1_cambo")
+position = Vector2(2, -5)
+scale = Vector2(0.6875, 1.6875)
+texture = ExtResource("2_6rnrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -5)

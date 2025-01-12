@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cnj1cv4ijgkt5"]
 
 [ext_resource type="Script" path="res://boss_player_3d.gd" id="1_3qlro"]
-[ext_resource type="Texture2D" uid="uid://b8eh1g0u6ekju" path="res://Pain+Hud-605601482.png" id="2_vkvn0"]
+[ext_resource type="Texture2D" uid="uid://d4hmmtipkm0lo" path="res://blood.png" id="2_wpx5d"]
 [ext_resource type="Script" path="res://redscreen.gd" id="3_qi3y6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfjkg"]
@@ -80,16 +80,19 @@ libraries = {
 }
 autoplay = "3d_walk"
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 2.38419e-07, -6.88429e-08, 0.957405, 0.288748, -2.28263e-07, -0.288748, 0.957405, 0.0239223, 1.38535, 1.88594)
-fov = 120.938
-far = 101.85
-
 [node name="redscreen" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vkvn0")
+texture = ExtResource("2_wpx5d")
 script = ExtResource("3_qi3y6")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 2.73606, 5.30627)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 4.9738e-14, 2.38418e-07, -6.88429e-08, 0.957405, 0.288748, -2.28263e-07, -0.288748, 0.957405, 0.0271145, -1.35071, -3.42033)
+fov = 120.938
+far = 101.85

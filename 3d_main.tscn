@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="4_ct6v1"]
 [ext_resource type="Script" path="res://wand.gd" id="4_mntdq"]
 [ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_dkvc1"]
-[ext_resource type="Texture2D" uid="uid://dfwtf70cqqw7q" path="res://th-1240146318.jpg" id="8_vtvgy"]
+[ext_resource type="Texture2D" uid="uid://bkoetgt42itnc" path="res://red_wall.png" id="8_nj0id"]
 [ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="10_6wlll"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="11_3u0xk"]
 
@@ -60,7 +60,7 @@ density_texture = SubResource("NoiseTexture3D_igjai")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mex7l"]
 albedo_color = Color(0.642198, 0.357196, 0.784452, 1)
-albedo_texture = ExtResource("8_vtvgy")
+albedo_texture = ExtResource("8_nj0id")
 normal_scale = 11.2
 normal_texture = ExtResource("2_dl1c1")
 

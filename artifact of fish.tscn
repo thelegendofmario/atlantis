@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://wjadvs0otlu4"]
 
 [ext_resource type="Script" path="res://artifact of fish.gd" id="1_3d0i7"]
-[ext_resource type="Texture2D" uid="uid://okcmtgtlxhrl" path="res://fishing-fish-sport-fishes-water-artwork-high-resolution-images-wallpaper-preview-513586373-removebg-preview.png" id="2_ale7p"]
+[ext_resource type="Texture2D" uid="uid://dupywny2vc6nt" path="res://fish.png" id="2_aeh4e"]
 [ext_resource type="AudioStream" uid="uid://bpfu34c6cxyx2" path="res://Pickup_Real.wav" id="3_elyet"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70g1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ale7p")
+"texture": ExtResource("2_aeh4e")
 }],
 "loop": true,
 "name": &"default",
@@ -23,14 +23,11 @@ script = ExtResource("1_3d0i7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.53329
-scale = Vector2(0.0468657, -0.0846708)
+scale = Vector2(0.954239, -0.828903)
 sprite_frames = SubResource("SpriteFrames_70g1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1mysw")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.5, 3.5)
 
 [node name="Pickup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_elyet")
