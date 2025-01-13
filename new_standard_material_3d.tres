@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bkoetgt42itnc" path="res://red_wall.png" id="1_mq3w0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hbfqq"]
-load_path = "res://.godot/imported/ParticleBoard_TXR.png-fac795a6833c9151b2c571adbbff356f.s3tc.ctex"
 
 [resource]
 albedo_color = Color(0.63648, 0.63648, 0.63648, 1)

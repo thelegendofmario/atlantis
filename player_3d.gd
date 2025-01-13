@@ -21,7 +21,7 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * sensitivity)
-		camera.rotate_x(-event.relative.y * sensitivity)
+		camera.rotate_z(-event.relative.y * sensitivity)
 
 
 func _physics_process(delta: float) -> void:

@@ -8,16 +8,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Global.button_on = button_pressed
+	pass
 
 func start_timer():
 	var timer = get_tree().create_timer(10.0)
 	timer.timeout.connect(timout)
 
 func timout():
-	button_pressed = false
+	Global.button_on = false
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("bullet"):
-		button_pressed = true
+	if area.is_in_group("bullet") and Global.button_on == false:
+		Global.button_on = true
 		start_timer()
+		area.queue_free()

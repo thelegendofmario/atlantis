@@ -1,23 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2glmny42hkt"]
+[gd_scene load_steps=6 format=3 uid="uid://d2glmny42hkt"]
 
 [ext_resource type="PackedScene" uid="uid://l5q0om65a4iq" path="res://floors2_5D.tscn" id="1_cpf8j"]
-[ext_resource type="PackedScene" uid="uid://gnxs4ygvgj14" path="res://2_5d_player.tscn" id="2_y44tw"]
+[ext_resource type="PackedScene" uid="uid://b58owladyo40" path="res://wall2_5d.tscn" id="1_jqurs"]
+[ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="2_0wp02"]
+[ext_resource type="PackedScene" uid="uid://k8elpbwplsxt" path="res://player_2_5d.tscn" id="2_w14k0"]
+[ext_resource type="Material" uid="uid://lgenl71yhj0g" path="res://gun metal2.tres" id="4_rnogv"]
 
 [node name="topdown" type="Node3D"]
 
 [node name="walls" type="Node3D" parent="."]
 
+[node name="wall" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(1, 0, 0, 0, 16.0915, 0, 0, 0, 46.437, 21.0342, 8.04893, 0)
+
+[node name="wall2" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(1, 0, 0, 0, 16.0915, 0, 0, 0, 46.437, -20.8875, 8.04893, 0)
+
+[node name="wall3" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(-4.37114e-08, 0, 46.437, 0, 16.0915, 0, -1, 0, -2.02982e-06, 0.25166, 8.04893, 22.4666)
+
+[node name="wall4" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(-4.37114e-08, 0, 14.6255, 0, 16.0915, 0, -1, 0, -6.393e-07, 14.5499, 8.04893, -22.7963)
+
+[node name="wall5" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(-4.37114e-08, 0, 14.6255, 0, 16.0915, 0, -1, 0, -6.393e-07, -14.0168, 8.04893, -22.7963)
+
+[node name="wall6" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(-4.37114e-08, 0, 13.937, 0, 8.28788, 0, -1, 0, -6.09204e-07, 0.27147, 11.8993, -22.7963)
+
+[node name="wall7" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(-4.37114e-08, 0, 13.937, 0, 7.62378, 0, -1, 0, -6.09204e-07, 0.27147, 3.97875, -22.7963)
+
+[node name="MeshInstance3D" parent="walls/wall7" index="1"]
+surface_material_override/0 = ExtResource("2_0wp02")
+
 [node name="floors" type="Node3D" parent="."]
 
 [node name="wall" parent="floors" instance=ExtResource("1_cpf8j")]
-transform = Transform3D(-4.37114e-08, -6.18487, 0, 1, -2.70349e-07, 0, 0, 0, 7.21845, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 0, 0)
+
+[node name="wall8" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 15.8437, 0)
+
+[node name="MeshInstance3D" parent="floors/wall8" index="1"]
+surface_material_override/0 = ExtResource("4_rnogv")
 
 [node name="wall2" parent="floors" instance=ExtResource("1_cpf8j")]
-transform = Transform3D(-4.37114e-08, -1.16262, 0, 1, -5.08197e-08, 0, 0, 0, 1.34078, 2.08503, 0.571293, 0)
+transform = Transform3D(-4.37114e-08, -2.92069, 0, 1, -1.27667e-07, 0, 0, 0, 2.62125, 12.8462, 2.74272, -12.2141)
 
-[node name="2_5d_player" parent="." instance=ExtResource("2_y44tw")]
-position = Vector2(0, 1)
+[node name="wall3" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -3.0103, 0, 1, -1.31584e-07, 0, 0, 0, 3.01862, -12.6024, 2.74272, -5.35605)
+
+[node name="wall4" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -2.78171, 0, 1, -1.21592e-07, 0, 0, 0, 3.29955, 4.11817, 2.74272, 13.9182)
+
+[node name="wall5" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -3.51757, 0, 1, -1.53758e-07, 0, 0, 0, 3.5415, -0.599791, 5.96549, 10.8087)
+
+[node name="wall6" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -3.51757, 0, 1, -1.53758e-07, 0, 0, 0, 3.5415, 7.77884, 5.96549, -14.1909)
+
+[node name="wall7" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -3.51757, 0, 1, -1.53758e-07, 0, 0, 0, 3.5415, -7.64507, 5.96549, -6.57238)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85784, 0)
-light_energy = 12.845
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.7542, 0)
+light_energy = 16.0
+omni_range = 31.748
+
+[node name="player3d" parent="." instance=ExtResource("2_w14k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01294, 0)
+
+[editable path="walls/wall7"]
+[editable path="floors/wall8"]

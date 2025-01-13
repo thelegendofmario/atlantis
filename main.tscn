@@ -596,8 +596,9 @@ position = Vector2(428, 95)
 [node name="spikes" type="Node2D" parent="."]
 
 [node name="spike" parent="spikes" instance=ExtResource("16_5axmq")]
-position = Vector2(2647, 330)
+position = Vector2(2647, 326)
 rotation = 3.12756
+scale = Vector2(1, 0.64116)
 
 [node name="spike97" parent="spikes" instance=ExtResource("16_5axmq")]
 position = Vector2(2493, 1478)
@@ -652,15 +653,15 @@ position = Vector2(7582, 713)
 rotation = 3.12756
 
 [node name="spike7" parent="spikes" instance=ExtResource("16_5axmq")]
-position = Vector2(7291, 679)
+position = Vector2(7283, 699)
 rotation = 0.0337715
 
 [node name="spike8" parent="spikes" instance=ExtResource("16_5axmq")]
-position = Vector2(7365, 679)
+position = Vector2(7376, 697)
 rotation = 0.0337715
 
 [node name="spike9" parent="spikes" instance=ExtResource("16_5axmq")]
-position = Vector2(7505, 579)
+position = Vector2(7508, 596)
 rotation = 0.0337715
 
 [node name="spike6" parent="spikes" instance=ExtResource("16_5axmq")]
@@ -668,8 +669,9 @@ position = Vector2(7665, 713)
 rotation = 3.12756
 
 [node name="spike2" parent="spikes" instance=ExtResource("16_5axmq")]
-position = Vector2(2721, 330)
+position = Vector2(2730, 326)
 rotation = 3.12756
+scale = Vector2(0.929818, 0.608048)
 
 [node name="checkpoints" type="Node2D" parent="."]
 
@@ -894,7 +896,7 @@ position = Vector2(7814, 441)
 scale = Vector2(-5.05282, 59.246)
 
 [node name="floor21" parent="floor hit boxes" groups=["ground"] instance=ExtResource("30_i64fw")]
-position = Vector2(7719, 25)
+position = Vector2(7723, 111)
 scale = Vector2(-5.05282, 59.246)
 
 [node name="floor17" parent="floor hit boxes" groups=["ground"] instance=ExtResource("30_i64fw")]
