@@ -50,7 +50,7 @@ offset_right = 240.5
 offset_bottom = 213.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Too collect the 3 super artifacts
+text = "To collect the 3 super artifacts
 you will have to adventure through
 3 portals that will test your 
 Wits, Might, and Will
@@ -59,7 +59,7 @@ label_settings = SubResource("LabelSettings_u2edk")
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

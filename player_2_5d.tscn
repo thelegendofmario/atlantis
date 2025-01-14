@@ -42,10 +42,10 @@ _data = {
 "RESET": SubResource("Animation_evfyj")
 }
 
-[node name="player2_5d" type="CharacterBody3D" groups=["Player"]]
+[node name="player2_5d" type="CharacterBody3D" groups=["player2_d"]]
 script = ExtResource("1_tk2ln")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.538302, 0, 0, 0, 1, 0, 0, 0, 0.514477, 0, 0.241628, 0)
 shape = SubResource("CapsuleShape3D_nfjkg")
 

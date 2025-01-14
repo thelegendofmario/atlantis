@@ -13,4 +13,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		get_tree().change_scene_to_file("res://THE_END.tscn")
+		get_tree().change_scene_to_file("res://boss_fight.tscn")
+		Global.super_artifacts += 1
+		Global.will_portal_done = 1
+	if body.is_in_group("player2_d"):
+		get_tree().change_scene_to_file("res://boss_fight.tscn")
+		Global.super_artifacts += 1
+		Global.wit_portal_done = 1

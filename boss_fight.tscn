@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=29 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="4_ld8k3"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="6_d7iw2"]
 [ext_resource type="Script" path="res://portal2.09.gd" id="7_j4qqi"]
+[ext_resource type="Script" path="res://menu.gd" id="7_ri0un"]
 [ext_resource type="Material" uid="uid://rkss8xwe0gf8" path="res://boss_fight2_0.tres" id="9_4x2ki"]
 [ext_resource type="Material" uid="uid://5svrbxqmw7kj" path="res://boss_fight.tres" id="10_nrtkv"]
 [ext_resource type="Script" path="res://portal34.09.gd" id="10_saqht"]
@@ -32,6 +33,9 @@ bg_color = Color(0, 1, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_4jnl5")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_015kl")
 
+[sub_resource type="LabelSettings" id="LabelSettings_hltgf"]
+font_size = 100
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j8v6a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omq51"]
@@ -50,6 +54,9 @@ sky = SubResource("Sky_qlpvv")
 ambient_light_source = 3
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ngyg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6kkg"]
+size = Vector3(34.791, 1, 51.4738)
 
 [node name="boss_fight" type="Node3D"]
 script = ExtResource("1_qnhnp")
@@ -173,6 +180,78 @@ show_percentage = false
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="menu" type="CanvasLayer" parent="boss_player3d"]
+process_mode = 3
+script = ExtResource("7_ri0un")
+
+[node name="ColorRect" type="ColorRect" parent="boss_player3d/menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.546531, 0.549408, 1)
+
+[node name="Label" type="Label" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -250.0
+offset_right = 147.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+label_settings = SubResource("LabelSettings_hltgf")
+
+[node name="continue" type="MenuButton" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -120.0
+offset_right = -108.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "CONTINUE?"
+
+[node name="save" type="MenuButton" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -6.0
+offset_right = -101.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "SAVE?"
+
+[node name="exit" type="MenuButton" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = 110.0
+offset_right = -101.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "EXIT?"
+
 [node name="walls" type="Node3D" parent="."]
 visible = false
 
@@ -249,9 +328,20 @@ stream = ExtResource("13_ci84y")
 autoplay = true
 script = ExtResource("14_7edpg")
 
+[node name="checkpoint" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12314, 1.04801, 2.14313)
+shape = SubResource("BoxShape3D_x6kkg")
+
+[connection signal="button_up" from="boss_player3d/menu/continue" to="boss_player3d/menu" method="_on_continue_button_up"]
+[connection signal="pressed" from="boss_player3d/menu/continue" to="boss_player3d/menu" method="_on_continue_pressed"]
+[connection signal="button_up" from="boss_player3d/menu/save" to="boss_player3d/menu" method="_on_save_button_up"]
+[connection signal="button_up" from="boss_player3d/menu/exit" to="boss_player3d/menu" method="_on_exit_button_up"]
 [connection signal="body_entered" from="portal/portal1" to="portal/portal1" method="_on_portal_1_body_entered"]
 [connection signal="body_entered" from="portal/portal2" to="portal/portal2" method="_on_portal_1_body_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]
+[connection signal="body_entered" from="checkpoint" to="." method="_on_checkpoint_body_entered"]
 
 [editable path="floors/floor"]
 [editable path="floors/floor2"]

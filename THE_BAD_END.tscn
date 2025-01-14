@@ -1,11 +1,42 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5vky13f5m36h"]
 
 [ext_resource type="Script" path="res://the_bad_end.gd" id="1_0kbdk"]
-[ext_resource type="FontFile" uid="uid://c8846nsehg2o3" path="res://Youmurdererbb-pwoK.otf" id="1_kb6vf"]
+
+[sub_resource type="FontFile" id="FontFile_3xxci"]
+cache/0/300/0/ascent = 0.0
+cache/0/300/0/descent = 0.0
+cache/0/300/0/underline_position = 0.0
+cache/0/300/0/underline_thickness = 0.0
+cache/0/300/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/299/0/ascent = 0.0
+cache/0/299/0/descent = 0.0
+cache/0/299/0/underline_position = 0.0
+cache/0/299/0/underline_thickness = 0.0
+cache/0/299/0/scale = 1.0
+cache/0/292/0/ascent = 0.0
+cache/0/292/0/descent = 0.0
+cache/0/292/0/underline_position = 0.0
+cache/0/292/0/underline_thickness = 0.0
+cache/0/292/0/scale = 1.0
+cache/0/291/0/ascent = 0.0
+cache/0/291/0/descent = 0.0
+cache/0/291/0/underline_position = 0.0
+cache/0/291/0/underline_thickness = 0.0
+cache/0/291/0/scale = 1.0
+cache/0/280/0/ascent = 0.0
+cache/0/280/0/descent = 0.0
+cache/0/280/0/underline_position = 0.0
+cache/0/280/0/underline_thickness = 0.0
+cache/0/280/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_osdr0"]
-font = ExtResource("1_kb6vf")
-font_size = 300
+font = SubResource("FontFile_3xxci")
+font_size = 280
 font_color = Color(1, 0, 0, 1)
 outline_size = 23
 outline_color = Color(0, 0, 0, 1)
@@ -40,18 +71,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -421.0
-offset_top = -249.5
-offset_right = 421.0
-offset_bottom = 249.5
+offset_left = -415.0
+offset_top = -125.0
+offset_right = 427.0
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Congrats
-you died"
+text = "you died"
 label_settings = SubResource("LabelSettings_osdr0")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

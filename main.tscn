@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=72 format=3 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmpmscjuvmtm" path="res://Elementstäbe.png" id="5_3sp5s"]
 [ext_resource type="PackedScene" uid="uid://dbb43ty7gqgsh" path="res://crate.tscn" id="5_aecc3"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="5_yufuj"]
+[ext_resource type="Script" path="res://menu_2.gd" id="6_5aa4q"]
 [ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
 [ext_resource type="PackedScene" uid="uid://bock5s3h1xln5" path="res://save_point.tscn" id="8_7ho56"]
 [ext_resource type="PackedScene" uid="uid://nliedh5irt5d" path="res://artifact of dragons.tscn" id="9_uyg4f"]
@@ -47,6 +48,9 @@ bg_color = Color(0, 1, 0, 1)
 [sub_resource type="Theme" id="Theme_xd8ws"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_gm0fo")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_oicid")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvge4"]
+font_size = 100
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olxra"]
 atlas = ExtResource("5_3sp5s")
@@ -383,6 +387,78 @@ show_percentage = false
 [node name="DebugLabel" type="Label" parent="Player/Camera2D/CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="menu_2d" type="CanvasLayer" parent="Player/Camera2D"]
+process_mode = 3
+script = ExtResource("6_5aa4q")
+
+[node name="ColorRect" type="ColorRect" parent="Player/Camera2D/menu_2d"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.546531, 0.549408, 1)
+
+[node name="Label" type="Label" parent="Player/Camera2D/menu_2d"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -250.0
+offset_right = 147.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+label_settings = SubResource("LabelSettings_vvge4")
+
+[node name="continue" type="MenuButton" parent="Player/Camera2D/menu_2d"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -120.0
+offset_right = -108.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "CONTINUE?"
+
+[node name="save" type="MenuButton" parent="Player/Camera2D/menu_2d"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -6.0
+offset_right = -101.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "SAVE?"
+
+[node name="exit" type="MenuButton" parent="Player/Camera2D/menu_2d"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = 110.0
+offset_right = -101.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "EXIT?"
 
 [node name="gun2" type="CharacterBody2D" parent="Player" groups=["crate"]]
 position = Vector2(1, 6)
@@ -1095,6 +1171,10 @@ stream = ExtResource("29_w86ts")
 autoplay = true
 script = ExtResource("30_8ljm1")
 
+[connection signal="button_up" from="Player/Camera2D/menu_2d/continue" to="Player/Camera2D/menu_2d" method="_on_continue_button_up"]
+[connection signal="pressed" from="Player/Camera2D/menu_2d/continue" to="Player/Camera2D/menu_2d" method="_on_continue_pressed"]
+[connection signal="button_up" from="Player/Camera2D/menu_2d/save" to="Player/Camera2D/menu_2d" method="_on_save_button_up"]
+[connection signal="button_up" from="Player/Camera2D/menu_2d/exit" to="Player/Camera2D/menu_2d" method="_on_exit_button_up"]
 [connection signal="body_entered" from="Kill Barrier" to="." method="_on_kill_barrier_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint" to="." method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="checkpoints/SavePoint4" to="." method="_on_save_point_body_entered"]

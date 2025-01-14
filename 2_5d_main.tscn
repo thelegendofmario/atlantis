@@ -1,12 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2glmny42hkt"]
+[gd_scene load_steps=26 format=3 uid="uid://d2glmny42hkt"]
 
 [ext_resource type="PackedScene" uid="uid://l5q0om65a4iq" path="res://floors2_5D.tscn" id="1_cpf8j"]
 [ext_resource type="PackedScene" uid="uid://b58owladyo40" path="res://wall2_5d.tscn" id="1_jqurs"]
+[ext_resource type="Script" path="res://2_5d_main.gd" id="1_qv2ev"]
 [ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="2_0wp02"]
 [ext_resource type="PackedScene" uid="uid://k8elpbwplsxt" path="res://player_2_5d.tscn" id="2_w14k0"]
 [ext_resource type="Material" uid="uid://lgenl71yhj0g" path="res://gun metal2.tres" id="4_rnogv"]
+[ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_0jjcg"]
+[ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="6_2dys8"]
+[ext_resource type="Material" uid="uid://bpk2dn51xo0sy" path="res://glow green.tres" id="8_1quhx"]
+[ext_resource type="Texture2D" uid="uid://dg60xo6awqhnk" path="res://greenballcollected.png" id="8_ywhbk"]
+[ext_resource type="Material" uid="uid://bulnu77i7flan" path="res://glow purple.tres" id="9_cvb4e"]
+[ext_resource type="Texture2D" uid="uid://bphq1m3kgpnpc" path="res://purpleballcollected.png" id="9_pi0ou"]
+[ext_resource type="Material" uid="uid://d4bx6am4ufdph" path="res://glow red.tres" id="10_fejuh"]
+[ext_resource type="Texture2D" uid="uid://c328kt18kkljp" path="res://redballcollected.png" id="10_mf5kv"]
+[ext_resource type="Script" path="res://menu.gd" id="11_e77d7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp6nt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od1hs"]
+bg_color = Color(0.783191, 0.78319, 0, 1)
+
+[sub_resource type="Theme" id="Theme_7j3ip"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_od1hs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hydnm"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_coisy"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dp6nt")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_hydnm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0mqun"]
+font_size = 100
+
+[sub_resource type="TorusMesh" id="TorusMesh_mwsju"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugvjx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_406wr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rwb0a"]
 
 [node name="topdown" type="Node3D"]
+script = ExtResource("1_qv2ev")
 
 [node name="walls" type="Node3D" parent="."]
 
@@ -15,6 +54,12 @@ transform = Transform3D(1, 0, 0, 0, 16.0915, 0, 0, 0, 46.437, 21.0342, 8.04893, 
 
 [node name="wall2" parent="walls" instance=ExtResource("1_jqurs")]
 transform = Transform3D(1, 0, 0, 0, 16.0915, 0, 0, 0, 46.437, -20.8875, 8.04893, 0)
+
+[node name="wall8" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(1, 0, 0, 0, 16.0915, 0, 0, 0, 46.7203, -7.59901, 8.04893, -46.2134)
+
+[node name="wall9" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(1, 0, 0, 0, 16.0915, 0, 0, 0, 46.7203, 8.20223, 8.04893, -46.2134)
 
 [node name="wall3" parent="walls" instance=ExtResource("1_jqurs")]
 transform = Transform3D(-4.37114e-08, 0, 46.437, 0, 16.0915, 0, -1, 0, -2.02982e-06, 0.25166, 8.04893, 22.4666)
@@ -28,16 +73,25 @@ transform = Transform3D(-4.37114e-08, 0, 14.6255, 0, 16.0915, 0, -1, 0, -6.393e-
 [node name="wall6" parent="walls" instance=ExtResource("1_jqurs")]
 transform = Transform3D(-4.37114e-08, 0, 13.937, 0, 8.28788, 0, -1, 0, -6.09204e-07, 0.27147, 11.8993, -22.7963)
 
-[node name="wall7" parent="walls" instance=ExtResource("1_jqurs")]
+[node name="wall10" parent="walls" instance=ExtResource("1_jqurs")]
+transform = Transform3D(-4.37114e-08, 0, 19.99, 0, 19.0553, 0, -1, 0, -8.73787e-07, 0.27147, 6.74857, -68.2257)
+
+[node name="gate" parent="walls" instance=ExtResource("1_jqurs")]
 transform = Transform3D(-4.37114e-08, 0, 13.937, 0, 7.62378, 0, -1, 0, -6.09204e-07, 0.27147, 3.97875, -22.7963)
 
-[node name="MeshInstance3D" parent="walls/wall7" index="1"]
+[node name="MeshInstance3D" parent="walls/gate" index="1"]
 surface_material_override/0 = ExtResource("2_0wp02")
+
+[node name="wall11" parent="walls" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 15.7586, -45.6113)
 
 [node name="floors" type="Node3D" parent="."]
 
 [node name="wall" parent="floors" instance=ExtResource("1_cpf8j")]
 transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 0, 0)
+
+[node name="wall9" parent="floors" instance=ExtResource("1_cpf8j")]
+transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 0, -45.6113)
 
 [node name="wall8" parent="floors" instance=ExtResource("1_cpf8j")]
 transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 15.8437, 0)
@@ -68,8 +122,270 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.7542, 0)
 light_energy = 16.0
 omni_range = 31.748
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.00584, -65.0171)
+light_energy = 59.87
+light_size = 54.53
+light_specular = 1.76
+omni_range = 4110.41
+
 [node name="player3d" parent="." instance=ExtResource("2_w14k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01294, 0)
 
-[editable path="walls/wall7"]
+[node name="CanvasLayer" type="CanvasLayer" parent="player3d"]
+
+[node name="AirBar" type="ProgressBar" parent="player3d/CanvasLayer"]
+offset_left = -1.0
+offset_top = 30.0
+offset_right = 191.0
+offset_bottom = 57.0
+theme = ExtResource("6_2dys8")
+show_percentage = false
+
+[node name="Stamina Bar" type="ProgressBar" parent="player3d/CanvasLayer"]
+offset_left = -1.0
+offset_top = 62.0
+offset_right = 191.0
+offset_bottom = 90.0
+theme = SubResource("Theme_7j3ip")
+show_percentage = false
+
+[node name="Health Bar" type="ProgressBar" parent="player3d/CanvasLayer"]
+modulate = Color(0.471389, 0.665439, 0, 1)
+offset_right = 192.0
+offset_bottom = 27.0
+theme = SubResource("Theme_coisy")
+show_percentage = false
+
+[node name="DebugLabel" type="Label" parent="player3d/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Pickuplabel" type="Label" parent="player3d/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -11.5
+offset_right = 68.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press G To Pickup"
+
+[node name="greenballcol" type="TextureRect" parent="player3d/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -108.0
+offset_bottom = 98.0
+grow_horizontal = 0
+texture = ExtResource("8_ywhbk")
+
+[node name="purpleballcol" type="TextureRect" parent="player3d/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -108.0
+offset_bottom = 98.0
+grow_horizontal = 0
+texture = ExtResource("9_pi0ou")
+
+[node name="redballcol" type="TextureRect" parent="player3d/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -108.0
+offset_bottom = 98.0
+grow_horizontal = 0
+texture = ExtResource("10_mf5kv")
+
+[node name="Marker3D2" type="Node3D" parent="player3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="menu" type="CanvasLayer" parent="player3d"]
+process_mode = 3
+script = ExtResource("11_e77d7")
+
+[node name="ColorRect" type="ColorRect" parent="player3d/menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.546531, 0.549408, 1)
+
+[node name="Label" type="Label" parent="player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -250.0
+offset_right = 147.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+label_settings = SubResource("LabelSettings_0mqun")
+
+[node name="continue" type="MenuButton" parent="player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -120.0
+offset_right = -108.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "CONTINUE?"
+
+[node name="save" type="MenuButton" parent="player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -6.0
+offset_right = -101.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "SAVE?"
+
+[node name="exit" type="MenuButton" parent="player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = 110.0
+offset_right = -101.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "EXIT?"
+
+[node name="golden_artifact" parent="." instance=ExtResource("6_0jjcg")]
+transform = Transform3D(0.0748917, 0, -0.997192, 0, 1, 0, 0.997192, 0, 0.0748917, 0, 4.03619, -65.1949)
+
+[node name="ballholders" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.9868, 0)
+
+[node name="holder1" type="Area3D" parent="ballholders"]
+transform = Transform3D(1, 0, 0, 0, 0.0343587, -0.99941, 0, 0.99941, 0.0343587, -11.4969, -50.5821, -22.51)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ballholders/holder1"]
+transform = Transform3D(1, 0, 0, 0, 2.01752, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_mwsju")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ballholders/holder1"]
+transform = Transform3D(1.88475, 0, 0, 0, 1.08182, 0, 0, 0, 1.64429, 0, 0, 0)
+shape = SubResource("BoxShape3D_ugvjx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ballholders/holder1"]
+light_color = Color(0, 1, 0, 1)
+light_energy = 65.06
+light_size = 20.145
+light_specular = 21.55
+omni_range = 0.828
+
+[node name="holder2" type="Area3D" parent="ballholders"]
+transform = Transform3D(1, 0, 0, 0, 0.0343587, -0.99941, 0, 0.99941, 0.0343587, -9.03743, -50.5821, -22.51)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ballholders/holder2"]
+transform = Transform3D(1, 0, 0, 0, 2.01752, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_mwsju")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ballholders/holder2"]
+transform = Transform3D(1.88475, 0, 0, 0, 1.08182, 0, 0, 0, 1.64429, 0, 0, 0)
+shape = SubResource("BoxShape3D_ugvjx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ballholders/holder2"]
+light_color = Color(1, 0, 1, 1)
+light_energy = 65.06
+light_size = 20.145
+light_specular = 21.55
+omni_range = 0.828
+
+[node name="holder3" type="Area3D" parent="ballholders"]
+transform = Transform3D(1, 0, 0, 0, 0.0343587, -0.99941, 0, 0.99941, 0.0343587, -14.0689, -50.5821, -22.51)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ballholders/holder3"]
+transform = Transform3D(1, 0, 0, 0, 2.01752, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_mwsju")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ballholders/holder3"]
+transform = Transform3D(1.88475, 0, 0, 0, 1.08182, 0, 0, 0, 1.64429, 0, 0, 0)
+shape = SubResource("BoxShape3D_ugvjx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ballholders/holder3"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 65.06
+light_size = 20.145
+light_specular = 21.55
+omni_range = 0.828
+
+[node name="Balls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
+
+[node name="ball1" type="Area3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -23, 11)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/ball1"]
+mesh = SubResource("SphereMesh_406wr")
+surface_material_override/0 = ExtResource("8_1quhx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/ball1"]
+shape = SubResource("SphereShape3D_rwb0a")
+
+[node name="ball2" type="Area3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71395, -23, -6.10087)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/ball2"]
+mesh = SubResource("SphereMesh_406wr")
+surface_material_override/0 = ExtResource("9_cvb4e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/ball2"]
+shape = SubResource("SphereShape3D_rwb0a")
+
+[node name="ball3" type="Area3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.51532, -23, -12.3646)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balls/ball3"]
+mesh = SubResource("SphereMesh_406wr")
+surface_material_override/0 = ExtResource("10_fejuh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/ball3"]
+shape = SubResource("SphereShape3D_rwb0a")
+
+[connection signal="button_up" from="player3d/menu/continue" to="player3d/menu" method="_on_continue_button_up"]
+[connection signal="pressed" from="player3d/menu/continue" to="player3d/menu" method="_on_continue_pressed"]
+[connection signal="button_up" from="player3d/menu/save" to="player3d/menu" method="_on_save_button_up"]
+[connection signal="button_up" from="player3d/menu/exit" to="player3d/menu" method="_on_exit_button_up"]
+[connection signal="body_entered" from="ballholders/holder1" to="." method="_on_holder_1_body_entered"]
+[connection signal="body_entered" from="ballholders/holder2" to="." method="_on_holder_2_body_entered"]
+[connection signal="body_entered" from="ballholders/holder3" to="." method="_on_holder_3_body_entered"]
+[connection signal="body_entered" from="Balls/ball1" to="." method="_on_ball_1_body_entered"]
+[connection signal="body_exited" from="Balls/ball1" to="." method="_on_ball_1_body_exited"]
+[connection signal="body_entered" from="Balls/ball2" to="." method="_on_ball_2_body_entered"]
+[connection signal="body_exited" from="Balls/ball2" to="." method="_on_ball_2_body_exited"]
+[connection signal="body_entered" from="Balls/ball3" to="." method="_on_ball_3_body_entered"]
+[connection signal="body_exited" from="Balls/ball3" to="." method="_on_ball_3_body_exited"]
+
+[editable path="walls/gate"]
 [editable path="floors/wall8"]

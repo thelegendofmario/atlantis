@@ -1,10 +1,8 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b0f38ystedpg2"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0f38ystedpg2"]
 
 [ext_resource type="Texture2D" uid="uid://0q3icy2higva" path="res://wall.png" id="1_4d3wl"]
-[ext_resource type="Texture2D" uid="uid://dfwtf70cqqw7q" path="res://th-1240146318.jpg" id="1_gaicq"]
 
 [resource]
 albedo_color = Color(0.625597, 0.625597, 0.625597, 1)
 albedo_texture = ExtResource("1_4d3wl")
 normal_scale = 5.92
-normal_texture = ExtResource("1_gaicq")
