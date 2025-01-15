@@ -99,6 +99,8 @@ offset_top = 30.0
 offset_right = 191.0
 offset_bottom = 57.0
 theme = ExtResource("4_83jih")
+max_value = 3.0
+step = 1.0
 show_percentage = false
 
 [node name="Stamina Bar" type="ProgressBar" parent="player3d/CanvasLayer"]

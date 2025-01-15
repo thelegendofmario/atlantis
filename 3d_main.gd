@@ -9,6 +9,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$player3d/CanvasLayer/DebugLabel.text = str($player3d.get_gravity(), Global.super_artifacts, Engine.get_frames_per_second())
-	$player3d/CanvasLayer/AirBar.value = Global.air/10
+	$player3d/CanvasLayer/AirBar.value = Global.super_artifacts -1
 	$"player3d/CanvasLayer/Stamina Bar".value=$player3d.stamina
 	$"player3d/CanvasLayer/Health Bar".value = Global.dPlayer_Health/2.55

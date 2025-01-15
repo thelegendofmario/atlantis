@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bue7rtd727svq"]
+[gd_scene load_steps=82 format=3 uid="uid://bue7rtd727svq"]
 
 [ext_resource type="PackedScene" uid="uid://bvnsggulq2g76" path="res://player.tscn" id="1_82oio"]
 [ext_resource type="Script" path="res://main.gd" id="1_sx8l5"]
@@ -9,13 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://dbb43ty7gqgsh" path="res://crate.tscn" id="5_aecc3"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="5_yufuj"]
 [ext_resource type="Script" path="res://menu_2.gd" id="6_5aa4q"]
+[ext_resource type="Texture2D" uid="uid://bd4sokrmxy8ss" path="res://A-key.png" id="6_nul2c"]
+[ext_resource type="Script" path="res://a.gd" id="7_soj2y"]
 [ext_resource type="Script" path="res://kill_barrier.gd" id="7_v6eea"]
+[ext_resource type="Texture2D" uid="uid://c2xqgcw33urql" path="res://W-key.png" id="8_2u17r"]
 [ext_resource type="PackedScene" uid="uid://bock5s3h1xln5" path="res://save_point.tscn" id="8_7ho56"]
+[ext_resource type="Script" path="res://w.gd" id="9_sp5tv"]
 [ext_resource type="PackedScene" uid="uid://nliedh5irt5d" path="res://artifact of dragons.tscn" id="9_uyg4f"]
 [ext_resource type="PackedScene" uid="uid://boofgon4sq87h" path="res://artifact of fire.tscn" id="10_cqwht"]
+[ext_resource type="Texture2D" uid="uid://b7orhr3og6jey" path="res://S-key.png" id="10_o1hui"]
+[ext_resource type="Texture2D" uid="uid://p8llsd0wuvfc" path="res://D-key.png" id="11_02wda"]
+[ext_resource type="Script" path="res://s.gd" id="11_u0wra"]
 [ext_resource type="PackedScene" uid="uid://wjadvs0otlu4" path="res://artifact of fish.tscn" id="11_ylfty"]
+[ext_resource type="Texture2D" uid="uid://h6giaebrqmri" path="res://shift-keu.png" id="12_sbs8b"]
+[ext_resource type="Script" path="res://d.gd" id="13_5c26y"]
 [ext_resource type="PackedScene" uid="uid://beu365j5kv3sr" path="res://artifact of ground.tscn" id="13_kjr55"]
 [ext_resource type="PackedScene" uid="uid://dsnda70o8iut4" path="res://artifact of ice.tscn" id="14_rr2hk"]
+[ext_resource type="Script" path="res://shift.gd" id="15_14ite"]
 [ext_resource type="PackedScene" uid="uid://csdef0m52irok" path="res://spike.tscn" id="16_5axmq"]
 [ext_resource type="Script" path="res://door_1.gd" id="18_2v6os"]
 [ext_resource type="Texture2D" uid="uid://bkoetgt42itnc" path="res://red_wall.png" id="18_n87tq"]
@@ -388,8 +398,76 @@ show_percentage = false
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D/CanvasLayer"]
+
+[node name="a" type="TextureRect" parent="Player/Camera2D/CanvasLayer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -244.0
+offset_top = 78.0
+offset_right = -204.0
+offset_bottom = 118.0
+grow_horizontal = 0
+scale = Vector2(1.75926, 1.46154)
+texture = ExtResource("6_nul2c")
+script = ExtResource("7_soj2y")
+
+[node name="w" type="TextureRect" parent="Player/Camera2D/CanvasLayer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_top = 21.0
+offset_right = -136.0
+offset_bottom = 61.0
+grow_horizontal = 0
+scale = Vector2(1.62011, 1.44444)
+texture = ExtResource("8_2u17r")
+script = ExtResource("9_sp5tv")
+
+[node name="s" type="TextureRect" parent="Player/Camera2D/CanvasLayer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_top = 80.0
+offset_right = -135.0
+offset_bottom = 120.0
+grow_horizontal = 0
+scale = Vector2(1.60017, 1.40649)
+texture = ExtResource("10_o1hui")
+script = ExtResource("11_u0wra")
+
+[node name="d" type="TextureRect" parent="Player/Camera2D/CanvasLayer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_top = 83.0
+offset_right = -69.0
+offset_bottom = 123.0
+grow_horizontal = 0
+scale = Vector2(1.49097, 1.35)
+texture = ExtResource("11_02wda")
+script = ExtResource("13_5c26y")
+
+[node name="shift" type="TextureRect" parent="Player/Camera2D/CanvasLayer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 155.0
+offset_right = -166.0
+offset_bottom = 195.0
+grow_horizontal = 0
+scale = Vector2(2.4326, 1.91636)
+texture = ExtResource("12_sbs8b")
+script = ExtResource("15_14ite")
+
 [node name="menu_2d" type="CanvasLayer" parent="Player/Camera2D"]
 process_mode = 3
+visible = false
 script = ExtResource("6_5aa4q")
 
 [node name="ColorRect" type="ColorRect" parent="Player/Camera2D/menu_2d"]

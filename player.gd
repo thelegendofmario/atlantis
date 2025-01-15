@@ -3,7 +3,7 @@ extends CharacterBody2D
 const DEFAULT_STAMINA = 100.0
 const DEFAULT_HEALTH = 100.0
 var stamina = 0
-const DEFAULT_SPEED = 100.0
+const DEFAULT_SPEED = 200.0
 const MAX_SPEED = 400.0
 const JUMP_VELOCITY = -350.0
 const WATER_JUMP_VELOCITY = JUMP_VELOCITY*1.25

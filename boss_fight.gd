@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	
 	
 	$boss_player3d/CanvasLayer/DebugLabel.text = str($boss_player3d.get_gravity(), Global.super_artifacts, Engine.get_frames_per_second())
-	$boss_player3d/CanvasLayer/AirBar.value = Global.air/10
+	$boss_player3d/CanvasLayer/AirBar.value = Global.super_artifacts -1
 	$"boss_player3d/CanvasLayer/Stamina Bar".value=$boss_player3d.stamina
 	$"boss_player3d/CanvasLayer/Health Bar".value = Global.player_health
 	

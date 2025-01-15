@@ -1,0 +1,8 @@
+w,a,s,d for basic movement
+shift for sprint
+space bar for jump
+left mouse click to shoot
+
+goal of the game is to find the artifacts to progress through portals to collect the trident of Atlantis
+
+there are multitude of challenges and puzzles 
