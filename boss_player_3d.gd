@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-
+const max_health = 100
 const default_speed = 10.0
 var SPEED = 10
 const JUMP_VELOCITY = 10
@@ -15,7 +15,7 @@ var sensitivity = 0.003
 
 
 func _ready():
-	pass
+	Global.player_health = max_health
 
 
 func _unhandled_input(event):
