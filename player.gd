@@ -11,10 +11,10 @@ var SPEED = DEFAULT_SPEED
 var force = 3000
 var defAir = 1000
 var can_sprint = true
+@onready var anime = $AnimatedSprite2D
 @export_range(1,12) var anim_speed = 5
 
 func _ready() -> void:
-	$AnimationPlayer.speed_scale = anim_speed
 	Global.player_stamina = DEFAULT_STAMINA
 	Global.player_health = DEFAULT_HEALTH
 
@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		can_sprint = false
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		anime.play("fly")
 	if Global.player_in_water:
 		Global.air -= 1
 	if Global.air == 0:
@@ -52,9 +53,7 @@ func _physics_process(delta: float) -> void:
 		if SPEED <= MAX_SPEED:
 			SPEED = SPEED*1.05 
 		Global.player_stamina -= 1
-		$AnimationPlayer.speed_scale *= 1.25
 	else:
-		$AnimationPlayer.speed_scale = anim_speed
 		if stamina < DEFAULT_STAMINA:
 			Global.player_stamina += 1
 #<<<<<<< HEAD
@@ -69,12 +68,15 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	if direction:
-		$AnimationPlayer.play()
 		velocity.x = direction * SPEED
 	else:
-		$AnimationPlayer.pause()
+		
 		
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction and is_on_floor():
+		anime.play("run")
+	elif !direction and is_on_floor():
+		anime.play("idle")
 
 	move_and_slide()
 	

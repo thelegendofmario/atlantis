@@ -1,0 +1,213 @@
+[gd_scene load_steps=22 format=3 uid="uid://ctq2mkj4pluv6"]
+
+[ext_resource type="Script" path="res://mechdplayer.gd" id="1_ifc0d"]
+[ext_resource type="Script" path="res://rightrailgun.gd" id="2_7416w"]
+[ext_resource type="Texture2D" uid="uid://d4hmmtipkm0lo" path="res://blood.png" id="2_rlpnr"]
+[ext_resource type="Script" path="res://color_rect.gd" id="3_dirlr"]
+[ext_resource type="Script" path="res://marker_3d.gd" id="4_jrhey"]
+[ext_resource type="Script" path="res://muzzle_flash.gd" id="4_oskf5"]
+[ext_resource type="Script" path="res://reticle.gd" id="5_u337t"]
+[ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="6_e2cuk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfjkg"]
+height = 1.94624
+
+[sub_resource type="SphereMesh" id="SphereMesh_rq1tk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xs6v"]
+albedo_color = Color(0.262745, 0.364706, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3xow4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qstdi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrak5"]
+albedo_color = Color(0.515867, 0.515867, 0.515867, 1)
+metallic_specular = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_si617"]
+albedo_color = Color(0, 1, 1, 1)
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+emission_energy_multiplier = 3.53
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x5o1c"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jvk4y"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_hk6ay"]
+offsets = PackedFloat32Array(0, 0.0235294, 0.0823529, 1)
+colors = PackedColorArray(0.738259, 0.328703, 6.73831e-07, 1, 0.811765, 0.811765, 0.811765, 1, 0.143446, 0.661238, 0.899486, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2t7c"]
+gradient = SubResource("Gradient_hk6ay")
+fill = 2
+fill_from = Vector2(0.473684, 0.522556)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xpqf"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 0.780392, 0, 0.572549)
+albedo_texture = SubResource("GradientTexture2D_m2t7c")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 6.84
+emission_texture = SubResource("GradientTexture2D_m2t7c")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_beba0"]
+material = SubResource("StandardMaterial3D_3xpqf")
+size = Vector2(0.1, 0.1)
+
+[node name="playermech" type="CharacterBody3D" groups=["player2_d"]]
+script = ExtResource("1_ifc0d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.538302, 0, 0, 0, 1, 0, 0, 0, 0.514477, 0, 0.241628, 0)
+shape = SubResource("CapsuleShape3D_nfjkg")
+
+[node name="okayer model" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.642535, 0, 0, 0, 0.690867, 0, 0, 0, 0.764059, -0.00454021, 0.761514, -0.0161803)
+mesh = SubResource("SphereMesh_rq1tk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0xs6v")
+
+[node name="body" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.430358, 0, 0, 0, 0.467993, 0, 0, 0, 0.522306, -0.00454021, -0.0199329, -0.0161803)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../Ground")
+
+[node name="rightleg" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.165587, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -0.00454021, -0.518992, 0.139454)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../Ground")
+
+[node name="leftleg" type="MeshInstance3D" parent="okayer model"]
+transform = Transform3D(0.16348, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -0.00454021, -0.518992, -0.160293)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../Ground")
+
+[node name="Camera3D" type="Camera3D" parent="okayer model"]
+transform = Transform3D(-4.37113e-08, 0, -1, 0, 1, 0, 1, 0, -4.37113e-08, 0.070029, 0.833042, 0.0239223)
+fov = 120.938
+far = 101.85
+
+[node name="rightrailgun" type="Node3D" parent="okayer model/Camera3D" node_paths=PackedStringArray("camera_controller")]
+transform = Transform3D(1, 0, -8.88178e-14, 0, 1, 0, 8.88178e-14, 0, 1, 0.491671, -0.507097, 0.070029)
+script = ExtResource("2_7416w")
+camera_controller = NodePath("..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="okayer model/Camera3D/rightrailgun"]
+transform = Transform3D(0.247997, -0.0151357, 0.00504116, 0.00676955, 0.0137501, -0.192369, 0.00836785, 0.437454, 0.006221, 0.000426888, 0.087172, -0.264485)
+mesh = SubResource("CapsuleMesh_qstdi")
+skeleton = NodePath("../../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xrak5")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="okayer model/Camera3D/rightrailgun"]
+transform = Transform3D(0.174855, -0.0233514, 0.00346647, 0.00477298, 0.0212141, -0.13228, 0.00589988, 0.674907, 0.00427785, 0.0211974, 0.0632401, -0.860719)
+mesh = SubResource("CapsuleMesh_qstdi")
+skeleton = NodePath("../../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_si617")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="okayer model/Camera3D/rightrailgun"]
+transform = Transform3D(0.247997, -0.032505, 0.00504115, 0.00676954, 0.0295296, -0.192369, 0.00836777, 0.939468, 0.00622099, 0.0191862, 0.131366, -0.949839)
+mesh = SubResource("CapsuleMesh_x5o1c")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("6_e2cuk")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="okayer model/Camera3D/rightrailgun"]
+transform = Transform3D(0.247997, -0.0233514, 0.00504115, 0.00676954, 0.0212138, -0.192369, 0.00836777, 0.674907, 0.006221, 0.0102581, -0.00660706, -0.573611)
+mesh = SubResource("CapsuleMesh_x5o1c")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("6_e2cuk")
+
+[node name="MuzzleFlash" type="Node3D" parent="okayer model/Camera3D/rightrailgun" node_paths=PackedStringArray("weapon", "light", "emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.95804)
+script = ExtResource("4_oskf5")
+weapon = NodePath("..")
+light = NodePath("OmniLight3D")
+emitter = NodePath("GPUParticles3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="okayer model/Camera3D/rightrailgun/MuzzleFlash"]
+visible = false
+light_color = Color(0, 1, 0.741176, 1)
+light_energy = 11.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="okayer model/Camera3D/rightrailgun/MuzzleFlash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0536546, 0.0934047, 0.0595771)
+emitting = false
+amount = 3
+lifetime = 0.05
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jvk4y")
+draw_pass_1 = SubResource("QuadMesh_beba0")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rlpnr")
+script = ExtResource("3_dirlr")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+script = ExtResource("4_jrhey")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Reticle" type="CenterContainer" parent="UI" node_paths=PackedStringArray("RETICLE_LINES", "Player_controller")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_u337t")
+RETICLE_LINES = [NodePath("top"), NodePath("bottom"), NodePath("left"), NodePath("right")]
+Player_controller = NodePath("../..")
+
+[node name="top" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(0, -5, 0, -15)
+width = 2.0
+
+[node name="right" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(5, 0, 15, 0)
+width = 2.0
+
+[node name="bottom" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(0, 5, 0, 15)
+width = 2.0
+
+[node name="left" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(-5, 0, -15, 0)
+width = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

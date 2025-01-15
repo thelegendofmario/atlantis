@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnj1cv4ijgkt5"]
+[gd_scene load_steps=12 format=3 uid="uid://cnj1cv4ijgkt5"]
 
 [ext_resource type="Script" path="res://boss_player_3d.gd" id="1_3qlro"]
 [ext_resource type="Texture2D" uid="uid://d4hmmtipkm0lo" path="res://blood.png" id="2_wpx5d"]
@@ -14,26 +14,254 @@ albedo_color = Color(0.262745, 0.364706, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3xow4"]
 
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_foj0l"]
+
 [sub_resource type="Animation" id="Animation_7uj6x"]
 resource_name = "3d_walk"
-loop_mode = 1
-tracks/0/type = "rotation_3d"
+loop_mode = 2
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("okayer model")
+tracks/0/path = NodePath("okayer model/left_leg/lowerleftleg:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.707107, 0, 0.707107, 0.2, 1, -0.0547961, 0.704981, 0.0547961, 0.70498, 0.433333, 1, 0.0730291, 0.703326, -0.073029, 0.703325, 0.6, 1, -0.0547961, 0.704981, 0.0547961, 0.70498, 0.8, 1, 0.0730291, 0.703326, -0.073029, 0.703325, 1, 1, 0, 0.707107, 0, 0.707107)
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0281625, -0.72741, -0.165315), Vector3(-0.0237757, -0.749107, -0.165315), Vector3(-0.109867, -0.761183, -0.165315), Vector3(-0.0281625, -0.72741, -0.165315)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("okayer model/left_leg/lowerleftleg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0281625, -0.72741, -0.165315), Vector3(6.30397e-09, -4.5696e-10, -0.144723), Vector3(3.77237e-08, -2.16295e-08, -1.04121), Vector3(2.13072e-09, -5.19581e-11, -0.0487646)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("okayer model/left_leg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.78187e-08, -3.79676e-09, -0.419874), Vector3(-3.08957e-08, -1.27898e-08, 0.784979), Vector3(-9.98376e-09, -1.15543e-09, 0.230436), Vector3(1.78187e-08, -3.79676e-09, -0.419874)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("okayer model/left_leg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0474362, 0, 2.0735e-09), Vector3(-0.17096, 0, -7.4729e-09), Vector3(-0.17096, 0, -7.4729e-09), Vector3(0.0474362, 0, 2.0735e-09)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("okayer model/right_leg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.08957e-08, -1.27898e-08, 0.784979), Vector3(-9.98376e-09, -1.15543e-09, 0.230436), Vector3(1.78187e-08, -3.79676e-09, -0.419874), Vector3(-9.98376e-09, -1.15543e-09, 0.230436), Vector3(-3.08957e-08, -1.27898e-08, 0.784979)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("okayer model/right_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.17096, 0, -7.4729e-09), Vector3(-0.17096, 0, -7.4729e-09), Vector3(0.0474362, 0, 2.0735e-09), Vector3(-0.17096, 0, -7.4729e-09), Vector3(-0.17096, 0, -7.4729e-09)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("okayer model/right_leg/lowerrightleg:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.701118, 1.00112),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0237758, -0.749107, 0.146704), Vector3(-0.109867, -0.761183, 0.151432), Vector3(-0.0281625, -0.72741, 0.135816), Vector3(-0.0237758, -0.749107, 0.146704), Vector3(-0.109867, -0.761183, 0.151432)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("okayer model/right_leg/lowerrightleg:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.701118, 1.00112),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.30397e-09, -4.56961e-10, -0.144723), Vector3(3.77237e-08, -2.16295e-08, -1.04121), Vector3(2.13072e-09, -5.19581e-11, -0.0487646), Vector3(6.30397e-09, -4.56961e-10, -0.144723), Vector3(3.77237e-08, -2.16295e-08, -1.04121)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("okayer model/arms:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.533333, 0.6, 0.666667, 0.7, 0.766667, 0.833333, 0.866667, 0.933333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-4.371e-08, -4.40654e-08, 1.57889), Vector3(-2.31052e-09, -8.73617e-08, 3.08871), Vector3(2.19594e-08, -8.15065e-08, -2.61525), Vector3(3.58539e-08, -6.87151e-08, -2.17976), Vector3(4.15337e-08, -5.73364e-08, -1.88778), Vector3(4.37112e-08, -4.35779e-08, -1.56774), Vector3(3.96738e-08, -2.53627e-08, -1.13761), Vector3(3.06306e-08, -1.25272e-08, -0.776444), Vector3(3.06306e-08, -1.25272e-08, -0.776444), Vector3(1.5438e-08, -2.81696e-09, -0.360969), Vector3(-2.66778e-09, -8.14785e-11, 0.0610695)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("okayer model/arms:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.533333, 0.6, 0.666667, 0.7, 0.766667, 0.833333, 0.866667, 0.933333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_evfyj"]
 length = 0.001
-tracks/0/type = "rotation_3d"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("okayer model")
+tracks/0/path = NodePath("okayer model/left_leg/lowerleftleg:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.707107, 0, 0.707107)
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.22613e-09, -0.744806, -0.165315)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("okayer model/left_leg/lowerleftleg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("okayer model/left_leg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("okayer model/left_leg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("okayer model/right_leg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("okayer model/right_leg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("okayer model/right_leg/lowerrightleg:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.0428e-09, -0.736523, 0.138243)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("okayer model/right_leg/lowerrightleg:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("okayer model/arms:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("okayer model/arms:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.23591, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7o0vy"]
 _data = {
@@ -64,21 +292,48 @@ transform = Transform3D(0.430358, 0, 0, 0, 0.467993, 0, 0, 0, 0.522306, -0.00454
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../Ground")
 
-[node name="rightleg" type="MeshInstance3D" parent="okayer model"]
-transform = Transform3D(0.165587, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -0.00454021, -0.518992, 0.139454)
-mesh = SubResource("CapsuleMesh_3xow4")
-skeleton = NodePath("../Ground")
+[node name="right_leg" type="Node3D" parent="okayer model"]
 
-[node name="leftleg" type="MeshInstance3D" parent="okayer model"]
-transform = Transform3D(0.16348, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -0.00454021, -0.518992, -0.160293)
+[node name="rightleg" type="MeshInstance3D" parent="okayer model/right_leg"]
+transform = Transform3D(0.165587, 0, -2.84217e-14, 0, 0.17638, -1.90158e-14, 0, -1.70385e-14, 0.196849, -0.00454021, -0.518992, 0.139454)
 mesh = SubResource("CapsuleMesh_3xow4")
-skeleton = NodePath("../Ground")
+skeleton = NodePath("../../Ground")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7o0vy")
-}
-autoplay = "3d_walk"
+[node name="lowerrightleg" type="MeshInstance3D" parent="okayer model/right_leg"]
+transform = Transform3D(0.165587, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -6.0428e-09, -0.736523, 0.138243)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../../Ground")
+
+[node name="left_leg" type="Node3D" parent="okayer model"]
+
+[node name="leftleg" type="MeshInstance3D" parent="okayer model/left_leg"]
+transform = Transform3D(0.16348, 0, -2.84217e-14, 0, 0.17638, -1.90158e-14, 0, -1.70385e-14, 0.196849, -0.00454021, -0.518992, -0.160293)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../../Ground")
+
+[node name="lowerleftleg" type="MeshInstance3D" parent="okayer model/left_leg"]
+transform = Transform3D(0.16348, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, 7.22613e-09, -0.744806, -0.165315)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../../Ground")
+
+[node name="arms" type="Node3D" parent="okayer model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23591, 0)
+
+[node name="rightarm" type="Node3D" parent="okayer model/arms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.269139, 0)
+
+[node name="rightarm" type="MeshInstance3D" parent="okayer model/arms/rightarm"]
+transform = Transform3D(-5.52806e-09, -0.163098, 0.0734087, -4.67223e-09, 0.192973, 0.062044, -0.165587, -2.54464e-15, -4.20132e-09, 0.300717, 0.0691625, 0.00454021)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../../../Ground")
+
+[node name="leftarm" type="Node3D" parent="okayer model/arms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.269139, 0)
+
+[node name="leftarm" type="MeshInstance3D" parent="okayer model/arms/leftarm"]
+transform = Transform3D(5.38398e-09, -0.168869, -0.0714955, -4.83756e-09, -0.187944, 0.0642394, -0.165587, -2.2035e-15, -4.20132e-09, -0.329854, 0.0691625, 0.00454021)
+mesh = SubResource("CapsuleMesh_3xow4")
+skeleton = NodePath("../../../Ground")
 
 [node name="redscreen" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -96,3 +351,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 2.73606, 5.30627
 transform = Transform3D(1, 4.9738e-14, 2.38418e-07, -6.88429e-08, 0.957405, 0.288748, -2.28263e-07, -0.288748, 0.957405, 0.0271145, -1.35071, -3.42033)
 fov = 120.938
 far = 101.85
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_foj0l")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7o0vy")
+}
+autoplay = "3d_walk"

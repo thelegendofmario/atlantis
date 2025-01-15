@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://brbkmldb04wtg"]
+[gd_scene load_steps=7 format=3 uid="uid://brbkmldb04wtg"]
 
 [ext_resource type="Script" path="res://mecha2.gd" id="1_csowx"]
 [ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="2_j6yei"]
+[ext_resource type="Script" path="res://reticle.gd" id="3_f0cra"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3nj0t"]
 
@@ -21,7 +22,7 @@ emission_energy_multiplier = 3.53
 script = ExtResource("1_csowx")
 
 [node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 2.73606, 5.30627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 3.73495, 5.30627)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 0.961756, 0.273909, 0, -0.273909, 0.961756, 0.00319219, 0.0444658, 0.014452)
@@ -207,3 +208,43 @@ transform = Transform3D(0.174855, -0.0233514, 0.00346647, 0.00477298, 0.0212141,
 mesh = SubResource("CapsuleMesh_3nj0t")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3yucv")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Reticle" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_f0cra")
+
+[node name="top" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(0, -5, 0, -15)
+width = 2.0
+
+[node name="right" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(5, 0, 15, 0)
+width = 2.0
+
+[node name="bottom" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(0, 5, 0, 15)
+width = 2.0
+
+[node name="left" type="Line2D" parent="UI/Reticle"]
+points = PackedVector2Array(-5, 0, -15, 0)
+width = 2.0

@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqmlv4y0ue81b"]
+
+[ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="1_erpxc"]
+[ext_resource type="PackedScene" uid="uid://ctq2mkj4pluv6" path="res://player_mech.tscn" id="2_cci6j"]
+[ext_resource type="Script" path="res://menu.gd" id="3_vji7y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0u36u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fwhcu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8va7i"]
+font_size = 100
+
+[node name="mechamain" type="Node3D"]
+
+[node name="floor" type="Node3D" parent="."]
+
+[node name="wall" type="StaticBody3D" parent="floor"]
+transform = Transform3D(-0.0304712, -12.6825, 0, 1.11601, -0.346279, 0, 0, 0, 14.6507, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/wall"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0u36u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor/wall"]
+transform = Transform3D(0.207358, 1.19209e-07, 0, 1.74623e-10, 2.34743, 0, 0, 0, 2.77383, 0, 0, 0)
+mesh = SubResource("BoxMesh_fwhcu")
+surface_material_override/0 = ExtResource("1_erpxc")
+
+[node name="player2_5d" parent="." instance=ExtResource("2_cci6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20351, 0)
+
+[node name="menu" type="CanvasLayer" parent="player2_5d"]
+process_mode = 3
+script = ExtResource("3_vji7y")
+
+[node name="ColorRect" type="ColorRect" parent="player2_5d/menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.546531, 0.549408, 1)
+
+[node name="Label" type="Label" parent="player2_5d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -250.0
+offset_right = 147.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+label_settings = SubResource("LabelSettings_8va7i")
+
+[node name="continue" type="MenuButton" parent="player2_5d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -120.0
+offset_right = -108.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "CONTINUE?"
+
+[node name="save" type="MenuButton" parent="player2_5d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -6.0
+offset_right = -101.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "SAVE?"
+
+[node name="exit" type="MenuButton" parent="player2_5d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = 110.0
+offset_right = -101.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "EXIT?"
+
+[connection signal="button_up" from="player2_5d/menu/continue" to="player2_5d/menu" method="_on_continue_button_up"]
+[connection signal="pressed" from="player2_5d/menu/continue" to="player2_5d/menu" method="_on_continue_pressed"]
+[connection signal="button_up" from="player2_5d/menu/save" to="player2_5d/menu" method="_on_save_button_up"]
+[connection signal="button_up" from="player2_5d/menu/exit" to="player2_5d/menu" method="_on_exit_button_up"]
