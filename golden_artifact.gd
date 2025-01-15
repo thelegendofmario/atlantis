@@ -20,3 +20,7 @@ func _on_body_entered(body: Node3D) -> void:
 		get_tree().change_scene_to_file("res://boss_fight.tscn")
 		Global.super_artifacts += 1
 		Global.wit_portal_done = 1
+	if body.is_in_group("player_3"):
+		get_tree().change_scene_to_file("res://boss_fight.tscn")
+		Global.super_artifacts += 1
+		Global.might_portal_done = 1

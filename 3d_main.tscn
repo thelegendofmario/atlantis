@@ -24,22 +24,22 @@ metallic = 1.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e18lk"]
 albedo_color = Color(1, 0.054902, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdk8o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iv27"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_py8ye"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2l7c"]
 bg_color = Color(0.783191, 0.78319, 0, 1)
 
 [sub_resource type="Theme" id="Theme_8aj53"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_rdk8o")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_py8ye")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2iv27")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_j2l7c")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnmx7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmlls"]
 bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Theme" id="Theme_t4jxv"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_rdk8o")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_qnmx7")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2iv27")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_bmlls")
 
 [sub_resource type="LabelSettings" id="LabelSettings_yhpqr"]
 font_size = 100

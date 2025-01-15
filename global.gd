@@ -28,7 +28,8 @@ var wit_portal_done =  0
 var will_portal_done =  0
 var secondlevel = 0
 var might_portal_done = 0
-
+var Player_3d_health = 100
+var Enemys_killed = 0
 
 #### DATABASE VARS ####
 var database : SQLite = null

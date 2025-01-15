@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://2_5d_main.gd" id="1_qv2ev"]
 [ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="2_0wp02"]
 [ext_resource type="PackedScene" uid="uid://k8elpbwplsxt" path="res://player_2_5d.tscn" id="2_w14k0"]
-[ext_resource type="Material" uid="uid://lgenl71yhj0g" path="res://gun metal2.tres" id="4_rnogv"]
+[ext_resource type="Material" uid="uid://ctyn37xwcqw76" path="res://gun metal23.tres" id="5_0bvqi"]
 [ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_0jjcg"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="6_2dys8"]
 [ext_resource type="Material" uid="uid://bpk2dn51xo0sy" path="res://glow green.tres" id="8_1quhx"]
@@ -97,7 +97,7 @@ transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.
 transform = Transform3D(-4.37114e-08, -42.1119, 0, 1, -1.84077e-06, 0, 0, 0, 45.6105, 0, 15.8437, 0)
 
 [node name="MeshInstance3D" parent="floors/wall8" index="1"]
-surface_material_override/0 = ExtResource("4_rnogv")
+surface_material_override/0 = ExtResource("5_0bvqi")
 
 [node name="wall2" parent="floors" instance=ExtResource("1_cpf8j")]
 transform = Transform3D(-4.37114e-08, -2.92069, 0, 1, -1.27667e-07, 0, 0, 0, 2.62125, 12.8462, 2.74272, -12.2141)

@@ -16,7 +16,6 @@ var sensitivity = 0.003
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.dPlayer_Health = 255
 
 
 func _unhandled_input(event):
@@ -66,8 +65,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	if Global.dPlayer_Health <= 0:
+	
+	if Global.Player_3d_health < 1:
 		get_tree().change_scene_to_file("res://THE_BAD_END.tscn")
+
 	
 	if Input.is_action_just_pressed("kama"):
 		gun._attack()
@@ -75,7 +76,3 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-
-
-func _on_timer_timeout() -> void:
-	Global.dPlayer_Health -= 2.55

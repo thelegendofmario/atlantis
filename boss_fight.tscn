@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://uho0xsnvtprn"]
+[gd_scene load_steps=32 format=3 uid="uid://uho0xsnvtprn"]
 
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="1_gt8xc"]
 [ext_resource type="Script" path="res://boss_fight.gd" id="1_qnhnp"]
@@ -13,8 +13,11 @@
 [ext_resource type="Material" uid="uid://5svrbxqmw7kj" path="res://boss_fight.tres" id="10_nrtkv"]
 [ext_resource type="Script" path="res://portal34.09.gd" id="10_saqht"]
 [ext_resource type="Texture2D" uid="uid://0q3icy2higva" path="res://wall.png" id="12_c4w0n"]
+[ext_resource type="Script" path="res://portal654.gd" id="13_86cjb"]
 [ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="13_ci84y"]
+[ext_resource type="Script" path="res://portalwend.gd" id="13_qdcih"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="14_7edpg"]
+[ext_resource type="Material" uid="uid://dnrf2vg8dcfa1" path="res://po.tres" id="14_rarx4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jnl5"]
 bg_color = Color(0, 0, 0, 1)
@@ -146,6 +149,32 @@ surface_material_override/0 = ExtResource("4_ld8k3")
 transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.2263, 17.6486, 0.146243)
 
 [node name="MeshInstance3D" parent="floors/floor11" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="end" type="Node3D" parent="floors"]
+
+[node name="floor15" parent="floors/end" groups=["ground"] instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.0887643, 23.8524, 0.146243)
+
+[node name="MeshInstance3D" parent="floors/end/floor15" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="floor16" parent="floors/end" groups=["ground"] instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.0887643, 27.0529, 0.293465)
+
+[node name="MeshInstance3D" parent="floors/end/floor16" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="floor17" parent="floors/end" groups=["ground"] instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, 0.0322481, 31.7263, 0.229433)
+
+[node name="MeshInstance3D" parent="floors/end/floor17" index="1"]
+surface_material_override/0 = ExtResource("4_ld8k3")
+
+[node name="floor18" parent="floors/end" groups=["ground"] instance=ExtResource("1_gt8xc")]
+transform = Transform3D(-2.52955e-07, -0.0793156, -7.52261e-09, -5.78693, 3.467e-09, 0, -2.2114e-14, -6.93398e-09, 0.0860486, -0.0408288, 36.2842, 0.134784)
+
+[node name="MeshInstance3D" parent="floors/end/floor18" index="1"]
 surface_material_override/0 = ExtResource("4_ld8k3")
 
 [node name="boss_player3d" parent="." instance=ExtResource("2_4k03r")]
@@ -319,6 +348,38 @@ surface_material_override/0 = ExtResource("10_nrtkv")
 transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_omq51")
 
+[node name="portal4" type="Area3D" parent="portal"]
+transform = Transform3D(0.727066, 0, 0.686568, 0, 1, 0, -0.686568, 0, 0.727066, -5.69729, 38.5689, 8.76123)
+script = ExtResource("13_qdcih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="portal/portal4"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_j8v6a")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("10_nrtkv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portal4"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_omq51")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="portal/portal4"]
+light_energy = 16.0
+omni_range = 4096.0
+
+[node name="portal3" type="Area3D" parent="portal"]
+transform = Transform3D(-0.729232, 0, -0.684268, 0, 1, 0, 0.684268, 0, -0.729232, 26.6845, 25.2095, -9.78741)
+script = ExtResource("13_86cjb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="portal/portal3"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_j8v6a")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("14_rarx4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portal3"]
+transform = Transform3D(5.30844, 0, 0, 0, 2.22169, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_omq51")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e1sqs")
 camera_attributes = SubResource("CameraAttributesPractical_7ngyg")
@@ -340,6 +401,8 @@ shape = SubResource("BoxShape3D_x6kkg")
 [connection signal="button_up" from="boss_player3d/menu/exit" to="boss_player3d/menu" method="_on_exit_button_up"]
 [connection signal="body_entered" from="portal/portal1" to="portal/portal1" method="_on_portal_1_body_entered"]
 [connection signal="body_entered" from="portal/portal2" to="portal/portal2" method="_on_portal_1_body_entered"]
+[connection signal="body_entered" from="portal/portal4" to="portal/portal4" method="_on_portal_1_body_entered"]
+[connection signal="body_entered" from="portal/portal3" to="portal/portal3" method="_on_portal_1_body_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]
 [connection signal="body_entered" from="checkpoint" to="." method="_on_checkpoint_body_entered"]
 
@@ -357,3 +420,7 @@ shape = SubResource("BoxShape3D_x6kkg")
 [editable path="floors/floor14"]
 [editable path="floors/floor10"]
 [editable path="floors/floor11"]
+[editable path="floors/end/floor15"]
+[editable path="floors/end/floor16"]
+[editable path="floors/end/floor17"]
+[editable path="floors/end/floor18"]

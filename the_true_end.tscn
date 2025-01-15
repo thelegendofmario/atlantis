@@ -1,8 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnj1cv4ijgkt5"]
+[gd_scene load_steps=16 format=3 uid="uid://cpwbeicvp0xf8"]
 
-[ext_resource type="Script" path="res://boss_player_3d.gd" id="1_3qlro"]
-[ext_resource type="Texture2D" uid="uid://d4hmmtipkm0lo" path="res://blood.png" id="2_wpx5d"]
-[ext_resource type="Script" path="res://redscreen.gd" id="3_qi3y6"]
+[ext_resource type="Texture2D" uid="uid://7jkuchqy5n5q" path="res://water.png" id="1_5w3fk"]
+[ext_resource type="Script" path="res://boss_player_3d.gd" id="2_76gu0"]
+[ext_resource type="Script" path="res://menu.gd" id="3_ukrjf"]
+[ext_resource type="PackedScene" uid="uid://cvx8d6qi6allq" path="res://trident.tscn" id="3_vd6iu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hw2ca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdw4j"]
+albedo_texture = ExtResource("1_5w3fk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euvxv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfjkg"]
 height = 1.94624
@@ -16,7 +24,7 @@ albedo_color = Color(0.262745, 0.364706, 1, 1)
 
 [sub_resource type="Animation" id="Animation_7uj6x"]
 resource_name = "3d_walk"
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -267,91 +275,238 @@ _data = {
 "RESET": SubResource("Animation_evfyj")
 }
 
-[node name="boss_player3d" type="CharacterBody3D" groups=["Player"]]
+[sub_resource type="LabelSettings" id="LabelSettings_0r8s3"]
+font_size = 100
+
+[node name="the true end" type="Node3D"]
+
+[node name="floors" type="Node3D" parent="."]
+transform = Transform3D(2.37959, 0, 0, 0, 1, 0, 0, 0, 1, 55.2232, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floors"]
+transform = Transform3D(50.388, 0, 0, 0, 0.1, 0, 0, 0, 7.44393, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floors/StaticBody3D"]
+mesh = SubResource("BoxMesh_hw2ca")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdw4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/StaticBody3D"]
+shape = SubResource("BoxShape3D_euvxv")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="floors"]
+transform = Transform3D(50.388, 0, 0, 0, 0.1, 0, 0, 0, 7.44393, 0, 7.37829, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floors/StaticBody3D2"]
+mesh = SubResource("BoxMesh_hw2ca")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdw4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/StaticBody3D2"]
+shape = SubResource("BoxShape3D_euvxv")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="floors"]
+transform = Transform3D(50.388, 0, 0, 0, -4.37114e-09, -7.44393, 0, 0.1, -3.25385e-07, 0, 3.65388, 3.58531)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floors/StaticBody3D3"]
+mesh = SubResource("BoxMesh_hw2ca")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdw4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/StaticBody3D3"]
+shape = SubResource("BoxShape3D_euvxv")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="floors"]
+transform = Transform3D(50.388, 0, 0, 0, -4.37114e-09, -7.44393, 0, 0.1, -3.25385e-07, 0, 3.65388, -3.59295)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floors/StaticBody3D4"]
+mesh = SubResource("BoxMesh_hw2ca")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdw4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floors/StaticBody3D4"]
+shape = SubResource("BoxShape3D_euvxv")
+
+[node name="walls" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-2.20253e-06, -0.1, 0, 50.388, -4.37114e-09, 0, 0, 0, 7.44393, -4.43285, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D"]
+mesh = SubResource("BoxMesh_hw2ca")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdw4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D"]
+shape = SubResource("BoxShape3D_euvxv")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-2.20253e-06, -0.1, 0, 50.388, -4.37114e-09, 0, 0, 0, 7.44393, 114.962, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D2"]
+mesh = SubResource("BoxMesh_hw2ca")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdw4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D2"]
+shape = SubResource("BoxShape3D_euvxv")
+
+[node name="boss_player3d" type="CharacterBody3D" parent="." groups=["Player"]]
+transform = Transform3D(0.00933736, 0, -0.999956, 0, 1, 0, 0.999956, 0, 0.00933736, 0, 1.40572, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_3qlro")
+script = ExtResource("2_76gu0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
-transform = Transform3D(0.538302, 0, 0, 0, 1.15775, 0, 0, 0, 0.514477, 0, 0.066439, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_player3d" groups=["Player"]]
+transform = Transform3D(0.538302, 0, 0, 0, 1, 0, 0, 0, 0.514477, 0, 0.171297, 0)
 shape = SubResource("CapsuleShape3D_nfjkg")
 
-[node name="okayer model" type="Node3D" parent="."]
+[node name="okayer model" type="Node3D" parent="boss_player3d"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Ground" type="MeshInstance3D" parent="okayer model"]
+[node name="Ground" type="MeshInstance3D" parent="boss_player3d/okayer model"]
 transform = Transform3D(0.642535, 0, 0, 0, 0.690867, 0, 0, 0, 0.764059, -0.00454021, 0.761514, -0.0161803)
 mesh = SubResource("SphereMesh_rq1tk")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_0xs6v")
 
-[node name="body" type="MeshInstance3D" parent="okayer model"]
+[node name="body" type="MeshInstance3D" parent="boss_player3d/okayer model"]
 transform = Transform3D(0.430358, 0, 0, 0, 0.467993, 0, 0, 0, 0.522306, -0.00454021, -0.0199329, -0.0161803)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../Ground")
 
-[node name="right_leg" type="Node3D" parent="okayer model"]
+[node name="right_leg" type="Node3D" parent="boss_player3d/okayer model"]
 
-[node name="rightleg" type="MeshInstance3D" parent="okayer model/right_leg"]
+[node name="rightleg" type="MeshInstance3D" parent="boss_player3d/okayer model/right_leg"]
 transform = Transform3D(0.165587, 0, -2.84217e-14, 0, 0.17638, -1.90158e-14, 0, -1.70385e-14, 0.196849, -0.00454021, -0.518992, 0.139454)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../../Ground")
 
-[node name="lowerrightleg" type="MeshInstance3D" parent="okayer model/right_leg"]
+[node name="lowerrightleg" type="MeshInstance3D" parent="boss_player3d/okayer model/right_leg"]
 transform = Transform3D(0.165587, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, -6.0428e-09, -0.736523, 0.138243)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../../Ground")
 
-[node name="left_leg" type="Node3D" parent="okayer model"]
+[node name="left_leg" type="Node3D" parent="boss_player3d/okayer model"]
 
-[node name="leftleg" type="MeshInstance3D" parent="okayer model/left_leg"]
+[node name="leftleg" type="MeshInstance3D" parent="boss_player3d/okayer model/left_leg"]
 transform = Transform3D(0.16348, 0, -2.84217e-14, 0, 0.17638, -1.90158e-14, 0, -1.70385e-14, 0.196849, -0.00454021, -0.518992, -0.160293)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../../Ground")
 
-[node name="lowerleftleg" type="MeshInstance3D" parent="okayer model/left_leg"]
+[node name="lowerleftleg" type="MeshInstance3D" parent="boss_player3d/okayer model/left_leg"]
 transform = Transform3D(0.16348, 0, 0, 0, 0.17638, 0, 0, 0, 0.196849, 7.22613e-09, -0.744806, -0.165315)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../../Ground")
 
-[node name="arms" type="Node3D" parent="okayer model"]
+[node name="arms" type="Node3D" parent="boss_player3d/okayer model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23591, 0)
 
-[node name="rightarm" type="Node3D" parent="okayer model/arms"]
+[node name="rightarm" type="Node3D" parent="boss_player3d/okayer model/arms"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.269139, 0)
 
-[node name="rightarm" type="MeshInstance3D" parent="okayer model/arms/rightarm"]
+[node name="rightarm" type="MeshInstance3D" parent="boss_player3d/okayer model/arms/rightarm"]
 transform = Transform3D(-5.52806e-09, -0.163098, 0.0734087, -4.67223e-09, 0.192973, 0.062044, -0.165587, -2.54464e-15, -4.20132e-09, 0.300717, 0.0691625, 0.00454021)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../../../Ground")
 
-[node name="leftarm" type="Node3D" parent="okayer model/arms"]
+[node name="leftarm" type="Node3D" parent="boss_player3d/okayer model/arms"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.269139, 0)
 
-[node name="leftarm" type="MeshInstance3D" parent="okayer model/arms/leftarm"]
+[node name="leftarm" type="MeshInstance3D" parent="boss_player3d/okayer model/arms/leftarm"]
 transform = Transform3D(5.38398e-09, -0.168869, -0.0714955, -4.83756e-09, -0.187944, 0.0642394, -0.165587, -2.2035e-15, -4.20132e-09, -0.329854, 0.0691625, 0.00454021)
 mesh = SubResource("CapsuleMesh_3xow4")
 skeleton = NodePath("../../../Ground")
 
-[node name="redscreen" type="TextureRect" parent="."]
+[node name="head" type="Node3D" parent="boss_player3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 2.73606, 5.30627)
+
+[node name="Camera3D" type="Camera3D" parent="boss_player3d/head"]
+transform = Transform3D(1, 4.9738e-14, 2.38418e-07, -6.88429e-08, 0.957405, 0.288748, -2.28263e-07, -0.288748, 0.957405, 0.0271145, -1.35071, -3.42033)
+fov = 120.938
+far = 101.85
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="boss_player3d"]
+libraries = {
+"": SubResource("AnimationLibrary_7o0vy")
+}
+autoplay = "3d_walk"
+
+[node name="menu" type="CanvasLayer" parent="boss_player3d"]
+process_mode = 3
+script = ExtResource("3_ukrjf")
+
+[node name="ColorRect" type="ColorRect" parent="boss_player3d/menu"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_wpx5d")
-script = ExtResource("3_qi3y6")
+color = Color(0, 0.546531, 0.549408, 1)
 
-[node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319219, 2.73606, 5.30627)
+[node name="Label" type="Label" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -250.0
+offset_right = 147.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+label_settings = SubResource("LabelSettings_0r8s3")
 
-[node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 4.9738e-14, 2.38418e-07, -6.88429e-08, 0.957405, 0.288748, -2.28263e-07, -0.288748, 0.957405, 0.0271145, -1.35071, -3.42033)
-fov = 120.938
-far = 101.85
+[node name="continue" type="MenuButton" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -120.0
+offset_right = -108.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "CONTINUE?"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7o0vy")
-}
-autoplay = "3d_walk"
+[node name="save" type="MenuButton" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -6.0
+offset_right = -101.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "SAVE?"
+
+[node name="exit" type="MenuButton" parent="boss_player3d/menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = 110.0
+offset_right = -101.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.13496, 3.07139)
+text = "EXIT?"
+
+[node name="trident" parent="." instance=ExtResource("3_vd6iu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 113.4, 2.6, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.5, 4.2, 0)
+light_energy = 16.0
+omni_range = 4096.0
+
+[connection signal="button_up" from="boss_player3d/menu/continue" to="boss_player3d/menu" method="_on_continue_button_up"]
+[connection signal="pressed" from="boss_player3d/menu/continue" to="boss_player3d/menu" method="_on_continue_pressed"]
+[connection signal="button_up" from="boss_player3d/menu/save" to="boss_player3d/menu" method="_on_save_button_up"]
+[connection signal="button_up" from="boss_player3d/menu/exit" to="boss_player3d/menu" method="_on_exit_button_up"]

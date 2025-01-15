@@ -1,18 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5loh5nbtf37g"]
+[gd_scene load_steps=5 format=3 uid="uid://cnlhhgh3j08cm"]
 
-[ext_resource type="Script" path="res://hit.gd" id="1_0q2hx"]
+[ext_resource type="Script" path="res://hit.gd" id="1_rp2ka"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bu3gm"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_f0iij"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4em7v"]
-albedo_color = Color(1.15514e-06, 0.608283, 0.643068, 1)
+albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
-emission = Color(0, 1, 1, 1)
+emission = Color(1, 0, 0, 1)
 
 [node name="Area3D" type="Area3D"]
-script = ExtResource("1_0q2hx")
+script = ExtResource("1_rp2ka")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bu3gm")
@@ -22,4 +22,6 @@ transform = Transform3D(0.188509, 0, 0, 0, 0.192999, 0, 0, 0, 0.202799, 0, 0, 0)
 mesh = SubResource("SphereMesh_f0iij")
 surface_material_override/0 = SubResource("StandardMaterial3D_4em7v")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="MeshInstance3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="." to="MeshInstance3D" method="_on_area_3d_body_exited"]

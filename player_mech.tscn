@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctq2mkj4pluv6"]
+[gd_scene load_steps=23 format=3 uid="uid://ctq2mkj4pluv6"]
 
 [ext_resource type="Script" path="res://mechdplayer.gd" id="1_ifc0d"]
 [ext_resource type="Script" path="res://rightrailgun.gd" id="2_7416w"]
@@ -35,6 +35,8 @@ emission_energy_multiplier = 3.53
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x5o1c"]
 
+[sub_resource type="TorusMesh" id="TorusMesh_bu8hi"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jvk4y"]
 angle_min = -720.0
 angle_max = 720.0
@@ -66,7 +68,7 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_3xpqf")
 size = Vector2(0.1, 0.1)
 
-[node name="playermech" type="CharacterBody3D" groups=["player2_d"]]
+[node name="playermech" type="CharacterBody3D" groups=["player_3"]]
 script = ExtResource("1_ifc0d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -125,6 +127,12 @@ mesh = SubResource("CapsuleMesh_x5o1c")
 skeleton = NodePath("../../../../..")
 surface_material_override/0 = ExtResource("6_e2cuk")
 
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="okayer model/Camera3D/rightrailgun"]
+transform = Transform3D(0.094469, -0.0339288, 0.00220092, 0.00257871, 0.0308231, -0.0839864, 0.00318752, 0.98062, 0.00271602, 0.0191862, 0.285885, -0.949839)
+mesh = SubResource("TorusMesh_bu8hi")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("6_e2cuk")
+
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="okayer model/Camera3D/rightrailgun"]
 transform = Transform3D(0.247997, -0.0233514, 0.00504115, 0.00676954, 0.0212138, -0.192369, 0.00836777, 0.674907, 0.006221, 0.0102581, -0.00660706, -0.573611)
 mesh = SubResource("CapsuleMesh_x5o1c")
@@ -139,6 +147,7 @@ light = NodePath("OmniLight3D")
 emitter = NodePath("GPUParticles3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="okayer model/Camera3D/rightrailgun/MuzzleFlash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10539, 0)
 visible = false
 light_color = Color(0, 1, 0.741176, 1)
 light_energy = 11.0
@@ -147,19 +156,20 @@ light_energy = 11.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0536546, 0.0934047, 0.0595771)
 emitting = false
 amount = 3
-lifetime = 0.05
+lifetime = 0.1
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_jvk4y")
 draw_pass_1 = SubResource("QuadMesh_beba0")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 9.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_rlpnr")
@@ -170,24 +180,20 @@ script = ExtResource("4_jrhey")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
 [node name="Reticle" type="CenterContainer" parent="UI" node_paths=PackedStringArray("RETICLE_LINES", "Player_controller")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_u337t")
@@ -209,5 +215,3 @@ width = 2.0
 [node name="left" type="Line2D" parent="UI/Reticle"]
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

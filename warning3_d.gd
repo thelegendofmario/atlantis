@@ -1,10 +1,14 @@
-extends TextureRect
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	modulate.a8 = 0
+	Global.dPlayer_Health = 255
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	modulate.a8 = 255 - Global.Player_3d_health * 2.55
+	pass
+
+
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://mechamain.tscn")

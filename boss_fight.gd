@@ -11,10 +11,18 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.secondlevel = 1
-
+	$floors/end.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if Global.super_artifacts == 4:
+		$floors/end.visible = true
+		#get_tree().change_scene_to_file("res://the_true_end.tscn")
+	else:
+		$floors/end.visible = false
+
+	
 	
 	$boss_player3d/CanvasLayer/DebugLabel.text = str($boss_player3d.get_gravity(), Global.super_artifacts, Engine.get_frames_per_second())
 	$boss_player3d/CanvasLayer/AirBar.value = Global.air/10

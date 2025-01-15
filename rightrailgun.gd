@@ -22,6 +22,7 @@ func _attack() -> void:
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_bodies
 	var result = space_state.intersect_ray(query)
+	
 	if result:
 		_test_raycast(result.get("position"))
 	
@@ -33,3 +34,4 @@ func _test_raycast(position: Vector3) -> void:
 	instance.global_position = position
 	await get_tree().create_timer(3).timeout
 	instance.queue_free()
+	

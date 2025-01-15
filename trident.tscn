@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvx8d6qi6allq"]
+
+[ext_resource type="Material" uid="uid://ckqmj3q2ocx0q" path="res://trident.tres" id="1_6dkli"]
+[ext_resource type="Script" path="res://trident.gd" id="1_12xhw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mfhx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sm863"]
+
+[node name="trident" type="Area3D"]
+script = ExtResource("1_12xhw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.76836, 0, 0, 0, 1, 0, 0.843961, 0)
+shape = SubResource("CapsuleShape3D_6mfhx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.252914, 0, 0, 0, 1.76029, 0, 0, 0, 0.34114, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_sm863")
+surface_material_override/0 = ExtResource("1_6dkli")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.10552e-08, -0.693417, 0, 0.252914, -3.03102e-08, 0, 0, 0, 0.34114, 0, 1.54478, 0)
+mesh = SubResource("CapsuleMesh_sm863")
+surface_material_override/0 = ExtResource("1_6dkli")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.252914, 0, 0, 0, 0.693417, 0, 0, 0, 0.34114, 0, 2.17715, 0)
+mesh = SubResource("CapsuleMesh_sm863")
+surface_material_override/0 = ExtResource("1_6dkli")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.252914, 0, 0, 0, 0.693417, 0, 0, 0, 0.34114, 0.5359, 1.93074, 0)
+mesh = SubResource("CapsuleMesh_sm863")
+surface_material_override/0 = ExtResource("1_6dkli")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.252914, 0, 0, 0, 0.693417, 0, 0, 0, 0.34114, -0.568392, 1.93074, 0)
+mesh = SubResource("CapsuleMesh_sm863")
+surface_material_override/0 = ExtResource("1_6dkli")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

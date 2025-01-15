@@ -1,10 +1,11 @@
-extends TextureRect
-
+extends Area3D
+var health = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	modulate.a8 = 0
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	modulate.a8 = 255 - Global.Player_3d_health * 2.55
+	pass
