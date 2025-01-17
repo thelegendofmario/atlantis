@@ -1,0 +1,13 @@
+WORK CITED
+
+Free BlobFish Texture By Admurin
+
+Rapier 2d physics engine by Dimforge
+
+Godot-Jolt by mihe
+
+Free 2d background by SlashDashGamesStudio
+
+Free 2d wand sprite sheet by Arydian.G7
+
+SQLight godot extension by 2shady4u
