@@ -33,7 +33,7 @@ var Enemys_killed = 0
 
 #### DATABASE VARS ####
 var database : SQLite = null
-var database_path = "res://DATABASE/data.db"
+var database_path = "user://Atlantis"
 var save_dict : Dictionary = Dictionary()
 var table_name := "saves"
 # Called when the node enters the scene tree for the first time.

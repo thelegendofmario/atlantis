@@ -1,7 +1,7 @@
 extends Control
 
 var database : SQLite = null
-var database_name = "res://DATABASE/data.db"
+var database_name = "user://Atlantis"
 #var save_dict : Dictionary = Dictionary()
 var table_name := "saves"
 # Called when the node enters the scene tree for the first time.
