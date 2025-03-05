@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnj1cv4ijgkt5"]
+[gd_scene load_steps=12 format=3 uid="uid://cnj1cv4ijgkt5"]
 
-[ext_resource type="Script" path="res://boss_player_3d.gd" id="1_3qlro"]
+[ext_resource type="Script" uid="uid://clxy7sq3b0iqy" path="res://boss_player_3d.gd" id="1_3qlro"]
 [ext_resource type="Texture2D" uid="uid://d4hmmtipkm0lo" path="res://blood.png" id="2_wpx5d"]
-[ext_resource type="Script" path="res://redscreen.gd" id="3_qi3y6"]
+[ext_resource type="Script" uid="uid://cgxsixssb1do6" path="res://redscreen.gd" id="3_qi3y6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfjkg"]
 height = 1.94624
@@ -113,30 +113,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(6.30397e-09, -4.56961e-10, -0.144723), Vector3(3.77237e-08, -2.16295e-08, -1.04121), Vector3(2.13072e-09, -5.19581e-11, -0.0487646), Vector3(6.30397e-09, -4.56961e-10, -0.144723), Vector3(3.77237e-08, -2.16295e-08, -1.04121)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("okayer model/arms:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.5, 0.533333, 0.6, 0.666667, 0.7, 0.766667, 0.833333, 0.866667, 0.933333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-4.371e-08, -4.40654e-08, 1.57889), Vector3(-2.31052e-09, -8.73617e-08, 3.08871), Vector3(2.19594e-08, -8.15065e-08, -2.61525), Vector3(3.58539e-08, -6.87151e-08, -2.17976), Vector3(4.15337e-08, -5.73364e-08, -1.88778), Vector3(4.37112e-08, -4.35779e-08, -1.56774), Vector3(3.96738e-08, -2.53627e-08, -1.13761), Vector3(3.06306e-08, -1.25272e-08, -0.776444), Vector3(3.06306e-08, -1.25272e-08, -0.776444), Vector3(1.5438e-08, -2.81696e-09, -0.360969), Vector3(-2.66778e-09, -8.14785e-11, 0.0610695)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("okayer model/arms:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.233333, 0.5, 0.533333, 0.6, 0.666667, 0.7, 0.766667, 0.833333, 0.866667, 0.933333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0), Vector3(0, 0.23591, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_evfyj"]
 length = 0.001
@@ -236,35 +212,15 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("okayer model/arms:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("okayer model/arms:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.23591, 0)]
-}
+
+[sub_resource type="Animation" id="Animation_m1xrc"]
+resource_name = "idle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7o0vy"]
 _data = {
-"3d_walk": SubResource("Animation_7uj6x"),
-"RESET": SubResource("Animation_evfyj")
+&"3d_walk": SubResource("Animation_7uj6x"),
+&"RESET": SubResource("Animation_evfyj"),
+&"idle": SubResource("Animation_m1xrc")
 }
 
 [node name="boss_player3d" type="CharacterBody3D" groups=["Player"]]
@@ -352,6 +308,6 @@ far = 101.85
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7o0vy")
+&"": SubResource("AnimationLibrary_7o0vy")
 }
 autoplay = "3d_walk"

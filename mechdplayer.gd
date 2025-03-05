@@ -16,6 +16,7 @@ var sensitivity = 0.003
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.Player_3d_health = 100
 
 
 func _unhandled_input(event):

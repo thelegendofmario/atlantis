@@ -1,13 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqmlv4y0ue81b"]
+[gd_scene load_steps=23 format=3 uid="uid://dqmlv4y0ue81b"]
 
-[ext_resource type="Script" path="res://mechamain.gd" id="1_54fyc"]
+[ext_resource type="Script" uid="uid://ct561ia8kpewt" path="res://mechamain.gd" id="1_54fyc"]
 [ext_resource type="Material" uid="uid://ljywyprycict" path="res://new_standard_material_3d.tres" id="1_erpxc"]
 [ext_resource type="PackedScene" uid="uid://ctq2mkj4pluv6" path="res://player_mech.tscn" id="2_cci6j"]
-[ext_resource type="Script" path="res://menu.gd" id="3_vji7y"]
+[ext_resource type="Script" uid="uid://dngejejoi3xsp" path="res://menu.gd" id="3_vji7y"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="4_07ued"]
+[ext_resource type="Material" uid="uid://cw2whp4s4hnva" path="res://wallllsdedfdwdf.tres" id="6_hl5g8"]
 [ext_resource type="Material" uid="uid://ctyn37xwcqw76" path="res://gun metal23.tres" id="6_knhb0"]
 [ext_resource type="PackedScene" uid="uid://bw6c7dqc0tdxc" path="res://gold_enemy.tscn" id="7_dsedd"]
 [ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="8_ssq3m"]
+[ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="9_kn16n"]
+[ext_resource type="Script" uid="uid://bwa2cari1gxj0" path="res://audio_stream_player.gd" id="10_hl5g8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdk8o"]
 bg_color = Color(0, 0, 0, 1)
@@ -184,7 +187,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall9" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.064964, -6.35984, 0, 0.584327, -0.457619, 20.4365, -0.431417, 0.337867, 27.68, -31.0346, 6.35726, -0.852831)
@@ -196,7 +199,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall9"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall10" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.064964, -6.35984, -1.52264e-07, 0.725747, -0.568373, -1.38021, 0.0291363, -0.0228182, 34.3792, -31.6631, 16.0936, 29.6589)
@@ -208,7 +211,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall10"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall6" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(0.363154, 0, 24.5119, 0, 15.3042, 0, -0.931729, 0, 9.55381, -27.9256, 5.81009, 37.989)
@@ -220,7 +223,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall6"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall7" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(0.363154, 0, 24.5119, 0, 17.4525, 0, -0.931729, 0, 9.55381, 31.4173, 8.30651, -12.1646)
@@ -232,7 +235,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall7"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall8" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(0.869547, 0, -12.9922, 0, 17.4525, 0, 0.493851, 0, 22.876, 31.4173, 8.30651, 23.7184)
@@ -244,7 +247,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall8"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall2" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(1, 0, 0, 0, 39.4613, 0, 0, 0, 135.612, -63.2154, 19.0515, 0)
@@ -256,7 +259,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall2"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall11" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(1, 0, 0, 0, 39.4613, 0, 0, 0, 135.612, -63.2154, 58.1161, 0)
@@ -268,7 +271,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall11"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall3" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(1, 0, 0, 0, 39.4613, 0, 0, 0, 135.612, 61.8774, 19.0515, 0)
@@ -280,7 +283,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall3"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall12" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(1, 0, 0, 0, 39.4613, 0, 0, 0, 135.612, 61.8774, 58.1179, 0)
@@ -292,7 +295,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall12"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall4" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.0114841, 0, 135.603, 0, 39.4613, 0, -0.999934, 0, -1.55737, 0.50843, 19.0515, -56.8644)
@@ -304,7 +307,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall4"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall13" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.0114841, 0, 135.603, 0, 39.4613, 0, -0.999934, 0, -1.55737, 0.50843, 56.5344, -56.8644)
@@ -316,7 +319,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall13"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall5" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.0114841, 0, 135.603, 0, 39.4613, 0, -0.999934, 0, -1.55737, 0.50843, 19.0515, 57.105)
@@ -328,7 +331,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall5"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall14" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.0115627, 0, 54.7579, 0, 39.4613, 0, -1.00678, 0, -0.628885, -38.0498, 19.5027, 57.105)
@@ -340,7 +343,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall14"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall15" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.0115627, 0, 54.7579, 0, 39.4613, 0, -1.00678, 0, -0.628885, 48.1843, 19.5027, 57.105)
@@ -352,7 +355,7 @@ shape = SubResource("BoxShape3D_y6feu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/walls/wall15"]
 transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_gb783")
-surface_material_override/0 = ExtResource("6_knhb0")
+surface_material_override/0 = ExtResource("6_hl5g8")
 
 [node name="wall17" type="StaticBody3D" parent="NavigationRegion3D/walls"]
 transform = Transform3D(-0.0115627, 0, 54.7579, 0, 39.4613, 0, -1.00678, 0, -0.628885, 3.04565, 19.5027, 94.1371)
@@ -427,7 +430,13 @@ Player_path = NodePath("../../player2_5d")
 [node name="golden_artifact" parent="." instance=ExtResource("8_ssq3m")]
 transform = Transform3D(0.0875035, 0, 0.996164, 0, 1, 0, -0.996164, 0, 0.0875035, 6.76183, 2.63999, 85.4768)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kn16n")
+autoplay = true
+script = ExtResource("10_hl5g8")
+
 [connection signal="button_up" from="player2_5d/menu/continue" to="player2_5d/menu" method="_on_continue_button_up"]
 [connection signal="pressed" from="player2_5d/menu/continue" to="player2_5d/menu" method="_on_continue_pressed"]
 [connection signal="button_up" from="player2_5d/menu/save" to="player2_5d/menu" method="_on_save_button_up"]
 [connection signal="button_up" from="player2_5d/menu/exit" to="player2_5d/menu" method="_on_exit_button_up"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cgutfwlocnb2q" path="res://portal.png" id="1_m4o6i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8j8ii"]
-load_path = "res://.godot/imported/Dimensional_Portal.png-177115e22831e43da1b4842e2a28601e.s3tc.ctex"
 
 [resource]
 albedo_color = Color(0.751988, 0.239891, 1, 1)

@@ -52,6 +52,7 @@ func _on_continue_button_pressed() -> void:
 	Global.database = SQLite.new()
 	Global.database.path = database_name
 	Global.database.open_db()
+	
 	var ary = Global.database.select_rows(Global.table_name, "save_id = 1", ["*"])
 	print(ary)
 	Global.is_continuing = true

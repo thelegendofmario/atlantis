@@ -1,17 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3se8nuvgxkjf"]
+[gd_scene load_steps=28 format=3 uid="uid://b3se8nuvgxkjf"]
 
 [ext_resource type="ArrayMesh" uid="uid://1tyw88emkjhs" path="res://ground.obj" id="1_vunmd"]
-[ext_resource type="Script" path="res://3d_main.gd" id="1_wk5im"]
+[ext_resource type="Script" uid="uid://fynbgrsrmmw5" path="res://3d_main.gd" id="1_wk5im"]
 [ext_resource type="Texture2D" uid="uid://ci7mvixav2uvy" path="res://sand texture.png" id="2_dl1c1"]
 [ext_resource type="PackedScene" uid="uid://bi7gtc143313u" path="res://player_3d.tscn" id="3_st2pv"]
 [ext_resource type="Theme" uid="uid://d4ag1wttely2n" path="res://theme_for_bars.tres" id="4_83jih"]
 [ext_resource type="PackedScene" uid="uid://mtsk35m1v8pf" path="res://wall.tscn" id="4_ct6v1"]
-[ext_resource type="Script" path="res://wand.gd" id="4_mntdq"]
-[ext_resource type="Script" path="res://menu.gd" id="5_yhfq7"]
+[ext_resource type="Script" uid="uid://dnp7gr1ioygwk" path="res://wand.gd" id="4_mntdq"]
+[ext_resource type="Script" uid="uid://dngejejoi3xsp" path="res://menu.gd" id="5_yhfq7"]
 [ext_resource type="PackedScene" uid="uid://d4j5me44g8q83" path="res://golden_artifact.tscn" id="6_dkvc1"]
 [ext_resource type="Texture2D" uid="uid://bkoetgt42itnc" path="res://red_wall.png" id="8_nj0id"]
-[ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="10_6wlll"]
-[ext_resource type="Script" path="res://audio_stream_player.gd" id="11_3u0xk"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xribn"]
 
@@ -404,13 +402,7 @@ skin = SubResource("Skin_dwome")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ORMMaterial3D_mex7l")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_6wlll")
-autoplay = true
-script = ExtResource("11_3u0xk")
-
 [connection signal="button_up" from="player3d/menu/continue" to="player3d/menu" method="_on_continue_button_up"]
 [connection signal="pressed" from="player3d/menu/continue" to="player3d/menu" method="_on_continue_pressed"]
 [connection signal="button_up" from="player3d/menu/save" to="player3d/menu" method="_on_save_button_up"]
 [connection signal="button_up" from="player3d/menu/exit" to="player3d/menu" method="_on_exit_button_up"]
-[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]

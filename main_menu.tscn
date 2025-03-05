@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba1gc0yfsndkb"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_p42d2"]
+[ext_resource type="Script" uid="uid://iqvopfyfl3hd" path="res://main_menu.gd" id="1_p42d2"]
 [ext_resource type="FontFile" uid="uid://bd3d7j6vw2wg3" path="res://Kenney Future Narrow.ttf" id="1_vaq1y"]
 
 [node name="Main Menu" type="Control"]

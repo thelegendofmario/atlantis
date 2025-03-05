@@ -1,8 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2glmny42hkt"]
+[gd_scene load_steps=28 format=3 uid="uid://d2glmny42hkt"]
 
 [ext_resource type="PackedScene" uid="uid://l5q0om65a4iq" path="res://floors2_5D.tscn" id="1_cpf8j"]
 [ext_resource type="PackedScene" uid="uid://b58owladyo40" path="res://wall2_5d.tscn" id="1_jqurs"]
-[ext_resource type="Script" path="res://2_5d_main.gd" id="1_qv2ev"]
+[ext_resource type="Script" uid="uid://b2pjqicf8knxb" path="res://2_5d_main.gd" id="1_qv2ev"]
 [ext_resource type="Material" uid="uid://dvmiyg87pnsdx" path="res://gun metal.tres" id="2_0wp02"]
 [ext_resource type="PackedScene" uid="uid://k8elpbwplsxt" path="res://player_2_5d.tscn" id="2_w14k0"]
 [ext_resource type="Material" uid="uid://ctyn37xwcqw76" path="res://gun metal23.tres" id="5_0bvqi"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bphq1m3kgpnpc" path="res://purpleballcollected.png" id="9_pi0ou"]
 [ext_resource type="Material" uid="uid://d4bx6am4ufdph" path="res://glow red.tres" id="10_fejuh"]
 [ext_resource type="Texture2D" uid="uid://c328kt18kkljp" path="res://redballcollected.png" id="10_mf5kv"]
-[ext_resource type="Script" path="res://menu.gd" id="11_e77d7"]
+[ext_resource type="Script" uid="uid://dngejejoi3xsp" path="res://menu.gd" id="11_e77d7"]
+[ext_resource type="AudioStream" uid="uid://58ur54p4lnfk" path="res://Modbox-Song(1).wav" id="16_757c1"]
+[ext_resource type="Script" uid="uid://bwa2cari1gxj0" path="res://audio_stream_player.gd" id="17_rm5fi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp6nt"]
 bg_color = Color(0, 0, 0, 1)
@@ -375,6 +377,11 @@ surface_material_override/0 = ExtResource("10_fejuh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/ball3"]
 shape = SubResource("SphereShape3D_rwb0a")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_757c1")
+autoplay = true
+script = ExtResource("17_rm5fi")
+
 [connection signal="button_up" from="player3d/menu/continue" to="player3d/menu" method="_on_continue_button_up"]
 [connection signal="pressed" from="player3d/menu/continue" to="player3d/menu" method="_on_continue_pressed"]
 [connection signal="button_up" from="player3d/menu/save" to="player3d/menu" method="_on_save_button_up"]
@@ -388,6 +395,7 @@ shape = SubResource("SphereShape3D_rwb0a")
 [connection signal="body_exited" from="Balls/ball2" to="." method="_on_ball_2_body_exited"]
 [connection signal="body_entered" from="Balls/ball3" to="." method="_on_ball_3_body_entered"]
 [connection signal="body_exited" from="Balls/ball3" to="." method="_on_ball_3_body_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_audio_stream_player_finished"]
 
 [editable path="walls/gate"]
 [editable path="floors/wall8"]

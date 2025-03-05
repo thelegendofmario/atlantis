@@ -38,7 +38,10 @@ func _physics_process(delta: float) -> void:
 		anime.play("fly")
 	if Global.player_in_water:
 		Global.air -= 1
-	if Global.air == 0:
+	else:
+		Global.air += 1
+		
+	if Global.air <= 0:
 		get_tree().change_scene_to_file("res://THE_BAD_END.tscn") 
 
 	# Handle jump.
